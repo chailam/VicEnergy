@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIT5120 - VicEnerG", "FIT5120 - VicEnerG\FIT5120 - VicEnerG.csproj", "{F73B8E7A-C3BB-4C66-8A03-B7AF079AC704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIT5120 - VicEnerG.Tests", "FIT5120 - VicEnerG.Tests\FIT5120 - VicEnerG.Tests.csproj", "{3BB64ADE-8105-43E1-BBFC-2ED7B52A8270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F73B8E7A-C3BB-4C66-8A03-B7AF079AC704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73B8E7A-C3BB-4C66-8A03-B7AF079AC704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73B8E7A-C3BB-4C66-8A03-B7AF079AC704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73B8E7A-C3BB-4C66-8A03-B7AF079AC704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB64ADE-8105-43E1-BBFC-2ED7B52A8270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB64ADE-8105-43E1-BBFC-2ED7B52A8270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB64ADE-8105-43E1-BBFC-2ED7B52A8270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB64ADE-8105-43E1-BBFC-2ED7B52A8270}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69A9C213-5EF7-4382-B5CF-DA41DC630E88}
+	EndGlobalSection
+EndGlobal
