@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VicEnerG_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="VicEnerG_ModelStoreContainer">
+    <EntitySet Name="CalculatorSet" EntityType="VicEnerG_Model.Store.CalculatorSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CalculatorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="area" Type="float" Nullable="false" />
+    <Property Name="efficiency" Type="float" Nullable="false" />
+    <Property Name="energy" Type="float" Nullable="false" />
+    <Property Name="performanceRatio" Type="float" Nullable="false" />
+    <Property Name="radiation" Type="float" Nullable="false" />
+    <Property Name="systemSize" Type="smallint" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="VicEnerG_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="VicEnerG_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CalculatorSet" EntityType="VicEnerG_Model.Calculator" />
+        </EntityContainer>
+        <EntityType Name="Calculator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address" Type="String" Nullable="false" />
+          <Property Name="area" Type="Double" Nullable="false" />
+          <Property Name="efficiency" Type="Double" Nullable="false" />
+          <Property Name="energy" Type="Double" Nullable="false" />
+          <Property Name="performanceRatio" Type="Double" Nullable="false" />
+          <Property Name="radiation" Type="Double" Nullable="false" />
+          <Property Name="systemSize" Type="Int16" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="ComplexType1">
+          <Property Type="String" Name="address" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VicEnerG_ModelStoreContainer" CdmEntityContainer="VicEnerG_ModelContainer">
+    <EntitySetMapping Name="CalculatorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VicEnerG_Model.Calculator)">
+        <MappingFragment StoreEntitySet="CalculatorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="efficiency" ColumnName="efficiency" />
+          <ScalarProperty Name="energy" ColumnName="energy" />
+          <ScalarProperty Name="performanceRatio" ColumnName="performanceRatio" />
+          <ScalarProperty Name="radiation" ColumnName="radiation" />
+          <ScalarProperty Name="systemSize" ColumnName="systemSize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
