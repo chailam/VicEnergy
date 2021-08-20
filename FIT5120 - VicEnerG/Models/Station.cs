@@ -21,12 +21,22 @@ namespace FIT5120___VicEnerG.Models
         }
     
         public int Id { get; set; }
-        public short stationNumber { get; set; }
+        public int stationNumber { get; set; }
         public string stationName { get; set; }
         public double stationLat { get; set; }
         public double stationLon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StationData> StationData { get; set; }
+
+        public IList<double> StationDataList()
+        {
+            IList<double> DataList = new List<double>();
+            foreach (StationData s in StationData) 
+            {
+                DataList.Add(s.monthRadiation);
+            }
+            return DataList;
+        }
     }
 }

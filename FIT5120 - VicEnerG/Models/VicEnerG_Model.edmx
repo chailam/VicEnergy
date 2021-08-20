@@ -18,7 +18,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="stationNumber" Type="smallint" Nullable="false" />
+          <Property Name="stationNumber" Type="int" Nullable="false" />
           <Property Name="monthRadiation" Type="float" Nullable="false" />
           <Property Name="month" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Station_Id" Type="int" Nullable="false" />
@@ -28,7 +28,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="stationNumber" Type="smallint" Nullable="false" />
+          <Property Name="stationNumber" Type="int" Nullable="false" />
           <Property Name="stationName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="stationLat" Type="float" Nullable="false" />
           <Property Name="stationLon" Type="float" Nullable="false" />
@@ -72,7 +72,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="stationNumber" Type="Int16" Nullable="false" />
+          <Property Name="stationNumber" Type="Int32" Nullable="false" />
           <Property Name="stationName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="stationLat" Type="Double" Nullable="false" />
           <Property Name="stationLon" Type="Double" Nullable="false" />
@@ -83,7 +83,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="stationNumber" Type="Int16" Nullable="false" />
+          <Property Name="stationNumber" Type="Int32" Nullable="false" />
           <Property Name="monthRadiation" Type="Double" Nullable="false" />
           <Property Name="month" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Station" Relationship="VicEnerG_Model.StationStationData" FromRole="StationData" ToRole="Station" />

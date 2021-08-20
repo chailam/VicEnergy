@@ -1,4 +1,4 @@
-﻿using FIT5120___VicEnerG.Utilities;
+﻿using FIT5120___VicEnerG.Models;
 using GeoJSON.Net.Geometry;
 using System;
 using System.Collections;
@@ -12,6 +12,8 @@ namespace FIT5120___VicEnerG.Controllers
 {
     public class HomeController : Controller
     {
+        private VicEnerG_ModelContainer db = new VicEnerG_ModelContainer();
+
         public ActionResult Index()
         {
             return View();
@@ -21,9 +23,12 @@ namespace FIT5120___VicEnerG.Controllers
         public async Task<ActionResult> Index(int postcode)
         {
             // This is a test for geocode api
-            Geocoder geo = new Geocoder();
-            List<double> coordinates =  await geo.GetGeocode(postcode);
-            ViewBag.Message = coordinates[0] + "," + coordinates[1];
+            VicEnerGSystem VEG = new VicEnerGSystem();
+            List<double> Coordinates =  await VEG.GetGeocode(postcode);
+            IList<Station> StationList = db.StationSet.ToList();
+            int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
+
+            ViewBag.Message = Coordinates[0] + ", " + Coordinates[1] + "," + NearestStationID;
             return View();
         }
 

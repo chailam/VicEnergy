@@ -21,5 +21,11 @@ namespace FIT5120___VicEnerG.Models
         public double performanceRatio { get; set; } = 0.75;
         public double radiation { get; set; }
         public short systemSize { get; set; }
+
+        public IList<double> Calculate()    
+        {
+
+            return null;
+        }
     }
 }
