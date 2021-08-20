@@ -25,6 +25,8 @@ namespace FIT5120___VicEnerG.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Calculator> CalculatorSet { get; set; }
+        public virtual DbSet<Station> StationSet { get; set; }
+        public virtual DbSet<StationData> StationDataSet { get; set; }
+        public virtual DbSet<Appliance> ApplianceSet { get; set; }
     }
 }
