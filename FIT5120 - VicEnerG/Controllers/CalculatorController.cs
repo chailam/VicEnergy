@@ -22,13 +22,14 @@ namespace FIT5120___VicEnerG.Controllers
         [HttpGet]
         public ActionResult CalculateOutput()
         {
-            return View();
+            var Model = new CalculatorViewModel();
+            return View(Model);
         }
 
 
 
         [HttpPost]
-        public async Task<ActionResult> CalculateOutput(int Postcode, int SystemSize)
+        public async Task<ActionResult> CalculateOutput(int Postcode, int NumberPanels)
         {
             // This is a test for geocode api
             VicEnerGSystem VEG = new VicEnerGSystem();
@@ -37,12 +38,14 @@ namespace FIT5120___VicEnerG.Controllers
             int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
             Station TargetStation = db.StationSet.Find(NearestStationID);
             Calculator calculator = new Calculator();
-            IList<double> TotalOutput = calculator.Calculate(TargetStation.StationDataList(), SystemSize);
+            IList<double> TotalOutput = calculator.Calculate(TargetStation.StationDataList(), NumberPanels);
 
             var Model = new CalculatorViewModel();
             Model.OutputList = TotalOutput;
+            Model.Postcode = Postcode;
+            Model.NumberPanels = NumberPanels;
 
-            return View();
+            return View(Model);
 
         }
     }

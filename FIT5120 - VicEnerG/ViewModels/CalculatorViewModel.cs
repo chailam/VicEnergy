@@ -16,5 +16,10 @@ namespace FIT5120___VicEnerG.ViewModels
     public IList<double> OutputList { get; set; }
     public IList<double> ApplianceHours { get; set; }
 
+    public int Postcode { get; set; }
+
+    public int NumberPanels { get; set; }
+
+
     }
 }

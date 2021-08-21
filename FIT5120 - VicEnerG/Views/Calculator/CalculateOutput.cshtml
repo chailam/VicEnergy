@@ -1,4 +1,4 @@
-﻿
+﻿@model FIT5120___VicEnerG.ViewModels.CalculatorViewModel
 @{
     ViewBag.Title = "CalculateOutput";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,25 +6,57 @@
 
 <h2>CalculateOutput</h2>
 
-    <form class="form-horizontal" method="post">
-        <div class="control-group">
-            <label class="control-label">Postcode:</label>
-            <div class="controls">
-                <input id="Postcode" name="Postcode" value="Postcode"/>
-            </div>
+<form class="form-horizontal" method="post">
+    <div class="control-group">
+        <label class="control-label">Postcode:</label>
+        <div class="controls">
+        <input id="Postcode" name="Postcode" />
+
         </div>
-        <div class="control-group">
-            <label class="control-label">System Size:</label>
-            <div class="controls">
-                <input id="SystemSize" name="SystemSize" value="SystemSize"/>
-            </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Number of panels:</label>
+        <div class="controls">
+        <input id="NumberPanels" name="NumberPanels" />
         </div>
-        <div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn btn-primary" value="Get" />
-            </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="Get" />
         </div>
-    </form>
+    </div>
+</form>
+
+@{
+    if (Model.OutputList.Any())
+    {
+        <h2> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+            </tr>
+            <tr>
+                <td>Electricity Output(kWh)</td>
+                @foreach (double Output in Model.OutputList)
+                {
+                    <td>@Output</td>
+                }
+            </tr>
+        </table>
+    }
+}
 
 
 

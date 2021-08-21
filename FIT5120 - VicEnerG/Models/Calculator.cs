@@ -18,14 +18,15 @@ namespace FIT5120___VicEnerG.Models
         public double area { get; set; } = 1.6;
         public double efficiency { get; set; } = 0.156;
         public double performanceRatio { get; set; } = 0.75;
+            
 
-
-        public IList<double> Calculate(IList<double> StationData, int SystemSize)    
+        public IList<double> Calculate(IList<double> StationData, int NumberPanels)    
         {
             IList<double> TotalOutput = new List<double>();
             foreach (double Radiation in StationData)
             {
-                double EachOutput = area * efficiency * performanceRatio * Radiation * SystemSize;
+                double EachOutput = area * efficiency * performanceRatio * Radiation * NumberPanels;
+                double RoundedOutput = Math.Round(EachOutput,2);
                 TotalOutput.Add(EachOutput);
             }
             return TotalOutput;
