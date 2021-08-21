@@ -19,18 +19,6 @@ namespace FIT5120___VicEnerG.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Index(int postcode)
-        {
-            // This is a test for geocode api
-            VicEnerGSystem VEG = new VicEnerGSystem();
-            List<double> Coordinates =  await VEG.GetGeocode(postcode);
-            IList<Station> StationList = db.StationSet.ToList();
-            int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
-
-            ViewBag.Message = Coordinates[0] + ", " + Coordinates[1] + "," + NearestStationID;
-            return View();
-        }
 
         public ActionResult About()
         {
