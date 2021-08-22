@@ -58,7 +58,7 @@ namespace FIT5120___VicEnerG.Models
                 if (Distance < NearestDistance)
                 {
                     NearestDistance = Distance;
-                    NearestStationID = s.Id;
+                    NearestStationID = s.stationNumber;
                 }
             }
             return NearestStationID;

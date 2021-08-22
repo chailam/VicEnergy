@@ -20,7 +20,6 @@ namespace FIT5120___VicEnerG.Models
             this.StationData = new HashSet<StationData>();
         }
     
-        public int Id { get; set; }
         public int stationNumber { get; set; }
         public string stationName { get; set; }
         public double stationLat { get; set; }
@@ -31,12 +30,11 @@ namespace FIT5120___VicEnerG.Models
 
         public IList<double> StationDataList()
         {
-            IList<double> DataList = new List<double>();
-            foreach (StationData s in StationData) 
-            {
-                DataList.Add(s.monthRadiation);
+            IList<double> data = new List<double>();
+            foreach (StationData Station in StationData) {
+                data.Add(Station.monthRadiation);
             }
-            return DataList;
+            return data;
         }
     }
 }

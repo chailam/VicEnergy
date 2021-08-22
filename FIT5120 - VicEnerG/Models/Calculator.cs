@@ -27,7 +27,7 @@ namespace FIT5120___VicEnerG.Models
             {
                 double EachOutput = area * efficiency * performanceRatio * Radiation * NumberPanels;
                 double RoundedOutput = Math.Round(EachOutput,2);
-                TotalOutput.Add(EachOutput);
+                TotalOutput.Add(RoundedOutput);
             }
             return TotalOutput;
         }

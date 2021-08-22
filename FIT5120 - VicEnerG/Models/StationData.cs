@@ -15,7 +15,6 @@ namespace FIT5120___VicEnerG.Models
     public partial class StationData
     {
         public int Id { get; set; }
-        public int stationNumber { get; set; }
         public double monthRadiation { get; set; }
         public string month { get; set; }
     
