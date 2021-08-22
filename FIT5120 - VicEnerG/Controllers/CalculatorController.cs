@@ -38,12 +38,13 @@ namespace FIT5120___VicEnerG.Controllers
             int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
             Station TargetStation = db.StationSet.Find(NearestStationID);
             Calculator calculator = new Calculator();
-            IList<double> TotalOutput = calculator.Calculate(TargetStation.StationDataList(), NumberPanels);
+            IList<double> MonthlyOutput = calculator.Calculate(TargetStation.StationDataList(), NumberPanels);
 
             var Model = new CalculatorViewModel();
-            Model.OutputList = TotalOutput;
+            Model.OutputList = MonthlyOutput;
             Model.Postcode = Postcode;
             Model.NumberPanels = NumberPanels;
+            Model.AnnualOutput = MonthlyOutput.Sum();
 
             return View(Model);
 

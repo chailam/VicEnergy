@@ -20,6 +20,6 @@ namespace FIT5120___VicEnerG.ViewModels
 
     public int NumberPanels { get; set; }
 
-
+    public double AnnualOutput { get; set; }
     }
 }

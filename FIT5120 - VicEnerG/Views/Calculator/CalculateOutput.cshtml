@@ -30,7 +30,7 @@
 @{
     if (Model.OutputList.Any())
     {
-        <h2> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </h2>
+        <p> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </p>
         <table>
             <tr>
                 <th></th>
@@ -55,6 +55,8 @@
                 }
             </tr>
         </table>
+
+        <p> The annual output of @Postcode is @AnnualOutput  kwh</p>
     }
 }
 
