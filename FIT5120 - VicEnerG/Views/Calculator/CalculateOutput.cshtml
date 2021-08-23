@@ -4,48 +4,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CalculateOutput</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<form class="form-horizontal" method="post">
-    <div class="control-group">
-        <label class="control-label">Postcode:</label>
-        <div class="controls">
-        <input id="Postcode" name="Postcode" />
+    <div class="form-horizontal">
+        <h2>Solar Output Calculator</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberPanels, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control" , @Value = Model.NumberPanels } })
+                @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md0offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary" value="Calculate"/>
+            </div>
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label">Number of panels:</label>
-        <div class="controls">
-        <input id="NumberPanels" name="NumberPanels" />
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <input type="submit" class="btn btn-primary" value="Get" />
-        </div>
-    </div>
-</form>
-
+}
 @{
-    if (Model.OutputList.Any())
+    if (Model.Station != null)
     {
         <p> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </p>
         <table>
             <tr>
                 <th></th>
-                <th>Jan</th>
-                <th>Feb</th>
-                <th>Mar</th>
-                <th>Apr</th>
-                <th>May</th>
-                <th>Jun</th>
-                <th>Jul</th>
-                <th>Aug</th>
-                <th>Sep</th>
-                <th>Oct</th>
-                <th>Nov</th>
-                <th>Dec</th>
+                @foreach (string Output in ViewBag.Month)
+                {
+                    <th>@Output</th>
+                }
             </tr>
             <tr>
                 <td>Electricity Output(kWh)</td>
@@ -57,7 +56,7 @@
         </table>
 
         <p> The annual output of @Model.Postcode is @Model.AnnualOutput  kwh</p>
-        <p> The data is collect by the station call @Model.Station.stationName with Station Id @Model.Station.stationNumber</p>
+        <p> The data is collect by the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
 
     }
 }

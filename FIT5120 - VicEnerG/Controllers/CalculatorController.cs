@@ -2,6 +2,7 @@
 using FIT5120___VicEnerG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -27,29 +28,37 @@ namespace FIT5120___VicEnerG.Controllers
         }
 
 
-
+        
         [HttpPost]
-        public async Task<ActionResult> CalculateOutput(int Postcode, int NumberPanels)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CalculateOutput([Bind(Include = "Postcode, NumberPanels")] CalculatorViewModel Model)
         {
-            // This is a test for geocode api
-            VicEnerGSystem VEG = new VicEnerGSystem();
-            List<double> Coordinates = await VEG.GetGeocode(Postcode);
-            IList<Station> StationList = db.StationSet.ToList();
-            int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
-            Station TargetStation = db.StationSet.Find(NearestStationID);
-            Calculator calculator = new Calculator();
-            IList<double> MonthlyOutput = calculator.Calculate(TargetStation.StationDataList(), NumberPanels);
+            // Validate the input are valid
+            if (ModelState.IsValid)
+            {
+                // Initial the VicEnerG System
+                VicEnerGSystem VEG = new VicEnerGSystem();
+                // Pass the postcode to GetGeocode method and return a list that contained the latitude and longitude of the postcode
+                List<double> Coordinates = await VEG.GetGeocode(Model.Postcode);
+                // Get all information from all the staion in Victoria from database
+                IList<Station> StationList = db.StationSet.ToList();
+                // Pass the coordinate of the postcode to FindNearestStation method along with all station data
+                int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
+                // Find the corresponding station based on the given station number 
+                Station TargetStation = db.StationSet.Find(NearestStationID);
+                // Initial the calculator
+                Calculator calculator = new Calculator();
+                // Calculate the 12 months solar output of a given station with specific amount of panels installed
+                IList<double> MonthlyOutput = calculator.Calculate(TargetStation.StationDataList(), Model.NumberPanels);
 
-            var Model = new CalculatorViewModel();
-            ViewBag.StaionNumber = TargetStation.stationNumber;
-            Model.OutputList = MonthlyOutput;
-            Model.Postcode = Postcode;
-            Model.NumberPanels = NumberPanels;
-            Model.AnnualOutput = MonthlyOutput.Sum();
-            Model.Station = TargetStation;
 
-            return View(Model);
-
+                // Pass all necessary information to the viewModel and Viewbag
+                Model.OutputList = MonthlyOutput;
+                Model.AnnualOutput = MonthlyOutput.Sum();
+                Model.Station = TargetStation;
+                ViewBag.Month = DateTimeFormatInfo.CurrentInfo.MonthNames;
+            }
+                return View(Model);
         }
     }
 }

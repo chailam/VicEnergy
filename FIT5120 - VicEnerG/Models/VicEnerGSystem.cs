@@ -59,11 +59,14 @@ namespace FIT5120___VicEnerG.Models
             // Second value of coordinate will be the longitude of given postcode
             double TargetLon = Coordinates[1];
 
+            // This loop will find the cloest station by calculating the distance different between the postcode and each station in Database
             foreach(Station s in StationList) 
             {
+                // Formula for calculating the distance
                 double Distance = Math.Sqrt(Math.Pow(TargetLat - s.stationLat, 2) + Math.Pow(TargetLon - s.stationLon, 2));
                 if (Distance < NearestDistance)
                 {
+                    // Update the variable if a shorter distance is found
                     NearestDistance = Distance;
                     NearestStationID = s.stationNumber;
                 }
