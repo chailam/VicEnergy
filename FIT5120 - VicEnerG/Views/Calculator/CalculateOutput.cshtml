@@ -34,18 +34,18 @@
         <table>
             <tr>
                 <th></th>
-                <th>Jul</th>
-                <th>Aug</th>
-                <th>Sep</th>
-                <th>Oct</th>
-                <th>Nov</th>
-                <th>Dec</th>
                 <th>Jan</th>
                 <th>Feb</th>
                 <th>Mar</th>
                 <th>Apr</th>
                 <th>May</th>
                 <th>Jun</th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
             </tr>
             <tr>
                 <td>Electricity Output(kWh)</td>
@@ -56,7 +56,9 @@
             </tr>
         </table>
 
-        <p> The annual output of @Postcode is @AnnualOutput  kwh</p>
+        <p> The annual output of @Model.Postcode is @Model.AnnualOutput  kwh</p>
+        <p> The data is collect by the station call @Model.Station.stationName with Station Id @Model.Station.stationNumber</p>
+
     }
 }
 

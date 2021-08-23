@@ -17,23 +17,25 @@ namespace FIT5120___VicEnerG.Models
 
         public async Task<List<double>> GetGeocode(int postcode)
         {
-            // The inputted address will be passed here for geocoding
+            // This apikey is for authentication for using Mapbox api
             String api_key = "pk.eyJ1IjoiaGluOTciLCJhIjoiY2tzajg0cTBxMGl4ejJ3b3huNW52NTJlMyJ9.wPk2UciErCCZhyKdmfkpLQ";
             String defaultURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
             String requestURL = defaultURL + postcode + "%20Victoria%20Australia.json?access_token=" + api_key;
-            HttpClient ApiClient = new HttpClient();
+
+            // Define a api client to request api
+            ApiClient = new HttpClient();
             using (HttpResponseMessage response = await ApiClient.GetAsync(requestURL))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    //Address address = await response.Content.ReadAsAsync<Address>();
+                    // Read the responded json document into a string
                     String json = response.Content.ReadAsStringAsync().Result;
                     JObject obj = JObject.Parse(json);
-                    //Directly cast from json file
+                    // Directly cast data from json file
                     double Latitude = (double)obj["features"][0]["geometry"]["coordinates"][0];
                     double Longitude = (double)obj["features"][0]["geometry"]["coordinates"][1];
                     List<double> coordinates = new List<double>() { Latitude, Longitude };
-                    //The coordinates will be stores as a list
+                    // The coordinates will be stores as a list
                     return coordinates;
                 }
                 else
@@ -45,11 +47,16 @@ namespace FIT5120___VicEnerG.Models
 
         }
 
+        // This method will find the cloest station of the given postcode and return that station number
         public int FindNearestStation(List<double> Coordinates, IList<Station> StationList) 
         {
+            // Pre-define variables
             int NearestStationID = 0;
+            // 12800 is the distance across the earth
             double NearestDistance = 12800;
+            // First value of coordinate will be the latitude of given postcode
             double TargetLat = Coordinates[0];
+            // Second value of coordinate will be the longitude of given postcode
             double TargetLon = Coordinates[1];
 
             foreach(Station s in StationList) 

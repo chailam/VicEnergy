@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/22/2021 14:06:42
+-- Date Created: 08/23/2021 17:31:59
 -- Generated from EDMX file: F:\2021\Monash\FIT5120 - Studio Project\FIT5120 - VicEnerG\FIT5120 - VicEnerG\Models\VicEnerG_Model.edmx
 -- --------------------------------------------------
 
@@ -52,7 +52,7 @@ GO
 CREATE TABLE [dbo].[StationDataSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [monthRadiation] float  NOT NULL,
-    [month] nvarchar(max)  NOT NULL,
+    [month] smallint  NOT NULL,
     [Station_stationNumber] int  NOT NULL
 );
 GO

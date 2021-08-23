@@ -41,10 +41,12 @@ namespace FIT5120___VicEnerG.Controllers
             IList<double> MonthlyOutput = calculator.Calculate(TargetStation.StationDataList(), NumberPanels);
 
             var Model = new CalculatorViewModel();
+            ViewBag.StaionNumber = TargetStation.stationNumber;
             Model.OutputList = MonthlyOutput;
             Model.Postcode = Postcode;
             Model.NumberPanels = NumberPanels;
             Model.AnnualOutput = MonthlyOutput.Sum();
+            Model.Station = TargetStation;
 
             return View(Model);
 
