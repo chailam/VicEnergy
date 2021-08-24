@@ -25,6 +25,8 @@ namespace FIT5120___VicEnerG
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css"
                       ));
+            bundles.Add(new ScriptBundle("~/bundles/chartjs").Include(
+              "~/Scripts/Chart.min.js"));
         }
     }
 }
