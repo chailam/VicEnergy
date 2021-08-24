@@ -28,7 +28,7 @@ namespace FIT5120___VicEnerG.Controllers
         }
 
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CalculateOutput([Bind(Include = "Postcode, NumberPanels")] CalculatorViewModel Model)
@@ -56,9 +56,13 @@ namespace FIT5120___VicEnerG.Controllers
                 Model.OutputList = MonthlyOutput;
                 Model.AnnualOutput = MonthlyOutput.Sum();
                 Model.Station = TargetStation;
-                ViewBag.Month = DateTimeFormatInfo.CurrentInfo.MonthNames;
+                ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             }
-                return View(Model);
+            return View(Model);
         }
+    }
+
+    public enum Months{
+        Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
     }
 }
