@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extend\Station.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +215,8 @@
     <Content Include="Models\VicEnerG_Model.edmx.diagram">
       <DependentUpon>VicEnerG_Model.edmx</DependentUpon>
     </Content>
+    <None Include="Views\Error\DefaultError.cshtml" />
+    <None Include="Views\Error\PageNotFound.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
