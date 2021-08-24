@@ -2,50 +2,51 @@
 @{
     ViewBag.Title = "CalculateOutput";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h2>CalculateOutput</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<form class="form-horizontal" method="post">
-    <div class="control-group">
-        <label class="control-label">Postcode:</label>
-        <div class="controls">
-        <input id="Postcode" name="Postcode" />
+    <div class="form-horizontal">
+        <h2>Solar Output Calculator</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberPanels, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md0offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary" value="Calculate" />
+            </div>
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label">Number of panels:</label>
-        <div class="controls">
-        <input id="NumberPanels" name="NumberPanels" />
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <input type="submit" class="btn btn-primary" value="Get" />
-        </div>
-    </div>
-</form>
+}
 
 @{
-    if (Model.OutputList.Any())
+    if (Model.Station != null)
     {
         <p> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </p>
         <table>
             <tr>
                 <th></th>
-                <th>Jul</th>
-                <th>Aug</th>
-                <th>Sep</th>
-                <th>Oct</th>
-                <th>Nov</th>
-                <th>Dec</th>
-                <th>Jan</th>
-                <th>Feb</th>
-                <th>Mar</th>
-                <th>Apr</th>
-                <th>May</th>
-                <th>Jun</th>
+                @foreach (string Output in ViewBag.Month)
+                {
+                    <th>@Output</th>
+                }
             </tr>
             <tr>
                 <td>Electricity Output(kWh)</td>
@@ -56,8 +57,68 @@
             </tr>
         </table>
 
+        <p> The annual output of @Model.Postcode is @Model.AnnualOutput  kwh</p>
+        <p> The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+        <p> The Solar output is followed by the formular:  E = A * r * H * PR</p>
+        <li>E = Energy (kWh)</li>
+        <li>A = Total solar panel Area (In this calculator is 1.6m2)</li>
+        <li>r= Solar panel yield or efficiency(In this calcualtor is 15.6%) </li>
+        <li>H = solar radiation data collected from stations (shadings not included)</li>
+        <li>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</li>
 
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                <canvas id="bar_chart" height="200"></canvas>
+            </div>
+        </div>
+
+        <div>
+        <p>The Annual electricity output is equivalent to @Model.CO2 kg/kWh of Carbon Dioxide equivalent Emissions</p>
+        <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+        <li>1.13kg CO2-e/kWh</li>
+        </div>
     }
+}
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/chartjs")
+    <script>
+        $(document).ready(function () {
+            initbarchart();
+        });
+
+        function initbarchart() {
+
+            var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
+            var Output = @Html.Raw(Json.Encode(Model.OutputList));
+
+            var ctx = $("#bar_chart");
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: MonthArray,
+                    datasets: [{
+                        label: "Electricity Output",
+                        data: Output,
+                        backgroundColor: "rgba(127,255,0,.5)",
+                        borderColor: "rgb(127,255,0)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Electricity Output (kWh)"
+                    },
+                    legend:
+                    {
+                        display: false,
+                    }
+                }
+            });
+        }
+    </script>
 }
 
 

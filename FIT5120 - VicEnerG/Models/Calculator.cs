@@ -18,18 +18,27 @@ namespace FIT5120___VicEnerG.Models
         public double area { get; set; } = 1.6;
         public double efficiency { get; set; } = 0.156;
         public double performanceRatio { get; set; } = 0.75;
-            
-
-        public IList<double> Calculate(IList<double> StationData, int NumberPanels)    
+        
+        // Some variables of the formula are pre-define with value
+        // This method will calculate and return the monthly solar output of a given station
+        public IList<double> CalculateSolarOutput(IList<double> StationData, int NumberPanels)    
         {
             IList<double> TotalOutput = new List<double>();
             foreach (double Radiation in StationData)
             {
+                // Formular: E = A * r * H * PR * Number of panels
                 double EachOutput = area * efficiency * performanceRatio * Radiation * NumberPanels;
+                // Round each output to 2 decimals only
                 double RoundedOutput = Math.Round(EachOutput,2);
                 TotalOutput.Add(RoundedOutput);
             }
             return TotalOutput;
+        }
+
+        public double CalculateCO2(double AnnualOutput)
+        {
+            double CO2 = AnnualOutput * 1.13;
+            return CO2;
         }
     }
 }

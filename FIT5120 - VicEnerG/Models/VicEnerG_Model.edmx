@@ -29,7 +29,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="monthRadiation" Type="float" Nullable="false" />
-    <Property Name="month" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="month" Type="smallint" Nullable="false" />
     <Property Name="Station_stationNumber" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ApplianceSet">
@@ -81,7 +81,7 @@
           </Key>
           <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="monthRadiation" Type="Double" Nullable="false" />
-          <Property Name="month" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="month" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Station" Relationship="VicEnerG_Model.StationStationData" FromRole="StationData" ToRole="Station" />
         </EntityType>
         <EntityType Name="Appliance">
