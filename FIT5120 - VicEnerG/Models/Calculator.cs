@@ -35,10 +35,35 @@ namespace FIT5120___VicEnerG.Models
             return TotalOutput;
         }
 
+        // This method will calculate the amount of CO2 correspond to the elecrticity output
         public double CalculateCO2(double AnnualOutput)
         {
+            // The formular
             double CO2 = AnnualOutput * 1.13;
             return CO2;
+        }
+
+        // This method will calculate the extra hours that can use by a list of appliances
+        // The method will return a dictionary contained all appliances information along with their extra hours.
+        public IDictionary<String, List<int>> CalculateUsage(IList<Appliance> ApplianceList, IList<double> MonthlyOutput)
+        {
+            // Initial the dictionary 
+            IDictionary<String, List<int>> Usage = new Dictionary<String, List<int>>();
+            foreach (Appliance App in ApplianceList) 
+            {
+                double EachUsage = App.usage;
+                List<int> Extrahours = new List<int>();
+                foreach (double MonthlyData in MonthlyOutput)
+                {
+                    // Total divide each usage will result the extra hours 
+                    int Result = (int)Math.Round(MonthlyData / EachUsage);
+                    // Add the extra hours data into the list
+                    Extrahours.Add(Result);
+                }
+                // Add the appliance object and the corresponding extra hours list into the dictionary
+                Usage.Add(App.applianceName, Extrahours);
+            }
+            return Usage;
         }
     }
 }

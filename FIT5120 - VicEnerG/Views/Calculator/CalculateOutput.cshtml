@@ -175,7 +175,7 @@
         <li>H = solar radiation data collected from stations (shadings not included)</li>
         <li>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</li>
 
-        <div class="panel panel-danger">
+        <div>
             <div class="panel-body">
                 <canvas id="bar_chart" height="200"></canvas>
             </div>
@@ -184,8 +184,21 @@
         <div>
             <p>The Annual electricity output is equivalent to @Model.CO2 kg/kWh of Carbon Dioxide equivalent Emissions</p>
             <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
-            <li>1.13kg CO2-e/kWh</li>
+            <ol>1.13kg CO2-e/kWh</ol>
         </div>
+
+        <div>
+            @Html.DropDownList("ApplianceList",
+             new SelectList(Model.Extrahours.Keys.ToList()),
+             "Choose Appliance",
+             new { @onchange = "Showgraph()" })
+        </div>
+
+        <div id="hidden_div">
+            <div class="panel-body">
+                <canvas id="line_chart" height="200"></canvas>
+            </div>
+        </div> 
     }
 }
 
@@ -196,6 +209,52 @@
         $(document).ready(function () {
             initbarchart();
         });
+
+        $('#ApplianceList').on('change', function () { Showgraph() });
+
+    function Showgraph() {
+        var ApplianceName = document.getElementById("ApplianceList").value;
+        if (ApplianceName == "") {
+            document.getElementById("hidden_div").style.display = 'none';
+        } else {
+            document.getElementById("hidden_div").style.display = 'block';
+        }
+            var DicKey= @Html.Raw(Json.Encode(Model.Extrahours.Keys.ToList()));
+            var DicValue = @Html.Raw(Json.Encode(Model.Extrahours.Values.ToList()));
+            var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
+            var ListData = []
+            //alert(DicKey.length);
+            for (let i = 0; i < DicKey.length; i++) {
+                if (DicKey[i] == ApplianceName) {
+                    ListData = DicValue[i];
+                }
+            }
+            var ctx = $("#line_chart");
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: MonthArray,
+                    datasets: [{
+                        label: "hours",
+                        fill: false,
+                        data: ListData,
+                        backgroundColor: "rgba(0,0,255,.5)",
+                        borderColor: "rgb(0,0,255)"
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "Extra hours for " + ApplianceName
+                    },
+                    legend:
+                    {
+                        display: false,
+                    }
+                }
+            });
+        }
 
         function initbarchart() {
 
@@ -342,6 +401,10 @@
         line-height: 0;
         font-size: 0;
         overflow: hidden;
+    }
+
+    #hidden_div {
+        display: none;
     }
 </style>
 

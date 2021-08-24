@@ -13,6 +13,7 @@ namespace FIT5120___VicEnerG.ViewModels
         public CalculatorViewModel()
         {
             OutputList = new List<double>();
+            Extrahours = new Dictionary<String, List<int>>();
         }
     
     public IList<double> OutputList { get; set; }
@@ -26,9 +27,8 @@ namespace FIT5120___VicEnerG.ViewModels
         public int NumberPanels { get; set; }
 
     public double AnnualOutput { get; set; }
-
     public double CO2 { get; set; }
-
     public Station Station{ get; set; }
+    public IDictionary<String, List<int>> Extrahours { get; set; }
     }
 }
