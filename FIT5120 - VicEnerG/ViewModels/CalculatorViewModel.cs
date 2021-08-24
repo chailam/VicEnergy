@@ -27,6 +27,8 @@ namespace FIT5120___VicEnerG.ViewModels
 
     public double AnnualOutput { get; set; }
 
+    public double CO2 { get; set; }
+
     public Station Station{ get; set; }
     }
 }

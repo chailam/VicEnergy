@@ -21,7 +21,7 @@ namespace FIT5120___VicEnerG.Models
         
         // Some variables of the formula are pre-define with value
         // This method will calculate and return the monthly solar output of a given station
-        public IList<double> Calculate(IList<double> StationData, int NumberPanels)    
+        public IList<double> CalculateSolarOutput(IList<double> StationData, int NumberPanels)    
         {
             IList<double> TotalOutput = new List<double>();
             foreach (double Radiation in StationData)
@@ -33,6 +33,12 @@ namespace FIT5120___VicEnerG.Models
                 TotalOutput.Add(RoundedOutput);
             }
             return TotalOutput;
+        }
+
+        public double CalculateCO2(double AnnualOutput)
+        {
+            double CO2 = AnnualOutput * 1.13;
+            return CO2;
         }
     }
 }

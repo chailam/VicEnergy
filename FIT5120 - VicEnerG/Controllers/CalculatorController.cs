@@ -49,13 +49,16 @@ namespace FIT5120___VicEnerG.Controllers
                 // Initial the calculator
                 Calculator calculator = new Calculator();
                 // Calculate the 12 months solar output of a given station with specific amount of panels installed
-                IList<double> MonthlyOutput = calculator.Calculate(TargetStation.StationDataList(), Model.NumberPanels);
+                IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataList(), Model.NumberPanels);
+                // Calculate the amount of CO2 corresponding to the amount of kwh electricity
+                double CO2 = calculator.CalculateCO2(MonthlyOutput.Sum());
 
 
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.OutputList = MonthlyOutput;
                 Model.AnnualOutput = MonthlyOutput.Sum();
                 Model.Station = TargetStation;
+                Model.CO2 = CO2;
                 ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             }
             return View(Model);

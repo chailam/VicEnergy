@@ -58,12 +58,24 @@
         </table>
 
         <p> The annual output of @Model.Postcode is @Model.AnnualOutput  kwh</p>
-        <p> The data is collect by the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+        <p> The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+        <p> The Solar output is followed by the formular:  E = A * r * H * PR</p>
+        <li>E = Energy (kWh)</li>
+        <li>A = Total solar panel Area (In this calculator is 1.6m2)</li>
+        <li>r= Solar panel yield or efficiency(In this calcualtor is 15.6%) </li>
+        <li>H = solar radiation data collected from stations (shadings not included)</li>
+        <li>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</li>
 
         <div class="panel panel-danger">
             <div class="panel-body">
                 <canvas id="bar_chart" height="200"></canvas>
             </div>
+        </div>
+
+        <div>
+        <p>The Annual electricity output is equivalent to @Model.CO2 kg/kWh of Carbon Dioxide equivalent Emissions</p>
+        <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+        <li>1.13kg CO2-e/kWh</li>
         </div>
     }
 }
@@ -97,7 +109,7 @@
                 options: {
                     title: {
                         display: true,
-                        text: "Electricity Output (kwh)"
+                        text: "Electricity Output (kWh)"
                     },
                     legend:
                     {
