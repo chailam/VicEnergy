@@ -113,100 +113,173 @@
     </div>
 </div>
 <!-- //banner -->
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
+<!-- Calculator feature page display starts here! -->
+<div class="container body-content">
+    <div class="Calculator-Content">
         <h2>Solar Output Calculator</h2>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
-                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumberPanels, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
-                @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="Calculator-Content TOC">
+                <h3>Page Contents</h3>
+                <a href="#DataInput"><ol>Information Entry</ol></a>
+                <div id="hidden-content">
+                    <a href="#OutputResult"><ol>Electricity Output</ol></a>
+                    <a href="#CarbonInformation"><ol>Carbon Dioxide Emission</ol></a>
+                    <a href="#ApplianceUsage"><ol>Appliances extra usages</ol></a>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md0offset-2 col-md-10">
-                <input type="submit" class="btn btn-primary" value="Calculate" />
+        <div class="col-md-9">
+            <div class="Calculator-Content Content">
+                <!-- Annotation & input form-->
+                <div class="row" id="DataInput">
+                    <!-- Annotation section-->
+                    <div class="col-md-6">
+                        <div class="Calculator-Content Annotation">
+                            <p>
+                                By putting the postcode and estimated number of solar panels,
+                                our system can calculate the estimated solar output for 12 months of
+                                given postcode and number of panels
+                            </p>
+                            <p>There are few limitation in our calculator:</p>
+                            <ol>
+                                <li><p>Maximum 10 solar panels can be used in the estimation</p></li>
+                                <li><p>The system only accept postcodes in Victoria (3000-3999)</p></li>
+                                <li><p>The estimated output is not consider about shading and angles of the panel</p></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Information input form-->
+                    <div class="col-md-6">
+                        <div class="Calculator-Content Input">
+                            <h3>Information Entry</h3>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-8">
+                                            <input type="submit" class="btn btn-primary" value="Calculate" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                @{
+                    if (Model.Station != null)
+                    {
+                        <div class="Calculator-Content OutputDescription" id="OutputResult">
+                            <h3>Electricity Output</h3>
+                            <h4>The annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
+                            <div class="result">
+                                @Model.AnnualOutput kWh
+                            </div>
+
+                            <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+                            <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2><p>
+                                <ul>
+                                    <li><p>E = Energy (kWh)</p></li>
+                                    <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
+                                    <li><p>r= Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
+                                    <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
+                                    <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
+                                </ul>
+
+
+                                <hr>
+                                <table>
+                                    <tr>
+                                        <th></th>
+                                        @foreach (string Output in ViewBag.Month)
+                                        {
+                                            <th>@Output</th>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <td>Electricity Output(kWh)</td>
+                                        @foreach (double Output in Model.OutputList)
+                                        {
+                                            <td>@Output</td>
+                                        }
+                                    </tr>
+                                </table>
+                        </div>
+
+
+                        <div class="Calculator-Content OutputChart">
+                            <div class="panel-body">
+                                <canvas id="bar_chart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="Calculator-Content CarbonDescription" id="CarbonInformation">
+                            <h3>Carbon Dioxide Emissions</h3>
+                            <h4>The Carbon Dioxide equivalent Emissions</h4>
+                            <div class="result">
+                                @Model.CO2 kg/kWh
+                            </div>
+                            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+                            <p2>1kWh = 1.13kg CO2-e/kWh</p2>
+                        </div>
+
+                        <div id="ApplianceUsage">
+                            @Html.DropDownList("ApplianceList",
+                             new SelectList(Model.Extrahours.Keys.ToList()),
+                             "Choose Appliance",
+                             new { @onchange = "Showgraph()" })
+                        </div>
+
+
+                        <div id="hidden_div">
+                            <div class="Calculator-Content ApplianceChart">
+                                <div class="panel-body">
+                                    <canvas id="line_chart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
-}
-
-@{
-    if (Model.Station != null)
-    {
-        <p> The monthly elecrticity outputs for postcode @Model.Postcode with @Model.NumberPanels solar panel(s) are list below: </p>
-        <table>
-            <tr>
-                <th></th>
-                @foreach (string Output in ViewBag.Month)
-                {
-                    <th>@Output</th>
-                }
-            </tr>
-            <tr>
-                <td>Electricity Output(kWh)</td>
-                @foreach (double Output in Model.OutputList)
-                {
-                    <td>@Output</td>
-                }
-            </tr>
-        </table>
-
-        <p> The annual output of @Model.Postcode is @Model.AnnualOutput  kwh</p>
-        <p> The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
-        <p> The Solar output is followed by the formular:  E = A * r * H * PR</p>
-        <li>E = Energy (kWh)</li>
-        <li>A = Total solar panel Area (In this calculator is 1.6m2)</li>
-        <li>r= Solar panel yield or efficiency(In this calcualtor is 15.6%) </li>
-        <li>H = solar radiation data collected from stations (shadings not included)</li>
-        <li>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</li>
-
-        <div>
-            <div class="panel-body">
-                <canvas id="bar_chart" height="200"></canvas>
-            </div>
-        </div>
-
-        <div>
-            <p>The Annual electricity output is equivalent to @Model.CO2 kg/kWh of Carbon Dioxide equivalent Emissions</p>
-            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
-            <ol>1.13kg CO2-e/kWh</ol>
-        </div>
-
-        <div>
-            @Html.DropDownList("ApplianceList",
-             new SelectList(Model.Extrahours.Keys.ToList()),
-             "Choose Appliance",
-             new { @onchange = "Showgraph()" })
-        </div>
-
-        <div id="hidden_div">
-            <div class="panel-body">
-                <canvas id="line_chart" height="200"></canvas>
-            </div>
-        </div> 
-    }
-}
+</div>
+<!-- Calculator feature page display ends here! -->
 
 <script type="text/javascript" src="~/AboutRes/js/jquery-2.1.4.min.js"></script>
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
-    <script>
+<script>
         $(document).ready(function () {
+            var check = @Model.Postcode
+            if (check != 0) {
+                document.getElementById("hidden-content").style.display = 'block';
+            } else {
+                document.getElementById("hidden-content").style.display = 'none';
+            }
             initbarchart();
         });
 
@@ -223,7 +296,7 @@
             var DicValue = @Html.Raw(Json.Encode(Model.Extrahours.Values.ToList()));
             var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
             var ListData = []
-            //alert(DicKey.length);
+
             for (let i = 0; i < DicKey.length; i++) {
                 if (DicKey[i] == ApplianceName) {
                     ListData = DicValue[i];
@@ -251,6 +324,15 @@
                     legend:
                     {
                         display: false,
+                    },
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                //suggestedMin: 0
+                                beginAtZero: true
+                            }
+                        }]
                     }
                 }
             });
@@ -286,7 +368,7 @@
                 }
             });
         }
-    </script>
+</script>
 }
 
 <!-- Default-JavaScript-File -->
@@ -395,16 +477,82 @@
 <!-- //scrolling script -->
 
 <style>
-    .copyrights {
-        text-indent: -9999px;
-        height: 0;
-        line-height: 0;
-        font-size: 0;
-        overflow: hidden;
-    }
-
     #hidden_div {
         display: none;
+    }
+
+    .Calculator-Content {
+        padding: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        background: #fff;
+        border: #e7e7e7 1px solid;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .Calculator-Content h2 {
+            color: #0593FC;
+            font-weight: bold;
+        }
+
+        .Calculator-Content h3 {
+            padding: 10px;
+            padding-bottom: 25px;
+        }
+
+        .Calculator-Content p, li {
+            font-size: 15px;
+        }
+
+        .Calculator-Content ul {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        .Calculator-Content h4 {
+            font-size: 20px;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .Calculator-Content p2 {
+            font-weight: bold;
+            color: #808080;
+        }
+
+    .TOC {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+
+    .OutputChart, .ApplianceChart, .Annotation {
+        border: none;
+    }
+
+
+    .OutputDescription table, td, th {
+        padding: 4px 6px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .OutputDescription h3, .CarbonDescription h3 {
+        border-bottom: #e7e7e7 1px solid;
+    }
+
+    .result {
+        padding: 30px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #ffd800;
     }
 </style>
 
