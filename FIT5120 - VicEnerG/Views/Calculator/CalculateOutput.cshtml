@@ -200,33 +200,33 @@
                             </div>
 
                             <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
-                            <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2><p>
-                                <ul>
-                                    <li><p>E = Energy (kWh)</p></li>
-                                    <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
-                                    <li><p>r= Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
-                                    <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
-                                    <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
-                                </ul>
+                            <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2></p>
+                            <ul>
+                                <li><p>E = Energy (kWh)</p></li>
+                                <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
+                                <li><p>r = Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
+                                <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
+                                <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
+                            </ul>
 
 
-                                <hr>
-                                <table>
-                                    <tr>
-                                        <th></th>
-                                        @foreach (string Output in ViewBag.Month)
-                                        {
-                                            <th>@Output</th>
-                                        }
-                                    </tr>
-                                    <tr>
-                                        <td>Electricity Output(kWh)</td>
-                                        @foreach (double Output in Model.OutputList)
-                                        {
-                                            <td>@Output</td>
-                                        }
-                                    </tr>
-                                </table>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    @foreach (string Output in ViewBag.Month)
+                                    {
+                                        <th>@Output</th>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>Electricity Output(kWh)</td>
+                                    @foreach (double Output in Model.OutputList)
+                                    {
+                                        <td>@Output</td>
+                                    }
+                                </tr>
+                            </table>
                         </div>
 
 
@@ -246,18 +246,21 @@
                             <p2>1kWh = 1.13kg CO2-e/kWh</p2>
                         </div>
 
-                        <div id="ApplianceUsage">
+
+
+                        <div class="Calculator-Content ApplianceUsage" id="ApplianceUsage">
+                            <h3>Appliance Extra hours usage</h3>
+                            <br><p>Please selete one of the appliance from the list to see its extra hours usage</p>
                             @Html.DropDownList("ApplianceList",
                              new SelectList(Model.Extrahours.Keys.ToList()),
                              "Choose Appliance",
                              new { @onchange = "Showgraph()" })
-                        </div>
 
-
-                        <div id="hidden_div">
-                            <div class="Calculator-Content ApplianceChart">
-                                <div class="panel-body">
-                                    <canvas id="line_chart" height="200"></canvas>
+                            <div id="hidden_div">
+                                <div class="Calculator-Content ApplianceChart">
+                                    <div class="panel-body">
+                                        <canvas id="line_chart" height="200"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +275,7 @@
 <script type="text/javascript" src="~/AboutRes/js/jquery-2.1.4.min.js"></script>
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
-<script>
+    <script>
         $(document).ready(function () {
             var check = @Model.Postcode
             if (check != 0) {
@@ -368,7 +371,7 @@
                 }
             });
         }
-</script>
+    </script>
 }
 
 <!-- Default-JavaScript-File -->
@@ -543,7 +546,7 @@
         text-align: center;
     }
 
-    .OutputDescription h3, .CarbonDescription h3 {
+    .OutputDescription h3, .CarbonDescription h3, .ApplianceUsage h3 {
         border-bottom: #e7e7e7 1px solid;
     }
 
