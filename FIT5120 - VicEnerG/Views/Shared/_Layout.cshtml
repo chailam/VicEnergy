@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>VicEnerG - @ViewBag.Title</title>
     @*   @Styles.Render("~/Content/css")*@
 
     @*    @Scripts.Render("~/bundles/modernizr")
@@ -31,23 +31,26 @@
             </div>
         </div>
     </div>*@
-    <div >
+    <div>
         @RenderBody()
+        <!---
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        </footer> 
+            -->
     </div>
     <!-- js-scripts -->
-    <!-- js -->
-    <!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>--> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-    <!-- //js -->
-    
-    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-    <!-- //smooth scrolling-bottom-to-top -->
-    <!-- //js-scripts -->
+        <!-- js -->
+        <!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>-->
+        <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
 
-    @RenderSection("scripts", required: false)
+        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        <!-- //smooth scrolling-bottom-to-top -->
+        <!-- //js-scripts -->
+
+        @RenderSection("scripts", required: false)
 </body>
 </html>

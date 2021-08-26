@@ -263,17 +263,13 @@
     <Content Include="images\img3.jpg" />
     <Content Include="images\L.jpg" />
     <Content Include="images\left-quote.png" />
+    <Content Include="images\logo_transparent_background.png" />
     <Content Include="images\menu.png" />
     <Content Include="images\next.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\right-quote.png" />
+    <Content Include="images\solar-rebate.jpg" />
     <Content Include="images\t1.jpg" />
-    <Content Include="images\t2.jpg" />
-    <Content Include="images\t3.jpg" />
-    <Content Include="images\t4.jpg" />
-    <Content Include="images\tes1.jpg" />
-    <Content Include="images\tes2.jpg" />
-    <Content Include="images\tes3.jpg" />
     <Content Include="images\up.png" />
     <Content Include="images\Z.jpg.1.jpg" />
     <Content Include="js\bootstrap.js" />
@@ -352,11 +348,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Intro.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Calculator\CalculateOutput.cshtml" />
-    <Content Include="Views\Calculator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
