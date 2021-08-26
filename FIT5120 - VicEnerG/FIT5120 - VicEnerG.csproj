@@ -269,6 +269,8 @@
     <Content Include="images\prev.png" />
     <Content Include="images\right-quote.png" />
     <Content Include="images\solar-rebate.jpg" />
+    <Content Include="images\solarexplain.png" />
+    <Content Include="images\solar_installation_statistic.png" />
     <Content Include="images\t1.jpg" />
     <Content Include="images\up.png" />
     <Content Include="images\Z.jpg.1.jpg" />
