@@ -437,10 +437,14 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe,i.fa.fa-lightbulb-o,i.fa.fa-thumbs-
 /*-- //services --*/
 
 /*-- /copyright --*/
-.wthree_copy_right{
-	padding:1em 0;
-	background:#000000;
-	text-align:center;
+.wthree_copy_right {
+	padding: 1em 0;
+	background: #000000;
+	text-align: center;
+	position: relative;
+	width: 100%;
+	left: 0;
+	bottom: 0;
 }
 .wthree_copy_right p{
 	color:#fff;
@@ -1638,4 +1642,84 @@ div#blog {
 		padding-top: 45%;
 	}
 }
+
+#hidden_div {
+	display: none;
+}
+
+.Calculator-Content {
+	padding: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	background: #fff;
+	border: #e7e7e7 1px solid;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+	.Calculator-Content h2 {
+		color: #0593FC;
+		font-weight: bold;
+	}
+
+	.Calculator-Content h3 {
+		padding: 10px;
+		padding-bottom: 25px;
+	}
+
+	.Calculator-Content p, li {
+		font-size: 15px;
+	}
+
+	.Calculator-Content ul {
+		display: block;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		padding-inline-start: 40px;
+	}
+
+	.Calculator-Content h4 {
+		font-size: 20px;
+		text-align: center;
+		padding-top: 15px;
+	}
+
+	.Calculator-Content p2 {
+		font-weight: bold;
+		color: #808080;
+	}
+
+.TOC {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+
+.OutputChart, .ApplianceChart, .Annotation {
+	border: none;
+}
+
+
+.OutputDescription table, td, th {
+	padding: 4px 6px;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+.OutputDescription h3, .CarbonDescription h3, .ApplianceUsage h3 {
+	border-bottom: #e7e7e7 1px solid;
+}
+
+.result {
+	padding: 30px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #ffd800;
+}
+
+
 /*-- //responsive design --*/

@@ -4,53 +4,70 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VicEnerG - @ViewBag.Title</title>
-    @*   @Styles.Render("~/Content/css")*@
-
-    @*    @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/Pages_Resource/js")
+    @Scripts.Render("~/bundles/chartjs")
+    @Styles.Render("~/Pages_Resource/css")
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!-- //google fonts -->
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @{
+        if (ViewBag.Title != "Home")
+        {
+            <div class="w3l-banner">
+                <div class="wthree-dot">
+                    <!-- nav -->
+                    <div class="header w3layouts">
+                        <div class="container-fluid">
+                            <nav class="navbar navbar-default">
+                                <div class="navbar-header navbar-left">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <img src="~/images/logo/logo_transparent_background.png" width="100" height="100" />
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                                    <nav>
+                                        <ul class="nav navbar-nav">
+                                            <li class="active"><a href="~/Home/Index">Home</a></li>
+                                            <li><a href="~/Home/Intro">Introduction</a></li>
+                                            <li><a href="~/Calculator/CalculateOutput">Calculator</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- //nav -->
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Calculators", "CalculateOutput", "Calculator")</li>
-                </ul>
-            </div>
-        </div>
-    </div>*@
+        }
+    }
     <div>
         @RenderBody()
-        <!---
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer> 
-            -->
+        @{
+            if (ViewBag.Title != "Home")
+            {
+                <footer>
+                    <div class="wthree_copy_right" id="wthree_copy_right">
+                        <div class="container">
+                            <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
+                        </div>
+                    </div>
+                </footer>
+            }
+        }
     </div>
-    <!-- js-scripts -->
-        <!-- js -->
-        <!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>-->
-        <!-- Necessary-JavaScript-File-For-Bootstrap -->
-        <!-- //js -->
 
-        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-        <!-- //smooth scrolling-bottom-to-top -->
-        <!-- //js-scripts -->
+    <!-- smooth scrolling-bottom-to-top -->
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
-        @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

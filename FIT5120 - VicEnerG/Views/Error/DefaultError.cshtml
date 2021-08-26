@@ -2,10 +2,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Oops! An Error Has Occured</h2>
 
-<p>An unexpected error occured on this website</p>
-<p>Please notices the administrator if this error is still happening</p>
 
-<li>@Html.ActionLink("Back to Home page", "Index", "Home")</li>
+<div class="container">
+    <h1>Oops! An Error Has Occured</h1>
+    <br />
+    <h3>An unexpected error occured on this website</h3>
+    <h3>Please notices the administrator if this error is still happening</h3>
+    <br />
+    <li>@Html.ActionLink("Back to Home page", "Index", "Home")</li>
+</div>
 
+<script>
+    $(document).ready(function () {
+        document.getElementById("wthree_copy_right").style.position = "absolute";
+    });
+</script>

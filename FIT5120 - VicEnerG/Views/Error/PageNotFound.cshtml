@@ -2,9 +2,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container">
+    <h1>Page Not found</h1>
+    <br>
+    <h2>Are you look for following page?</h2><br>
+    <ol>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Calculators", "CalculateOutput", "Calculator")</li>
+    </ol>
+</div>
 
-<h2>Page Not found</h2>
-
-<p>Are you look for following page?</p>
-<li>@Html.ActionLink("Home", "Index", "Home")</li>
-<li>@Html.ActionLink("Calculators", "CalculateOutput", "Calculator")</li>
+<script>
+    $(document).ready(function () {
+        document.getElementById("wthree_copy_right").style.position = "absolute";
+    });
+</script>

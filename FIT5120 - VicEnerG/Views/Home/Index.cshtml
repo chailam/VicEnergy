@@ -1,80 +1,72 @@
-﻿<link rel="stylesheet" href="~/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
-<link rel="stylesheet" href="~/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
-<link href="~/css/nav.css" rel="stylesheet" type="text/css" media="all" /> <!-- For-Navigation-CSS -->
-<link rel="stylesheet" href="~/css/smoothbox.css" type='text/css'> <!-- For-Gallery-CSS -->
-<!-- online-fonts -->
+﻿<!-- online-fonts -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=source+sans+pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 <!-- //online-fonts -->
-<style>
-   @* .redline:after :before {
-        content: '';
-        background: #ff4c4c;
-        height: 11px;
-        width: 5%;
-        position: absolute;
-        top: 33%;
-    }*@
-</style>
+@section Scripts{
+    @Scripts.Render("~/Home_Resource/js")
+    @Styles.Render("~/Home_Resource/css")
+}
+
+
+
 <div class="Main-agile">
     <!-- banner img css line:59-->
     <div class="sub-agile">
         <div class="col-md-4 agile1">
             <!-- navigation section -->
             <!-- <section>
-                <p>
-        <button id="trigger-overlay" type="button">
-            <img src="~/images/menu.png" class="img-responsive" alt="menu">
+                        <p>
+                <button id="trigger-overlay" type="button">
+                    <img src="~/images/menu.png" class="img-responsive" alt="menu">
 
-        </button>
-    </p>
-            </section> -->
+                </button>
+            </p>
+                    </section> -->
             <!-- open/close -->
             <!--
-    <div class="overlay overlay-boxes">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
-            <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z" />
-            <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z" />
-            <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z" />
-            <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z" />
-            <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
-            <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
-            <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
-            <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z" />
-            <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z" />
-            <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z" />
-            <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z" />
-            <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z" />
-            <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z" />
-            <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z" />
-            <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z" />
-            <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z" />
-            <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z" />
-            <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z" />
-            <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z" />
-            <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z" />
-            <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z" />
-            <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z" />
-            <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z" />
-            <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z" />
-            <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
-            <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
-            <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
-            <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z" />
-        </svg>
-        <button type="button" class="overlay-close">Close</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about" class="scroll">About US</a></li>
-                <li><a href="#team" class="scroll">Team</a></li>
-                <li><a href="#gallery" class="scroll">Gallery</a></li>
-                <li><a href="#contact" class="scroll">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div> 
-                -->
+            <div class="overlay overlay-boxes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
+                    <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z" />
+                    <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z" />
+                    <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z" />
+                    <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z" />
+                    <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
+                    <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
+                    <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
+                    <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z" />
+                    <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z" />
+                    <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z" />
+                    <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z" />
+                    <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z" />
+                    <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z" />
+                    <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z" />
+                    <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z" />
+                    <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z" />
+                    <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z" />
+                    <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z" />
+                    <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z" />
+                    <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z" />
+                    <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z" />
+                    <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z" />
+                    <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z" />
+                    <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z" />
+                    <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
+                    <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
+                    <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
+                    <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z" />
+                </svg>
+                <button type="button" class="overlay-close">Close</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about" class="scroll">About US</a></li>
+                        <li><a href="#team" class="scroll">Team</a></li>
+                        <li><a href="#gallery" class="scroll">Gallery</a></li>
+                        <li><a href="#contact" class="scroll">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+                        -->
             <!-- /open/close -->
             <!-- /navigation section -->
         </div>
@@ -104,7 +96,6 @@
                             <div class="agileits-banner-info">
                                 <h3>Solar Energy <span>System</span></h3>
                                 <p> COMBAT CLIMATE CHANGE</p>
-                                @*<p>asdasdasdasdasdasdasd asdasdasd</p>*@
                                 <h5><a href="~/Home/Intro" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
                             </div>
                         </div>
@@ -128,111 +119,4 @@
         <!-- //banner-text -->
     </div>
 </div>
-<!-- js -->
-<script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="~/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
-<!-- //js -->
-<!-- Baneer-js -->
-<script src="~/js/responsiveslides.min.js"></script>
-<script>
-    // You can also use "$(window).load(function() {"
-    $(function () {
-        // Slideshow 4
-        $("#slider4").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: false,
-            speed: 500,
-            namespace: "callbacks",
-            before: function () {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function () {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
 
-    });
-</script>
-<script>
-    // You can also use "$(window).load(function() {"
-    $(function () {
-        // Slideshow 4
-        $("#slider3").responsiveSlides({
-            auto: true,
-            pager: false,
-            nav: true,
-            speed: 500,
-            namespace: "callbacks",
-            before: function () {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function () {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
-
-    });
-</script>
-
-<!-- //Baneer-js -->
-<!-- gallery -->
-<script type="text/javascript" src="~/js/smoothbox.jquery2.js"></script>
-<!-- //gallery -->
-<!-- flexSlider -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
-<script defer src="js/jquery.flexslider.js"></script>
-<script type="text/javascript">
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-</script>
-<!-- //flexSlider -->
-<!-- js for navigation -->
-<script src="~/js/classie.js"></script>
-<script src="~/js/nav.js"></script>
-<script src="~/js/main.js"></script>
-<!-- //js for navigation -->
-<!-- Stats-Number-Scroller-Animation-JavaScript -->
-<script src="~/js/waypoints.min.js"></script>
-<script src="~/js/counterup.min.js"></script>
-<script>
-    jQuery(document).ready(function ($) {
-        $('.counter').counterUp({
-            delay: 100,
-            time: 1000
-        });
-    });
-</script>
-<!-- //Stats-Number-Scroller-Animation-JavaScript -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="~/js/move-top.js"></script>
-<script type="text/javascript" src="~/js/easing.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-        });
-    });
-</script>
-<!-- start-smoth-scrolling -->
-<!-- smooth scrolling-bottom-to-top -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
-</script>

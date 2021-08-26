@@ -5,55 +5,6 @@
 
 }
 
-
-<!--FlexSlider-->
-<link rel="stylesheet" href="~/AboutRes/css/flexslider.css" type="text/css" media="screen" />
-<!--//FlexSlider-->
-
-<link href="~/AboutRes/css/lsb.css" rel="stylesheet" type="text/css"><!-- gallery -->
-<!-- custom css theme files -->
-<link rel="stylesheet" href="~/AboutRes/css/bootstrap.min.css" type="text/css" media="all">
-<link rel="stylesheet" href="~/AboutRes/css/font-awesome.min.css" />
-<link rel="stylesheet" href="~/AboutRes/css/style.css" type="text/css" media="all">
-<!-- //custom css theme files -->
-<!-- google fonts -->
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-<!-- //google fonts -->
-<!-- banner -->
-<div class="w3l-banner">
-    <div class="wthree-dot">
-        <!-- nav -->
-        <div class="header w3layouts">
-            <div class="container-fluid">
-                <nav class="navbar navbar-default">
-                    <div class="navbar-header navbar-left">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <h1><a class="navbar-brand" href="index.html"><span>Solar</span> Energy</a></h1>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                        <nav>
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="~/Home/Index">Home</a></li>
-                                <li><a href="~/Home/Intro">Introduction</a></li>
-                                <li><a href="~/Calculator/CalculateOutput">Calculator</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- //nav -->
-        <!-- //Header -->
-    </div>
-</div>
-<!-- //banner -->
 <!-- Calculator feature page display starts here! -->
 <div class="container body-content">
     <div class="Calculator-Content">
@@ -213,16 +164,18 @@
 </div>
 <!-- Calculator feature page display ends here! -->
 
-<script type="text/javascript" src="~/AboutRes/js/jquery-2.1.4.min.js"></script>
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
     <script>
         $(document).ready(function () {
-            var check = @Model.Postcode
+            var check = @Model.Postcode;
             if (check != 0) {
                 document.getElementById("hidden-content").style.display = 'block';
-            } else {
+                document.getElementById("wthree_copy_right").style.position = "relative";
+            }
+            else {
                 document.getElementById("hidden-content").style.display = 'none';
+                document.getElementById("wthree_copy_right").style.position = "absolute";
             }
             initbarchart();
         });
@@ -315,190 +268,8 @@
     </script>
 }
 
-<!-- Default-JavaScript-File -->
-
-<script type="text/javascript" src="~/AboutRes/js/bootstrap.min.js"></script>
-<!-- //Default-JavaScript-File -->
-<!--Start-slider-script-->
-<script defer src="~/AboutRes/js/jquery.flexisel.js"></script>
-<script type="text/javascript">
-
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-</script>
-<!--End-slider-script-->
-<!-- testimonials required-js-files-->
-<link href="~/AboutRes/css/owl.carousel.css" rel="stylesheet">
-<script src="~/AboutRes/js/owl.carousel.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#owl-demo").owlCarousel({
-            items: 1,
-            lazyLoad: true,
-            autoPlay: true,
-            navigation: false,
-            navigationText: false,
-            pagination: true,
-        });
-    });
-</script>
-<!--// testimonials required-js-files-->
-<!-- flexisel -->
-<script type="text/javascript">
-    $(window).load(function () {
-        $("#flexiselDemo1").flexisel({
-            visibleItems: 4,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint: 480,
-                    visibleItems: 1
-                },
-                landscape: {
-                    changePoint: 640,
-                    visibleItems: 2
-                },
-                tablet: {
-                    changePoint: 768,
-                    visibleItems: 2
-                }
-            }
-        });
-
-    });
-</script>
-<script type="text/javascript" src="~/AboutRes/js/jquery.flexslider.js"></script>
-<!-- //flexisel -->
-<!-- gallery-pop-up -->
-<script src="~/AboutRes/js/lsb.min.js"></script>
-<script>
-    $(window).load(function () {
-        $.fn.lightspeedBox();
-    });
-</script>
-<!-- //gallery-pop-up -->
-<!-- smooth scrolling -->
-<script src="~/AboutRes/js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="~/AboutRes/js/move-top.js"></script>
-<script type="text/javascript" src="~/AboutRes/js/easing.js"></script>
-<!-- here stars scrolling icon -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
-
-        $().UItoTop({ easingType: 'easeOutQuart' });
-
-    });
-</script>
-<!-- //here ends scrolling icon -->
-<!-- smooth scrolling -->
-<!-- scrolling script -->
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-        });
-    });
-</script>
-<!-- //scrolling script -->
-
-<style>
-    #hidden_div {
-        display: none;
-    }
-
-    .Calculator-Content {
-        padding: 20px;
-        margin-right: auto;
-        margin-left: auto;
-        background: #fff;
-        border: #e7e7e7 1px solid;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        position: relative;
-    }
-
-        .Calculator-Content h2 {
-            color: #0593FC;
-            font-weight: bold;
-        }
-
-        .Calculator-Content h3 {
-            padding: 10px;
-            padding-bottom: 25px;
-        }
-
-        .Calculator-Content p, li {
-            font-size: 15px;
-        }
-
-        .Calculator-Content ul {
-            display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 40px;
-        }
-
-        .Calculator-Content h4 {
-            font-size: 20px;
-            text-align: center;
-            padding-top: 15px;
-        }
-
-        .Calculator-Content p2 {
-            font-weight: bold;
-            color: #808080;
-        }
-
-    .TOC {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
 
 
-    .OutputChart, .ApplianceChart, .Annotation {
-        border: none;
-    }
-
-
-    .OutputDescription table, td, th {
-        padding: 4px 6px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-
-    .OutputDescription h3, .CarbonDescription h3, .ApplianceUsage h3 {
-        border-bottom: #e7e7e7 1px solid;
-    }
-
-    .result {
-        padding: 30px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        color: #ffd800;
-    }
-</style>
 
 
 
