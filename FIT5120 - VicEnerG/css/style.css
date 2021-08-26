@@ -3127,5 +3127,11 @@ i.fa-envelope-o {
 	p.footer-gd {
 		font-size: 0.85em;
 	}
+
+	.projectlogo {
+		width: 10px;
+		max-width: 10px;
+		height: 20px;
+	}
 }
 /*--//responsive--*/

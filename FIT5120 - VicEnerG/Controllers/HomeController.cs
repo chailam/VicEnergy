@@ -16,18 +16,11 @@ namespace FIT5120___VicEnerG.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = "Home";
             return View();
         }
 
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
+        public ActionResult Intro()
         {
             ViewBag.Message = "Your contact page.";
 

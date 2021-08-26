@@ -14,15 +14,11 @@ namespace FIT5120___VicEnerG.Controllers
     {
         private VicEnerG_ModelContainer db = new VicEnerG_ModelContainer();
         // GET: Calculator
-        public ActionResult Index()
-        {
-            return View();
-        }
-
 
         [HttpGet]
         public ActionResult CalculateOutput()
         {
+            ViewBag.Title = "Calculate Solar";
             var Model = new CalculatorViewModel();
             return View(Model);
         }
