@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VicEnerG - @ViewBag.Title</title>
-    @Scripts.Render("~/Pages_Resource/js")
+    @Scripts.Render("~/Pages_Resource/js/pagejs")
     @Scripts.Render("~/bundles/chartjs")
-    @Styles.Render("~/Pages_Resource/css")
+    @Styles.Render("~/Pages_Resource/css/pagecss")
     <!-- google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
@@ -49,21 +49,21 @@
             </div>
         }
     }
-    <div>
-        @RenderBody()
-        @{
-            if (ViewBag.Title != "Home")
-            {
-                <footer>
-                    <div class="wthree_copy_right" id="wthree_copy_right">
-                        <div class="container">
-                            <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
-                        </div>
+<div>
+    @RenderBody()
+    @{
+        if (ViewBag.Title != "Home") {
+            <div class="push"></div>
+            <footer id="footer">
+                <div class="wthree_copy_right" id="wthree_copy_right">
+                    <div class="container">
+                        <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
                     </div>
-                </footer>
-            }
+                </div>
+            </footer>
         }
-    </div>
+    }
+</div>
 
     <!-- smooth scrolling-bottom-to-top -->
     <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
