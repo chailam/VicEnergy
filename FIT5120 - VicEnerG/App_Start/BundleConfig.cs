@@ -22,11 +22,10 @@ namespace FIT5120___VicEnerG
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"
+            bundles.Add(new StyleBundle("~/Style/css").Include(
+                      "~/Style/bootstrap.css"
                       ));
-
-            bundles.Add(new StyleBundle("~/Home_Resource/css").Include(
+            bundles.Add(new StyleBundle("~/Home_Resource/css/homecss").Include(
                       "~/Home_Resource/css/bootstrap.css",
                       "~/Home_Resource/css/style.css",
                       "~/Home_Resource/css/font-awesome.css",
@@ -34,8 +33,7 @@ namespace FIT5120___VicEnerG
                       "~/Home_Resource/css/smoothbox.css",
                       "~/Home_Resource/css/flexslider.css"
                       ));
-
-            bundles.Add(new ScriptBundle("~/Home_Resource/js").Include(
+            bundles.Add(new ScriptBundle("~/Home_Resource/js/homejs").Include(
                       "~/Home_Resource/js/jquery-2.1.4.min.js",
                       "~/Home_Resource/js/bootstrap.js",
                       "~/Home_Resource/js/responsiveslides.min.js",
@@ -51,7 +49,7 @@ namespace FIT5120___VicEnerG
                       "~/Home_Resource/js/pagejs.js"
                       ));
 
-            bundles.Add(new StyleBundle("~/Pages_Resource/css").Include(
+            bundles.Add(new StyleBundle("~/Pages_Resource/css/pagecss").Include(
                       "~/Pages_Resource/css/bootstrap.min.css",
                       "~/Pages_Resource/css/style.css",
                       "~/Pages_Resource/css/font-awesome.min.css",
@@ -60,7 +58,7 @@ namespace FIT5120___VicEnerG
                       "~/Pages_Resource/css/flexslider.css"
                       ));
 
-            bundles.Add(new ScriptBundle("~/Pages_Resource/js").Include(
+            bundles.Add(new ScriptBundle("~/Pages_Resource/js/pagejs").Include(
                       "~/Pages_Resource/js/bootstrap.min.js",
                       "~/Pages_Resource/js/easing.js",
                       "~/Pages_Resource/js/jquery-2.1.4.min.js",
@@ -73,9 +71,11 @@ namespace FIT5120___VicEnerG
                       "~/Pages_Resource/js/pagejs.js"
                       ));
 
-
             bundles.Add(new ScriptBundle("~/bundles/chartjs").Include(
               "~/Scripts/Chart.min.js"));
+
+            BundleTable.EnableOptimizations = true;
         }
+       
     }
 }

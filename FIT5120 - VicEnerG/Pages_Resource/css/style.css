@@ -1722,5 +1722,21 @@ div#blog {
 	color: #ffd800;
 }
 
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem; /* Footer height */
+}
+
+#content-wrap {
+	padding-bottom: 2.5rem; /* Footer height */
+}
+
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
 
 /*-- //responsive design --*/

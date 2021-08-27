@@ -103,19 +103,19 @@
 
 
                             <hr>
-                            <table>
+                            <table width="100%" style="table-layout: fixed">
                                 <tr>
                                     <th></th>
                                     @foreach (string Output in ViewBag.Month)
                                     {
-                                        <th>@Output</th>
+                                        <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                                     }
                                 </tr>
                                 <tr>
-                                    <td>Electricity Output(kWh)</td>
+                                    <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
                                     @foreach (double Output in Model.OutputList)
                                     {
-                                        <td>@Output</td>
+                                        <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                                     }
                                 </tr>
                             </table>
