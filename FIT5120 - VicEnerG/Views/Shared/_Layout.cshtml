@@ -14,8 +14,7 @@
 </head>
 <body>
     @{
-        if (ViewBag.Title != "Home")
-        {
+        if (ViewBag.Title != "Home") {
             <div class="w3l-banner">
                 <div class="wthree-dot">
                     <!-- nav -->
@@ -49,25 +48,27 @@
             </div>
         }
     }
-<div>
-    @RenderBody()
-    @{
-        if (ViewBag.Title != "Home") {
-            <div class="push"></div>
-            <footer id="footer">
-                <div class="wthree_copy_right" id="wthree_copy_right">
-                    <div class="container">
-                        <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
+<div id="page-container">
+    <div id="content-wrap">
+        @RenderBody()
+        @{
+            if (ViewBag.Title != "Home") {
+                <div class="push"></div>
+                <footer id="footer">
+                    <div class="wthree_copy_right" id="wthree_copy_right">
+                        <div class="container">
+                            <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            }
         }
-    }
+    </div>
 </div>
 
-    <!-- smooth scrolling-bottom-to-top -->
-    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        <!-- smooth scrolling-bottom-to-top -->
+        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
 </body>
 </html>

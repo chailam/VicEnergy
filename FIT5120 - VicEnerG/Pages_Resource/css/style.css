@@ -1728,5 +1728,14 @@ div#blog {
 	height: 2.5rem; /* Footer height */
 }
 
+#content-wrap {
+	padding-bottom: 2.5rem; /* Footer height */
+}
+
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
 
 /*-- //responsive design --*/
