@@ -1722,6 +1722,10 @@ div#blog {
 	color: #ffd800;
 }
 
+.ApplianceUsage button, select {
+	width: 100%;
+}
+
 #footer {
 	position: absolute;
 	bottom: 0;

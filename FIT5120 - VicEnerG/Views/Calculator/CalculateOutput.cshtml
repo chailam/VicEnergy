@@ -165,15 +165,15 @@
 
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
-    <script>
+<script>
     $(document).ready(function () {
 
         var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
         var bar_chart;
         var line_chart;
+        var check = @Model.Postcode;
 
         function pagelayout() {
-        var check = @Model.Postcode;
         if (check != 0) {
             document.getElementById("hidden-content").style.display = 'block';
             document.getElementById("wthree_copy_right").style.position = "relative";
@@ -289,13 +289,14 @@
 
      // Apply the function when the page load up
         pagelayout();
-        chartinitialize();
-        showBarChart();
-
+        if (check != 0) {
+            chartinitialize();
+            showBarChart();
+        }
         $('#ApplianceList').on('change', function () { showLineChart() });
     });
 
-    </script>
+</script>
 }
 
 
