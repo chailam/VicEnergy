@@ -252,6 +252,8 @@
     <Content Include="images\next.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\right-quote.png" />
+    <Content Include="images\solarexplain.png" />
+    <Content Include="images\solar_installation_statistic.png" />
     <Content Include="images\t1.jpg" />
     <Content Include="images\Z.jpg.1.jpg" />
     <Content Include="Models\VicEnerG_Model.Context.tt">
