@@ -29,7 +29,7 @@ namespace FIT5120___VicEnerG.Models
                 // Formular: E = A * r * H * PR * Number of panels
                 double EachOutput = area * efficiency * performanceRatio * Radiation * NumberPanels;
                 // Round each output to 2 decimals only
-                double RoundedOutput = Math.Round(EachOutput,2);
+                double RoundedOutput = Math.Round(EachOutput);
                 TotalOutput.Add(RoundedOutput);
             }
             return TotalOutput;
@@ -39,7 +39,7 @@ namespace FIT5120___VicEnerG.Models
         public double CalculateCO2(double AnnualOutput)
         {
             // The formular
-            double CO2 = AnnualOutput * 1.13;
+            double CO2 = Math.Round(AnnualOutput * 1.13);
             return CO2;
         }
 
