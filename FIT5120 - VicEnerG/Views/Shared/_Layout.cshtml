@@ -51,18 +51,14 @@
 <div id="page-container">
     <div id="content-wrap">
         @RenderBody()
-        @{
-            if (ViewBag.Title != "Home") {
-                <div class="push"></div>
-                <footer id="footer">
-                    <div class="wthree_copy_right" id="wthree_copy_right">
-                        <div class="container">
-                            <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
-                        </div>
+            <div class="push"></div>
+            <footer id="footer">
+                <div class="wthree_copy_right" id="wthree_copy_right">
+                    <div class="container">
+                        <p>Copyright &copy; 2021. Monash University Industry Experience TP11 <a href="https://www.vicenerg.team/">Vic EnerG</a></p>
                     </div>
-                </footer>
-            }
-        }
+                </div>
+            </footer>
     </div>
 </div>
 
