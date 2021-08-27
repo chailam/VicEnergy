@@ -185,6 +185,7 @@
     <Content Include="App_Data\VicEnerG_Database_log.ldf">
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="images\logo\logo_icon.jpg" />
     <Content Include="Style\bootstrap-theme.css" />
     <Content Include="Style\bootstrap-theme.min.css" />
     <Content Include="Style\bootstrap.css" />
