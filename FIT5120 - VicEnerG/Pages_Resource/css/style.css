@@ -1656,6 +1656,7 @@ div#blog {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	position: relative;
+	width:100%;
 }
 
 	.Calculator-Content h2 {
@@ -1742,5 +1743,10 @@ div#blog {
 	min-height: 100vh;
 }
 
+.CarbonDescription a {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+}
 
 /*-- //responsive design --*/

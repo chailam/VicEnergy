@@ -1,0 +1,47 @@
+﻿@model FIT5120___VicEnerG.ViewModels.CarbonViewModel
+
+@{
+    ViewBag.Title = "Calculate Carbon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container body-content">
+
+    <h2>CalculateCarbon</h2>
+
+    <!-- Information input form-->
+    <div class="col-md-6">
+        <div class="Calculator-Content Input">
+            <h3>Information Entry</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Calculate" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
