@@ -16,14 +16,21 @@ namespace FIT5120___VicEnerG.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Title = "Home";
             return View();
         }
 
-        public ActionResult Intro()
+        public ActionResult SolarInfo()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult SolarRebates() 
+        { 
+            return View();
+        }
+
+        public ActionResult CarbonInfo() 
+        {
             return View();
         }
 

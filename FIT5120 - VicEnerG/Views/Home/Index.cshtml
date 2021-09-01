@@ -1,122 +1,217 @@
-﻿<!-- online-fonts -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=source+sans+pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
-<!-- //online-fonts -->
-@section Scripts{
-    @Scripts.Render("~/Home_Resource/js/homejs")
-    @Styles.Render("~/Home_Resource/css/homecss")
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
+<!-- banner -->
+<div class="w3l-banner">
+    <div class="wthree-dot">
+        <div class="container">
+            <div class="flexslider-info">
+                <section class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="w3l-info">
+                                    <h3>
+                                        HERE: Fill in here to input the title of Solar General Information!!!
+                                    </h3>
+                                    <p>
 
 
+                                    </p>
+                                    <p>
+                                        HERE: Fill in here to input the description to attract user to our Solar General Information!!!
 
-<div class="Main-agile">
-    <!-- banner img css line:59-->
-    <div class="sub-agile">
-        <div class="col-md-4 agile1">
-            <!-- navigation section -->
-            <!-- <section>
-                        <p>
-                <button id="trigger-overlay" type="button">
-                    <img src="~/images/menu.png" class="img-responsive" alt="menu">
-
-                </button>
-            </p>
-                    </section> -->
-            <!-- open/close -->
-            <!--
-            <div class="overlay overlay-boxes">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
-                    <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z" />
-                    <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z" />
-                    <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z" />
-                    <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z" />
-                    <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
-                    <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
-                    <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
-                    <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z" />
-                    <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z" />
-                    <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z" />
-                    <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z" />
-                    <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z" />
-                    <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z" />
-                    <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z" />
-                    <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z" />
-                    <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z" />
-                    <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z" />
-                    <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z" />
-                    <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z" />
-                    <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z" />
-                    <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z" />
-                    <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z" />
-                    <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z" />
-                    <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z" />
-                    <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z" />
-                    <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z" />
-                    <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z" />
-                    <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z" />
-                </svg>
-                <button type="button" class="overlay-close">Close</button>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#about" class="scroll">About US</a></li>
-                        <li><a href="#team" class="scroll">Team</a></li>
-                        <li><a href="#gallery" class="scroll">Gallery</a></li>
-                        <li><a href="#contact" class="scroll">Contact Us</a></li>
-                    </ul>
-                </nav>
+                                    </p>
+                                    <ul>
+                                        <li><a href="~/Home/SolarInfo" class="w3ls_more" data-toggle="modal">Explore Solar Information</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3l-info">
+                                    <h3>Function to be developed</h3>
+                                    <p>
+                                        Coming soon in iteration 2
+                                    </p>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3l-info">
+                                    <h3>Function to be developed</h3>
+                                    <p>
+                                        Coming soon in iteration 3
+                                    </p>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
             </div>
-                        -->
-            <!-- /open/close -->
-            <!-- /navigation section -->
         </div>
-        <div class="col-md-4 logo">
-            <h1><a href="~/Home/Index">Vic EnerG</a></h1>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-    <!-- banner-text -->
-    <div class="slider">
-        <div class="callbacks_container">
-            <ul class="rslides callbacks callbacks1" id="slider4">
-                <li>
-                    <div class="w3layouts-banner-top banner">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h3>SAVING <span>ENERGY</span></h3>
-                                <p class="redline">SAVING THE PLANET</p>
-                                <h5><a href="~/Home/Intro" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3layouts-banner-top banner-2">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h3>Solar Energy <span>System</span></h3>
-                                <p> COMBAT CLIMATE CHANGE</p>
-                                <h5><a href="~/Home/Intro" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3layouts-banner-top banner-3">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h3>WATER  <span>RESOURCE</span></h3>
-                                <p class="redline">SUSTAINABLE EARTH</p>
-                                <h5><a href="~/Home/Intro" class="view rew3"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Learn More</a></h5>
-
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"> </div>
-        <!-- //banner-text -->
     </div>
 </div>
 
+<!-- Solar Information -->
+<div class="container">
+    <hr>
+    <h3 class="heading">Solar General Information</h3>
+    <!-- What is Solar -->
+    <div class="abouttop">
+        <div class="col-md-8">
+            <div class="abouttopleft">
+                <h3>What is Solar?</h3>
+                <h4>
+                    There are two main types of solar energy: solar thermal and solar photovoltaic. Solar thermal uses solar radiation to heat air or liquid, such as solar water heating. Solar photovoltaic, or called PV solar is made when you convert sunlight into electricity. Solar panels absorb light and use it in a way that creates electricity.
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="abouttopright">
+                <img src="~/images/g2.jpg" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- How does solar energy work? -->
+    <div class="aboutbottom">
+        <div class="col-md-6">
+            <div class="aboutbottomleft">
+                <img src="~/images/solarexplain.png" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="aboutbottomright">
+                <h3>How does solar energy work?</h3>
+                <h4>
+                    A solar panel is full of photovoltaic solar cells. When sunlight reaches each cell, it ‘excites’ electrons in the cells, causing them to move. Moving electrons equal the electrical energy. The energy moves out of the panels and into a solar inverter.
+                    <br /><br /><br /><br />
+                </h4>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <br />
+    <br />
+    <!-- The advantages of solar energy -->
+    <div class="abouttop">
+        <div class="col-md-8">
+            <div class="abouttopleft">
+                <h3>The advantages of solar energy</h3>
+                <h4>
+                    Solar energy is sustainable. Solar is a kind of renewable energy, which does not use finite resources, such as fossil fuels. The process of creating electricity in solar panels does not cause any pollution.
+                </h4>
+                <br />
+                <h4>
+                    Solar energy can reduce electricity bills. Many states require utilities to offer net metering, which allows homeowners to offset their electric costs with the energy their solar panels produce.
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="abouttopright">
+                <img src="~/images/g8.jpg" style="max-height:280px; height:280px" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- Link to Solar Calculator -->
+    <div class="abouttop">
+        <div>
+            <div class="abouttopleft">
+                <h3>Postcode Solar Output Calculation</h3>
+                <h4>
+                    After knowing all the benefits, its attracting to install solar panels for your house. However, you might not know how to calculate the solar energy output in your suburb?
+                </h4>
+                <br />
+                <h4>
+                    No worries! We can help you! Proceed to our calculator page to know more about solar output, including the energy produced in your suburb, the carbon footprint of the energy produce as well as how you can utlize the energy in your house appliances!
+                </h4>
+                <br />
+                <br />
+                <a class="btn btn-primary btn-lg btn-block" href="~/Calculator/CalculateOutput" role="button">Try Our Calculator Now</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Solar Graph in Victoria -->
+<div class="container">
+    <hr>
+    <h3 class="heading">Solar energy in Victoria</h3>
+    <div class="abouttop">
+        <div>
+            <div class="abouttopleft">
+                <h3>Overview</h3>
+                <h4>
+                    The average Victorian home has real solar generator potential - plenty of sunlight, with plenty of room to install solar panels. In 2020 alone, Victorian rooftops added 3 GW of rooftop solar capacity across almost 380,000 installations, which was a bigger increase than any other year.
+                </h4>
+            </div>
+            <br />
+            <div class="abouttopleft">
+                <h3>Solar Installation in Victoria</h3>
+                <center><img src="~/images/solar_installation_statistic.png" style="max-width:600px; width:100%" /></center>
+                <h4>
+                    The figure above shows the monthly solar panel installations in Victoria in 2020. From January to June, the number of installations is about 6000. Since July, the number of solar panels installed has suddenly dropped to about 3,000. In October, the number of solar panels installed reached its peak, exceeding 9,000. From November to December, the number of solar panels installed slightly decreased.
+                </h4>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Rebates Information -->
+<div class="container">
+    <hr>
+    <h3 class="heading">Solar Rebates Policy</h3>
+    <div class="abouttop">
+        <div class="abouttopleft">
+            <table style="width:100%">
+                <tr>
+                    <td style="border:none"><h3>Cannot afford a solar system in Victoria?</h3></td>
+                    <td style="border:none"><img src="~/Pages_Resource/images/solar-rebate.jpg" /></td>
+                </tr>
+            </table>
+            <br />
+            <h5>The Victorian Government has released the Solar Home Programs to help Victorians to apply for solar systems. The program has introduced several rebates for installing solar systems.</h5>
+            <br />
+            <p>
+                <ul style="padding-left: 40px">
+                    <li>If you are thinking about installing solar panels on your property, the Solar Home Program can offer you up to $1400 rebates if you meet the criteria.</li>
+                    <li>If the rebate is not sufficient for installing your solar system, the Solar Home Program has also provided an option of an interest-free loan.</li>
+                </ul>
+            </p>
+            <br />
+            <a href="https://www.solar.vic.gov.au/solar-panel-rebate" target="_blank" class="btn btn-primary">Find Out More</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<!-- bootstrap-modal-pop-up -->
+<!--<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Vic EnerG
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <img src="~/images/accessgrid.png" alt=" " class="img-responsive" />
+                <p>
+                    Continuous daily time series of data at point locations across Australia.
+                    <i>
+                        " Quis autem vel eum iure reprehenderit qui in ea voluptate velit
+                        esse quam nihil molestiae consequatur.
+                    </i>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- //bootstrap-modal-pop-up -->
