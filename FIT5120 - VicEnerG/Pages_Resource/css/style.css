@@ -81,6 +81,10 @@ body.page-body .navbar-default #navigation li ul button {
 	/*transition: background-color 200ms linear;*/
 }
 
+body.page-body .navbar-fixed-top.scrolled {
+	border-bottom: 1px solid black !important;
+}
+
 body.page-body .navbar-fixed-top.scrolled .dropdown-content {
 	background-color: white;
 }
@@ -149,7 +153,7 @@ body.page-body .navbar-fixed-top #navigation li ul button:hover {
 }
 .navbar-nav {
     margin-left: 260px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #ff6b61;
@@ -1882,7 +1886,7 @@ div#blog {
 .navbar-fixed-top.scrolled {
 	background-color: white !important;
 	transition: background-color 200ms linear;
-	border-bottom: 2px solid black;
+	border-bottom: 1px solid black !important;
 }
 
 .navbar-fixed-top.scrolled #navigation li a {
