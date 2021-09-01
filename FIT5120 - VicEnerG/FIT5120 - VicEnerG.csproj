@@ -187,11 +187,18 @@
     </Content>
     <Content Include="images\logo\logo_icon.jpg" />
     <Content Include="images\white_teamlogo_dark_background.jpg" />
+    <Content Include="Style\bootstrap-theme.css" />
+    <Content Include="Style\bootstrap-theme.min.css" />
+    <Content Include="Style\bootstrap.css" />
+    <Content Include="Style\bootstrap.min.css" />
+    <Content Include="Style\Chart.css" />
+    <Content Include="Style\Chart.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\fontello.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Style\Site.css" />
     <Content Include="images\123.jpg" />
     <Content Include="images\456.jpg" />
     <Content Include="images\a1.png" />
@@ -340,6 +347,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Style\bootstrap.min.css.map" />
+    <Content Include="Style\bootstrap.css.map" />
+    <Content Include="Style\bootstrap-theme.min.css.map" />
+    <Content Include="Style\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
