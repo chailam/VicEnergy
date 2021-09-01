@@ -1665,6 +1665,8 @@ div#blog {
 	}
 }
 
+/*-- //responsive design --*/
+
 #hidden_div {
 	display: none;
 }
@@ -1764,5 +1766,28 @@ div#blog {
 	min-height: 100vh;
 }
 
+/*-- //Start user scrolling --*/
 
-/*-- //responsive design --*/
+.navbar-fixed-top.scrolled {
+	background-color: white !important;
+	transition: background-color 200ms linear;
+}
+
+
+.navbar-fixed-top.scrolled #navigation li a {
+	color: black !important;
+}
+
+.navbar-fixed-top.scrolled .navbar-left #project-logo{
+	display: none;
+}
+
+/*--
+#bs-example-navbar-collapse-1 > li.scrolled {
+	display: none !important;
+}
+
+
+/*-- //End user scrolling --*/
+
+
