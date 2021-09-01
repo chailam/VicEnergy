@@ -106,7 +106,7 @@ a:focus, a:hover {
 }
 .navbar-nav {
     margin-left: 260px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #ff6b61;
