@@ -1,17 +1,21 @@
-body {
+/*-- body for home --*/
+body.home-body {
 	padding: 0;
 	margin: 0;
 	background: #FFF;
 	font-family: 'Open Sans', sans-serif;
 }
-body a {
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-	text-decoration: none;
+
+/*-- body for pages --*/
+body.page-body {
+	padding: 0;
+	margin: 0;
+	background: #FFF;
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 100px;
 }
+
+
 body a:hover {
 	text-decoration: none;
 }
@@ -50,13 +54,52 @@ a:focus, a:hover {
 /*-- //Reset-Code --*/
 .tlinks{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
 
-/*-- nav --*/
-.navbar-default {
-    background: none;
-    border: none;
+/*-- nav for home --*/
+body.home-body .navbar-default {
+	background: none;
+	border: none;
 }
+
+/*-- nav for sub page --*/
+body.page-body .navbar-default {
+	background: white;
+	border: none;
+}
+
+body.page-body .navbar-default #navigation li a {
+	color: black !important;
+	/*transition: background-color 200ms linear;*/ 
+}
+
+body.page-body .navbar-default #navigation li a:hover {
+	color: #ff6b61 !important;
+	/*transition: background-color 200ms linear;*/
+}
+
+body.page-body .navbar-default #navigation li ul button {
+	color: black !important;
+	/*transition: background-color 200ms linear;*/
+}
+
+body.page-body .navbar-fixed-top.scrolled .dropdown-content {
+	background-color: white;
+}
+
+body.page-body .navbar-fixed-top .dropdown-content {
+	background-color: white;
+}
+
+body.page-body .navbar-fixed-top.scrolled #navigation li ul button:hover {
+	color: #ff6b61 !important;
+}
+
+body.page-body .navbar-fixed-top #navigation li ul button:hover {
+	color: #ff6b61 !important;
+}
+
+
 .navbar {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 .navbar-brand {
     font-size: 35px;
@@ -1791,17 +1834,6 @@ div#blog {
 	margin: 0;
 }
 
-/* Style the dropdown content (hidden by default) 
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-}
-*/
-
 /* Style the dropdown content (hidden by default) */
 .dropdown-content {
 	display: none;
@@ -1824,6 +1856,7 @@ div#blog {
 	font-size: 15px;
 }
 
+
 /* Add a dark background on topnav links and the dropdown button on hover */
 .dropdown:hover .dropbtn {
 	color: #ff6b61;
@@ -1835,41 +1868,46 @@ div#blog {
 	color: #ff6b61;
 }
 
+
 /* Show the dropdown menu when the user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
 	display: block;
 	position: fixed;
 }
 
-
-
-
 /*-- //End Drop down navigation bar --*/
 
 
 /*-- //Start user scrolling --*/
-/*--
 .navbar-fixed-top.scrolled {
 	background-color: white !important;
 	transition: background-color 200ms linear;
 	border-bottom: 2px solid black;
 }
 
-
 .navbar-fixed-top.scrolled #navigation li a {
 	color: black !important;
 }
 
-/*--
-.navbar-fixed-top.scrolled .navbar-left #project-logo{
-	display: none;
+.navbar-fixed-top.scrolled #navigation li ul button {
+	color: black !important;
 }
 
-/*--
-#bs-example-navbar-collapse-1 > li.scrolled {
-	display: none !important;
+
+.navbar-fixed-top.scrolled #navigation li a:hover {
+	color: #ff6b61 !important;
+}
+
+.navbar-fixed-top.scrolled #navigation li ul button:hover {
+	color: #ff6b61 !important;
+}
+
+
+.navbar-fixed-top.scrolled .dropdown-content {
+	background-color: white;
 }
 
 /*-- //End user scrolling --*/
+
 
 
