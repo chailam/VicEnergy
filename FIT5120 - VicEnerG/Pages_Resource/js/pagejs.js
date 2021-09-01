@@ -64,10 +64,12 @@ jQuery(document).ready(function ($) {
     });
 });
 
+
+/* Function to run the sticky navigation bar */
 $(function () {
     $(document).scroll(function () {
         var $nav = $(".navbar-fixed-top");
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
-});
+}); 
 
