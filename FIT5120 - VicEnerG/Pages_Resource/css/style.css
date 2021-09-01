@@ -1268,12 +1268,19 @@ div#blog {
 	}
 }
 @media (max-width:1280px) {
+	.navbar-nav {
+		margin-left: 5em;
+		margin-bottom: 20px;
+	}
+
+	div.navbar-left {
+		width: 17%;
+	}
+
 	.flexslider-info {
 		margin: 12em 0em;
 	}
-	.navbar-nav {
-		margin-left: 5em;
-	}
+
 	.second-effect .mask h6 {
 		padding: 2em 0 0em;
 	}
@@ -1281,6 +1288,7 @@ div#blog {
 @media (max-width:1080px) {
 	.navbar-nav {
 		margin-left: 2em;
+		margin-bottom: 20px;
 	}
 	.w3l-info h2, .w3l-info h3 {
 		letter-spacing: .3em;
@@ -1320,6 +1328,10 @@ div#blog {
 	}
 	.w3-agile-post-img a {
 		min-height: 240px;
+	}
+
+	div.navbar-left {
+		display:none;
 	}
 }
 @media (max-width:1050px) {
@@ -1436,6 +1448,16 @@ div#blog {
 	.bottomleft h3 {
 		line-height: 34px;
 	}
+
+	div.navbar-left {
+		display: inline;
+	}
+
+	img#project-logo {
+		display:none; 
+	}
+
+
 }
 @media (max-width:736px) {
 	.navbar-default .navbar-toggle .icon-bar {
