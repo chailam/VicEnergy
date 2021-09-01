@@ -66,40 +66,49 @@ body.page-body .navbar-default {
 	border: none;
 }
 
-body.page-body .navbar-default #navigation li a {
-	color: black !important;
-	/*transition: background-color 200ms linear;*/ 
-}
-
-body.page-body .navbar-default #navigation li a:hover {
-	color: #ff6b61 !important;
-	/*transition: background-color 200ms linear;*/
-}
-
-body.page-body .navbar-default #navigation li ul button {
-	color: black !important;
-	/*transition: background-color 200ms linear;*/
-}
-
 body.page-body .navbar-fixed-top.scrolled {
 	border-bottom: 1px solid black !important;
 }
 
-body.page-body .navbar-fixed-top.scrolled .dropdown-content {
-	background-color: white;
+
+body.page-body .navbar-default #navigation li a {
+	color: white !important;
+	/*transition: background-color 200ms linear;*/ 
 }
 
-body.page-body .navbar-fixed-top .dropdown-content {
-	background-color: white;
+body.page-body .navbar-fixed-top.scrolled #navigation li a {
+	color: black !important;
+	/*transition: background-color 200ms linear;*/
+}
+
+body.page-body .navbar-default #navigation li a:hover {
+	color: #ff6b61 !important;
+}
+
+body.page-body .navbar-default #navigation li ul button {
+	color: white !important;
+}
+
+body.page-body .navbar-fixed-top.scrolled #navigation li ul button {
+	color: black !important;
+}
+
+body.page-body .navbar-fixed-top #navigation li ul button:hover {
+	color: #ff6b61 !important;
 }
 
 body.page-body .navbar-fixed-top.scrolled #navigation li ul button:hover {
 	color: #ff6b61 !important;
 }
 
-body.page-body .navbar-fixed-top #navigation li ul button:hover {
-	color: #ff6b61 !important;
+body.page-body .navbar-fixed-top .dropdown-content {
+	background-color: #6D8293;
 }
+
+body.page-body .navbar-fixed-top.scrolled .dropdown-content {
+	background-color: white;
+}
+
 
 
 .navbar {
@@ -1387,6 +1396,7 @@ div#blog {
 	}
 }
 @media (max-width:1024px) {
+
 	.flexslider-info {
 		margin: 10em 0em;
 	}
