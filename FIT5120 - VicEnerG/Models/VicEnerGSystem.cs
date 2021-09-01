@@ -15,6 +15,7 @@ namespace FIT5120___VicEnerG.Models
         // Setup an Api client to call the api
         public static HttpClient ApiClient { get; set; }
 
+        // This method will return the coordinator of a given postcode
         public async Task<List<double>> GetGeocode(int postcode)
         {
             // This apikey is for authentication for using Mapbox api

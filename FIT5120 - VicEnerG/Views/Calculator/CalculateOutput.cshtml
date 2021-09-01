@@ -133,32 +133,42 @@
                             <h3>Carbon Dioxide Emissions</h3>
                             <h4>The Carbon Dioxide equivalent Emissions</h4>
                             <div class="result">
-                                @Model.CO2 kg/kWh
+                                @Model.CO2 <p>metric tons CO2/kWh</p>
                             </div>
                             <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
                             <p2>1kWh = 1.13kg CO2-e/kWh</p2>
-                        </div>
+                            <div class="row">
+                            <div class="col-md-offset-5 col-md-8">
+                                @using (Html.BeginForm("CalculateCarbon", "Carbon"))
+                                {
+                                    <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
+                                    <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
+                                    <input type="submit" class="btn btn-primary" value="Find out more" />
+                                }
+                            </div>
+                                </div>
+                            </div>
 
 
 
-                        <div class="Calculator-Content ApplianceUsage" id="ApplianceUsage">
-                            <h3>Appliance Extra hours usage</h3>
-                            <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
-                            @Html.DropDownList("ApplianceList",
-                             new SelectList(Model.Extrahours.Keys.ToList()),
-                             "Choose Appliance")
+                            <div class="Calculator-Content ApplianceUsage" id="ApplianceUsage">
+                                <h3>Appliance Extra hours usage</h3>
+                                <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
+                                @Html.DropDownList("ApplianceList",
+                                 new SelectList(Model.Extrahours.Keys.ToList()),
+                                 "Choose Appliance")
 
-                            <div id="hidden_div">
-                                <div class="Calculator-Content ApplianceChart">
-                                    <div class="panel-body">
-                                        <canvas id="line_chart" height="200"></canvas>
+                                <div id="hidden_div">
+                                    <div class="Calculator-Content ApplianceChart">
+                                        <div class="panel-body">
+                                            <canvas id="line_chart" height="200"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            }
+                            }
                         </div>
-                    }
-                }
-            </div>
         </div>
     </div>
 </div>

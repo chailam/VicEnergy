@@ -18,13 +18,13 @@ namespace FIT5120___VicEnerG.ViewModels
     
     public IList<double> OutputList { get; set; }
 
-        [Range(3000, 3999, ErrorMessage = "Victoria postcode is in between 3000-3999")]
-        [Required(ErrorMessage = "Postcode is required")]
-        public int Postcode { get; set; }
+    [Range(3000, 3999, ErrorMessage = "Victoria postcode is in between 3000-3999")]
+    [Required(ErrorMessage = "Postcode is required")]
+    public int Postcode { get; set; }
 
-        [Required(ErrorMessage = "Number of panels is required")]
-        [Range(1, 10, ErrorMessage = "The maximums estimation is 10 solar panels")]
-        public int NumberPanels { get; set; }
+    [Required(ErrorMessage = "Number of panels is required")]
+    [Range(1, 10, ErrorMessage = "The maximums estimation is 10 solar panels")]
+    public int NumberPanels { get; set; }
 
     public double AnnualOutput { get; set; }
     public double CO2 { get; set; }

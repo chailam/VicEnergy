@@ -18,7 +18,6 @@ namespace FIT5120___VicEnerG.Controllers
         [HttpGet]
         public ActionResult CalculateOutput()
         {
-            ViewBag.Title = "Calculate Solar";
             var Model = new CalculatorViewModel();
             return View(Model);
         }
