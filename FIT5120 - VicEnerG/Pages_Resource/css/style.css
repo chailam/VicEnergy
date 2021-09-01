@@ -106,7 +106,7 @@ a:focus, a:hover {
 }
 .navbar-nav {
     margin-left: 260px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #ff6b61;
@@ -1226,7 +1226,7 @@ div#blog {
 
 @media (max-width:1920px) {
 	.navbar-nav {
-		margin-left: 29em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 4.5em 0 0em;
@@ -1234,7 +1234,7 @@ div#blog {
 }
 @media (max-width:1680px) {
 	.navbar-nav {
-		margin-left: 24em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 4em 0 0em;
@@ -1242,7 +1242,7 @@ div#blog {
 }
 @media (max-width:1600px) {
 	.navbar-nav {
-		margin-left: 20em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 3.5em 0 0em;
@@ -1250,7 +1250,7 @@ div#blog {
 }
 @media (max-width:1440px) {
 	.navbar-nav {
-		margin-left: 14em;
+		margin-left: 5em;
 	}
 	.flexslider-info {
 		margin: 15em 0em;
@@ -1268,19 +1268,27 @@ div#blog {
 	}
 }
 @media (max-width:1280px) {
+	.navbar-nav {
+		margin-left: 5em;
+		margin-bottom: 20px;
+	}
+
+	div.navbar-left {
+		width: 17%;
+	}
+
 	.flexslider-info {
 		margin: 12em 0em;
 	}
-	.navbar-nav {
-		margin-left: 9em;
-	}
+
 	.second-effect .mask h6 {
 		padding: 2em 0 0em;
 	}
 }
 @media (max-width:1080px) {
 	.navbar-nav {
-		margin-left: 3em;
+		margin-left: 2em;
+		margin-bottom: 20px;
 	}
 	.w3l-info h2, .w3l-info h3 {
 		letter-spacing: .3em;
@@ -1320,6 +1328,10 @@ div#blog {
 	}
 	.w3-agile-post-img a {
 		min-height: 240px;
+	}
+
+	div.navbar-left {
+		display:none;
 	}
 }
 @media (max-width:1050px) {
@@ -1390,7 +1402,7 @@ div#blog {
 }
 @media (max-width: 900px) {
 	.navbar-nav {
-		margin-left: 12em;
+		margin-left: 1em;
 	}
 	ul.top-links.social {
 		position: absolute;
@@ -1411,7 +1423,7 @@ div#blog {
 }
 @media (max-width:800px) {
 	.navbar-nav {
-		margin-left: 11em;
+		margin-left: 1em;
 	}
 	.w3l-info h2, .w3l-info h3 {
 		font-size: 2.6em;
@@ -1428,7 +1440,7 @@ div#blog {
 }
 @media (max-width:768px) {
 	.navbar-nav {
-		margin-left: 9em;
+		margin-left: 1em;
 	}
 	.second-effect .mask h6 {
 		padding: 4em 0 0em;
@@ -1436,6 +1448,16 @@ div#blog {
 	.bottomleft h3 {
 		line-height: 34px;
 	}
+
+	div.navbar-left {
+		display: inline;
+	}
+
+	img#project-logo {
+		display:none; 
+	}
+
+
 }
 @media (max-width:736px) {
 	.navbar-default .navbar-toggle .icon-bar {
@@ -1454,7 +1476,7 @@ div#blog {
 		text-align: center;
 	}
 	.navbar-nav {
-		margin-left: 0px;
+		margin-left: 1px;
 	}
 	div#bs-example-navbar-collapse-1 {
 		position: absolute;
@@ -1643,6 +1665,8 @@ div#blog {
 	}
 }
 
+/*-- //responsive design --*/
+
 #hidden_div {
 	display: none;
 }
@@ -1743,10 +1767,28 @@ div#blog {
 	min-height: 100vh;
 }
 
-.CarbonDescription a {
-	position: absolute;
-	right: 10px;
-	bottom: 5px;
+/*-- //Start user scrolling --*/
+
+.navbar-fixed-top.scrolled {
+	background-color: white !important;
+	transition: background-color 200ms linear;
 }
 
-/*-- //responsive design --*/
+
+.navbar-fixed-top.scrolled #navigation li a {
+	color: black !important;
+}
+
+.navbar-fixed-top.scrolled .navbar-left #project-logo{
+	display: none;
+}
+
+/*--
+#bs-example-navbar-collapse-1 > li.scrolled {
+	display: none !important;
+}
+
+
+/*-- //End user scrolling --*/
+
+
