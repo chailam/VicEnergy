@@ -1226,7 +1226,7 @@ div#blog {
 
 @media (max-width:1920px) {
 	.navbar-nav {
-		margin-left: 29em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 4.5em 0 0em;
@@ -1234,7 +1234,7 @@ div#blog {
 }
 @media (max-width:1680px) {
 	.navbar-nav {
-		margin-left: 24em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 4em 0 0em;
@@ -1242,7 +1242,7 @@ div#blog {
 }
 @media (max-width:1600px) {
 	.navbar-nav {
-		margin-left: 20em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 3.5em 0 0em;
@@ -1250,7 +1250,7 @@ div#blog {
 }
 @media (max-width:1440px) {
 	.navbar-nav {
-		margin-left: 14em;
+		margin-left: 5em;
 	}
 	.flexslider-info {
 		margin: 15em 0em;
@@ -1272,7 +1272,7 @@ div#blog {
 		margin: 12em 0em;
 	}
 	.navbar-nav {
-		margin-left: 9em;
+		margin-left: 5em;
 	}
 	.second-effect .mask h6 {
 		padding: 2em 0 0em;
@@ -1280,7 +1280,7 @@ div#blog {
 }
 @media (max-width:1080px) {
 	.navbar-nav {
-		margin-left: 3em;
+		margin-left: 2em;
 	}
 	.w3l-info h2, .w3l-info h3 {
 		letter-spacing: .3em;
@@ -1390,7 +1390,7 @@ div#blog {
 }
 @media (max-width: 900px) {
 	.navbar-nav {
-		margin-left: 12em;
+		margin-left: 1em;
 	}
 	ul.top-links.social {
 		position: absolute;
@@ -1411,7 +1411,7 @@ div#blog {
 }
 @media (max-width:800px) {
 	.navbar-nav {
-		margin-left: 11em;
+		margin-left: 1em;
 	}
 	.w3l-info h2, .w3l-info h3 {
 		font-size: 2.6em;
@@ -1428,7 +1428,7 @@ div#blog {
 }
 @media (max-width:768px) {
 	.navbar-nav {
-		margin-left: 9em;
+		margin-left: 1em;
 	}
 	.second-effect .mask h6 {
 		padding: 4em 0 0em;
@@ -1454,7 +1454,7 @@ div#blog {
 		text-align: center;
 	}
 	.navbar-nav {
-		margin-left: 0px;
+		margin-left: 1px;
 	}
 	div#bs-example-navbar-collapse-1 {
 		position: absolute;
