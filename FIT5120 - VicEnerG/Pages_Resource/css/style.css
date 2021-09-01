@@ -12,7 +12,7 @@ body.page-body {
 	margin: 0;
 	background: #FFF;
 	font-family: 'Open Sans', sans-serif;
-	padding-top: 100px;
+	padding-top: 60px;
 }
 
 
@@ -62,7 +62,7 @@ body.home-body .navbar-default {
 
 /*-- nav for sub page --*/
 body.page-body .navbar-default {
-	background: white;
+	background: #6D8293;
 	border: none;
 }
 
