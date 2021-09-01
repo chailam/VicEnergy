@@ -349,6 +349,7 @@
     <Content Include="Pages_Resource\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\FiveS-VicEnerG - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testiebeforerelease - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\vicenergVM.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
