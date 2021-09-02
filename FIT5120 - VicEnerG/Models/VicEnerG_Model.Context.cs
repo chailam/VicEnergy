@@ -28,5 +28,6 @@ namespace FIT5120___VicEnerG.Models
         public virtual DbSet<Station> StationSet { get; set; }
         public virtual DbSet<StationData> StationDataSet { get; set; }
         public virtual DbSet<Appliance> ApplianceSet { get; set; }
+        public virtual DbSet<PostcodeData> PostcodeDatas { get; set; }
     }
 }

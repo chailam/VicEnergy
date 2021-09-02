@@ -13,13 +13,6 @@
           <Property Name="applianceName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="usage" Type="float" Nullable="false" />
         </EntityType>
-        <EntityType Name="PostcodeDataSet">
-          <Key>
-            <PropertyRef Name="postcode" />
-          </Key>
-          <Property Name="postcode" Type="int" Nullable="false" />
-          <Property Name="solarOutput" Type="float" Nullable="false" />
-        </EntityType>
         <EntityType Name="StationDataSet">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,7 +45,6 @@
         </Association>
         <EntityContainer Name="VicEnerG_ModelStoreContainer">
           <EntitySet Name="ApplianceSet" EntityType="Self.ApplianceSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PostcodeDataSet" EntityType="Self.PostcodeDataSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StationDataSet" EntityType="Self.StationDataSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StationSet" EntityType="Self.StationSet" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_StationStationData" Association="Self.FK_StationStationData">
@@ -72,7 +64,7 @@
             <End Role="Station" EntitySet="StationSet" />
             <End Role="StationData" EntitySet="StationDataSet" />
           </AssociationSet>
-          <EntitySet Name="PostcodeDataSets" EntityType="VicEnerG_Model.PostcodeDataSet" />
+          <EntitySet Name="PostcodeDatas" EntityType="VicEnerG_Model.PostcodeData" />
         </EntityContainer>
         <EntityType Name="Station">
           <Key>
@@ -105,11 +97,11 @@
           <End Type="VicEnerG_Model.Station" Role="Station" Multiplicity="1" />
           <End Type="VicEnerG_Model.StationData" Role="StationData" Multiplicity="*" />
         </Association>
-        <EntityType Name="PostcodeDataSet">
+        <EntityType Name="PostcodeData">
           <Key>
             <PropertyRef Name="postcode" />
           </Key>
-          <Property Name="postcode" Type="Int32" Nullable="false" />
+          <Property Name="postcode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="solarOutput" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
@@ -154,14 +146,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-          <EntitySetMapping Name="PostcodeDataSets">
-            <EntityTypeMapping TypeName="VicEnerG_Model.PostcodeDataSet">
-              <MappingFragment StoreEntitySet="PostcodeDataSet">
-                <ScalarProperty Name="solarOutput" ColumnName="solarOutput" />
-                <ScalarProperty Name="postcode" ColumnName="postcode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
