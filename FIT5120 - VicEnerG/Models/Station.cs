@@ -11,7 +11,7 @@ namespace FIT5120___VicEnerG.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Station
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +27,5 @@ namespace FIT5120___VicEnerG.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StationData> StationData { get; set; }
-
     }
 }

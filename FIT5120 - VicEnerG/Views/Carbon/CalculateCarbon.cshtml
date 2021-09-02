@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container body-content">
-
-    <h2>CalculateCarbon</h2>
+    <div class="Calculator-Content">
+        <h2>Calculate Carbon</h2>
+    </div>
 
     <!-- Information input form-->
-    <div class="col-md-6">
+    <div class="row">
         <div class="Calculator-Content Input">
             <h3>Information Entry</h3>
             @using (Html.BeginForm())
@@ -41,6 +42,17 @@
                     </div>
                 </div>
             }
+        </div>
+        <div class="Calculator-Content CarbonDescription" id="CarbonInformation">
+            <h3>Carbon Dioxide Emissions</h3>
+            <h4>The approxiamted Carbon Dioxide that will be saved in a year are:</h4>
+            <div class="result">
+                @Model.CO2 <p>metric tons CO2/kWh</p>
+            </div>
+            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+            <p2>1kWh = 1.13kg CO2-e/kWh</p2>
+            <div class="row">
+            </div>
         </div>
     </div>
 </div>

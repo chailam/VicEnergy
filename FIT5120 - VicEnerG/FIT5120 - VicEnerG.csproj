@@ -156,7 +156,6 @@
       <DependentUpon>VicEnerG_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Calculator.cs" />
-    <Compile Include="Models\Carbon.cs" />
     <Compile Include="Models\Station.cs">
       <DependentUpon>VicEnerG_Model.tt</DependentUpon>
     </Compile>
