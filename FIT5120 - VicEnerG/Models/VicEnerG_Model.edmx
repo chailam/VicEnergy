@@ -4,55 +4,63 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VicEnerG_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ApplianceSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="applianceName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="usage" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="StationDataSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="monthRadiation" Type="float" Nullable="false" />
-          <Property Name="month" Type="smallint" Nullable="false" />
-          <Property Name="Station_stationNumber" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="StationSet">
-          <Key>
-            <PropertyRef Name="stationNumber" />
-          </Key>
-          <Property Name="stationNumber" Type="int" Nullable="false" />
-          <Property Name="stationName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="stationLat" Type="float" Nullable="false" />
-          <Property Name="stationLon" Type="float" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_StationStationData">
-          <End Role="StationSet" Type="Self.StationSet" Multiplicity="1" />
-          <End Role="StationDataSet" Type="Self.StationDataSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StationSet">
-              <PropertyRef Name="stationNumber" />
-            </Principal>
-            <Dependent Role="StationDataSet">
-              <PropertyRef Name="Station_stationNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="VicEnerG_ModelStoreContainer">
-          <EntitySet Name="ApplianceSet" EntityType="Self.ApplianceSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StationDataSet" EntityType="Self.StationDataSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StationSet" EntityType="Self.StationSet" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_StationStationData" Association="Self.FK_StationStationData">
-            <End Role="StationSet" EntitySet="StationSet" />
-            <End Role="StationDataSet" EntitySet="StationDataSet" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="VicEnerG_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="VicEnerG_ModelStoreContainer">
+    <EntitySet Name="StationSet" EntityType="VicEnerG_Model.Store.StationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StationDataSet" EntityType="VicEnerG_Model.Store.StationDataSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplianceSet" EntityType="VicEnerG_Model.Store.ApplianceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostcodeDatas" EntityType="VicEnerG_Model.Store.PostcodeDatas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StationStationData" Association="VicEnerG_Model.Store.StationStationData">
+      <End Role="Station" EntitySet="StationSet" />
+      <End Role="StationData" EntitySet="StationDataSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StationSet">
+    <Key>
+      <PropertyRef Name="stationNumber" />
+    </Key>
+    <Property Name="stationNumber" Type="int" Nullable="false" />
+    <Property Name="stationName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="stationLat" Type="float" Nullable="false" />
+    <Property Name="stationLon" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationDataSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="monthRadiation" Type="float" Nullable="false" />
+    <Property Name="month" Type="smallint" Nullable="false" />
+    <Property Name="Station_stationNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplianceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="applianceName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="usage" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostcodeDatas">
+    <Key>
+      <PropertyRef Name="postcode" />
+    </Key>
+    <Property Name="postcode" Type="int" Nullable="false" />
+    <Property Name="solarOutput" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="StationStationData">
+    <End Role="Station" Type="VicEnerG_Model.Store.StationSet" Multiplicity="1" />
+    <End Role="StationData" Type="VicEnerG_Model.Store.StationDataSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="stationNumber" />
+      </Principal>
+      <Dependent Role="StationData">
+        <PropertyRef Name="Station_stationNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="VicEnerG_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -101,7 +109,7 @@
           <Key>
             <PropertyRef Name="postcode" />
           </Key>
-          <Property Name="postcode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postcode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="solarOutput" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
@@ -135,6 +143,14 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="applianceName" ColumnName="applianceName" />
           <ScalarProperty Name="usage" ColumnName="usage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostcodeDatas">
+      <EntityTypeMapping TypeName="IsTypeOf(VicEnerG_Model.PostcodeData)">
+        <MappingFragment StoreEntitySet="PostcodeDatas">
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="solarOutput" ColumnName="solarOutput" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
