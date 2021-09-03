@@ -1,0 +1,306 @@
+﻿@model FIT5120___VicEnerG.ViewModels.CalculatorViewModel
+@{
+    ViewBag.Title = "CalculateOutput";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!-- Calculator feature page display starts here! -->
+<div class="container body-content">
+    <div class="Calculator-Content">
+        <h2>Solar Output Calculator</h2>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="Calculator-Content TOC">
+                <h4>Calculator Information</h4>
+                <a href="#DataInput"><ol>Information Entry</ol></a>
+                <div id="hidden-content">
+                    <a href="#OutputResult"><ol>Electricity Output</ol></a>
+                    <a href="#CarbonInformation"><ol>Carbon Dioxide Emission</ol></a>
+                    <a href="#ApplianceUsage"><ol>Appliances extra usages</ol></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="Calculator-Content Content">
+                <!-- Annotation & input form-->
+                <div class="row" id="DataInput">
+                    <!-- Annotation section-->
+                    <div class="col-md-6">
+                        <div class="Calculator-Content Annotation">
+                            <p>
+                                By putting the postcode and estimated number of solar panels,
+                                our system can calculate the estimated solar output for 12 months of
+                                given postcode and number of panels
+                            </p>
+                            <p>There are few limitation in our calculator:</p>
+                            <ol>
+                                <li><p>Maximum 10 solar panels can be used in the estimation</p></li>
+                                <li><p>The system only accept postcodes in Victoria (3000-3999)</p></li>
+                                <li><p>The estimated output is not consider about shading and angles of the panel</p></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Information input form-->
+                    <div class="col-md-6">
+                        <div class="Calculator-Content Input">
+                            <h3>Information Entry</h3>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-8">
+                                            <input type="submit" class="btn btn-primary" value="Calculate" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                @{
+                    if (Model.Station != null)
+                    {
+                        <div class="Calculator-Content OutputDescription" id="OutputResult">
+                            <h3>Electricity Output</h3>
+                            <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
+                            <div class="result">
+                                @Model.AnnualOutput kWh
+                            </div>
+
+                            <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+                            <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2></p>
+                            <ul>
+                                <li><p>E = Energy (kWh)</p></li>
+                                <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
+                                <li><p>r = Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
+                                <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
+                                <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
+                            </ul>
+
+
+                            <hr>
+                            <table width="100%" style="table-layout: fixed">
+                                <tr>
+                                    <th></th>
+                                    @foreach (string Output in ViewBag.Month)
+                                    {
+                                        <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
+                                    @foreach (double Output in Model.OutputList)
+                                    {
+                                        <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
+                                    }
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <div class="Calculator-Content OutputChart">
+                            <div class="panel-body">
+                                <canvas id="bar_chart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="Calculator-Content CarbonDescription" id="CarbonInformation">
+                            <h3>Carbon Dioxide Emissions</h3>
+                            <h4>The Carbon Dioxide equivalent Emissions</h4>
+                            <div class="result">
+                                @Model.CO2 kg/kWh
+                            </div>
+                            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+                            <p2>1kWh = 1.13kg CO2-e/kWh</p2>
+                        </div>
+
+
+
+                        <div class="Calculator-Content ApplianceUsage" id="ApplianceUsage">
+                            <h3>Appliance Extra hours usage</h3>
+                            <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
+                            @Html.DropDownList("ApplianceList",
+                             new SelectList(Model.Extrahours.Keys.ToList()),
+                             "Choose Appliance")
+
+                            <div id="hidden_div">
+                                <div class="Calculator-Content ApplianceChart">
+                                    <div class="panel-body">
+                                        <canvas id="line_chart" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Calculator feature page display ends here! -->
+
+@section scripts{
+    @Scripts.Render("~/bundles/chartjs")
+<script>
+    $(document).ready(function () {
+
+        var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
+        var bar_chart;
+        var line_chart;
+        var check = @Model.Postcode;
+
+        function pagelayout() {
+        if (check != 0) {
+            document.getElementById("hidden-content").style.display = 'block';
+            document.getElementById("wthree_copy_right").style.position = "relative";
+        }
+        else {
+            document.getElementById("hidden-content").style.display = 'none';
+            document.getElementById("wthree_copy_right").style.position = "absolute";
+        }
+        };
+
+        function chartinitialize() {
+            // Display the line chart by the element ID
+            var line_chart_display = $("#line_chart");
+            var bar_chart_display = $("#bar_chart");
+            // Initial bar feature
+            bar_chart = new Chart(bar_chart_display, {
+                type: 'bar',
+                data: {
+                    labels: MonthArray,
+                    datasets: []
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Electricity Output (kWh)"
+                    },
+                    legend:
+                    {
+                        display: false,
+                    }
+                }
+            });
+            // Initial chart feature
+            line_chart = new Chart(line_chart_display, {
+                type: 'line',
+                data: {
+                    labels: MonthArray,
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "",
+                    },
+                    legend:
+                    {
+                        display: false,
+                    },
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        };
+
+        function showBarChart() {
+
+        var Output = @Html.Raw(Json.Encode(Model.OutputList));
+        var barDataSet = {
+                label: "Electricity Output",
+                data: Output,
+                backgroundColor: "rgba(127,255,0,.5)",
+                borderColor: "rgb(127,255,0)",
+                borderWidth: 1
+                }
+        bar_chart.data.datasets.push(barDataSet);
+        bar_chart.update();
+        };
+
+        function showLineChart() {
+        // Obtain the selection from website
+            var ApplianceName = document.getElementById("ApplianceList").value;
+        // Show or hide the line chart based on the selection of appliance
+        if (ApplianceName == "") {
+            document.getElementById("hidden_div").style.display = 'none';
+        } else {
+            document.getElementById("hidden_div").style.display = 'block';
+            }
+        // Encode the variables from controller
+        var DicKey= @Html.Raw(Json.Encode(Model.Extrahours.Keys.ToList()));
+        var DicValue = @Html.Raw(Json.Encode(Model.Extrahours.Values.ToList()));
+
+        line_chart.options.title.text = "Extra hours for " + ApplianceName;
+        // Find corresponding dataset for if matching appliance is found
+        var ListData = []
+        for (let i = 0; i < DicKey.length; i++) {
+            if (DicKey[i] == ApplianceName) {
+                ListData = DicValue[i];
+            }
+        }
+        // Remove the previous appliance data if new appliance is selected
+            line_chart.data.datasets.pop();
+            line_chart.update();
+
+        // Add the selected appliance data to the chart
+            var dataset = {
+                    label: "hours",
+                    fill: false,
+                    data: ListData,
+                    backgroundColor: "rgba(0,0,255,.5)",
+                    borderColor: "rgb(0,0,255)"
+            }
+            line_chart.data.datasets.push(dataset);
+        // Update the chart
+            line_chart.update();
+        }
+
+     // Apply the function when the page load up
+        pagelayout();
+        if (check != 0) {
+            chartinitialize();
+            showBarChart();
+        }
+        $('#ApplianceList').on('change', function () { showLineChart() });
+    });
+
+</script>
+}
+
+
+
+
+
+

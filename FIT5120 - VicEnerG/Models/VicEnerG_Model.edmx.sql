@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/23/2021 17:31:59
--- Generated from EDMX file: F:\2021\Monash\FIT5120 - Studio Project\FIT5120 - VicEnerG\FIT5120 - VicEnerG\Models\VicEnerG_Model.edmx
+-- Date Created: 09/02/2021 21:18:39
+-- Generated from EDMX file: C:\Users\mac\source\repos\Hin97\FIT5120-VicEnerG\FIT5120 - VicEnerG\Models\VicEnerG_Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -25,14 +25,14 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[StationSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[StationSet];
+IF OBJECT_ID(N'[dbo].[ApplianceSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ApplianceSet];
 GO
 IF OBJECT_ID(N'[dbo].[StationDataSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[StationDataSet];
 GO
-IF OBJECT_ID(N'[dbo].[ApplianceSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ApplianceSet];
+IF OBJECT_ID(N'[dbo].[StationSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[StationSet];
 GO
 
 -- --------------------------------------------------
@@ -65,6 +65,13 @@ CREATE TABLE [dbo].[ApplianceSet] (
 );
 GO
 
+-- Creating table 'PostcodeDatas'
+CREATE TABLE [dbo].[PostcodeDatas] (
+    [postcode] int  NOT NULL,
+    [solarOutput] float  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -85,6 +92,12 @@ GO
 ALTER TABLE [dbo].[ApplianceSet]
 ADD CONSTRAINT [PK_ApplianceSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [postcode] in table 'PostcodeDatas'
+ALTER TABLE [dbo].[PostcodeDatas]
+ADD CONSTRAINT [PK_PostcodeDatas]
+    PRIMARY KEY CLUSTERED ([postcode] ASC);
 GO
 
 -- --------------------------------------------------

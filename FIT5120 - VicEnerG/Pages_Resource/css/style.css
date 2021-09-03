@@ -1737,6 +1737,7 @@ div#blog {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	position: relative;
+	width:100%;
 }
 
 	.Calculator-Content h2 {
@@ -1886,7 +1887,7 @@ div#blog {
 /* Show the dropdown menu when the user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
 	display: block;
-	position: fixed;
+	position: relative;
 }
 
 /*-- //End Drop down navigation bar --*/

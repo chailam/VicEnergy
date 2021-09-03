@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab578ee3678d4dff9909a90fe723a7bd" Name="Diagram1" ZoomLevel="100" >
+      <Diagram DiagramId="ab578ee3678d4dff9909a90fe723a7bd" Name="Diagram1" ZoomLevel="97" >
         <EntityTypeShape EntityType="VicEnerG_Model.Station" Width="1.5" PointX="4.375" PointY="1.375" />
         <EntityTypeShape EntityType="VicEnerG_Model.StationData" Width="1.5" PointX="7.375" PointY="1.375" />
-        <EntityTypeShape EntityType="VicEnerG_Model.Appliance" Width="1.5" PointX="11.25" PointY="1.5" />
+        <EntityTypeShape EntityType="VicEnerG_Model.Appliance" Width="1.5" PointX="10.375" PointY="1.5" />
         <AssociationConnector Association="VicEnerG_Model.StationStationData" />
+        <EntityTypeShape EntityType="VicEnerG_Model.PostcodeData" Width="1.5" PointX="7.375" PointY="4.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

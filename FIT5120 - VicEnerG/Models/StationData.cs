@@ -11,13 +11,13 @@ namespace FIT5120___VicEnerG.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class StationData
     {
         public int Id { get; set; }
         public double monthRadiation { get; set; }
         public short month { get; set; }
-
+    
         public virtual Station Station { get; set; }
     }
 }

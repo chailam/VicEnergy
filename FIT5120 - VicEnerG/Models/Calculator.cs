@@ -39,7 +39,7 @@ namespace FIT5120___VicEnerG.Models
         public double CalculateCO2(double AnnualOutput)
         {
             // The formular
-            double CO2 = Math.Round(AnnualOutput * 1.13);
+            double CO2 = Math.Round(AnnualOutput * 0.00113,2);
             return CO2;
         }
 
