@@ -1935,3 +1935,13 @@ div#blog {
 }
 
 /*-- End home page button customized --*/
+
+/*-- start solar rebates page --*/
+.panel-group {
+	font-size: 16px;
+}
+
+.table-striped {
+	font-size: 16px;
+}
+/*-- End solar rebates page --*/
