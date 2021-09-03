@@ -1924,4 +1924,13 @@ div#blog {
 /*-- //End user scrolling --*/
 
 
+/*-- Start home page button customized --*/
+.btn-solar-redirect {
+	background-color: #ff6b61 !important;
+}
 
+.btn-carbon-redirect {
+	background-color: #228B22 !important;
+}
+
+/*-- End home page button customized --*/

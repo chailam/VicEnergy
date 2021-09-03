@@ -185,7 +185,9 @@
     <Content Include="App_Data\VicEnerG_Database_log.ldf">
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="images\carbon-footprint-home.jpg" />
     <Content Include="images\logo\logo_icon.jpg" />
+    <Content Include="images\solar-panel-house.jpg" />
     <Content Include="images\white_teamlogo_dark_background.jpg" />
     <Content Include="Style\bootstrap-theme.css" />
     <Content Include="Style\bootstrap-theme.min.css" />
