@@ -1747,7 +1747,8 @@ div#blog {
 	}
 
 	.Calculator-Content p, li {
-		font-size: 15px;
+		font-size: 17px;
+		font-family: inherit;
 	}
 
 	.Calculator-Content ul {
@@ -1777,6 +1778,7 @@ div#blog {
 .OutputChart, .ApplianceChart, .Annotation {
 	border: none;
 }
+
 
 
 .OutputDescription table, td, th {
