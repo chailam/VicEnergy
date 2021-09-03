@@ -1724,10 +1724,6 @@ div#blog {
 
 /*-- //responsive design --*/
 
-#hidden_div {
-	display: none;
-}
-
 .Calculator-Content {
 	padding: 20px;
 	margin-right: auto;
@@ -1769,17 +1765,14 @@ div#blog {
 		padding-top: 15px;
 		padding-bottom: 15px;
 	}
+	.Calculator-Content h3 {
+		border-bottom: #e7e7e7 1px solid;
+	}
 
 	.Calculator-Content p2 {
 		font-weight: bold;
 		color: #808080;
 	}
-
-.TOC {
-	padding-right: 0px;
-	padding-left: 0px;
-}
-
 
 .OutputChart, .ApplianceChart, .Annotation {
 	border: none;
@@ -1792,9 +1785,7 @@ div#blog {
 	text-align: center;
 }
 
-.OutputDescription h3, .CarbonDescription h3, .ApplianceUsage h3 {
-	border-bottom: #e7e7e7 1px solid;
-}
+
 
 .result {
 	padding-bottom: 15px;

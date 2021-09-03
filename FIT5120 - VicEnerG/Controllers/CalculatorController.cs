@@ -53,6 +53,7 @@ namespace FIT5120___VicEnerG.Controllers
                 // Pass the parameter to the calculator to calculate extra hours for each appliances
                 IDictionary<String, List<int>> ApplianceExtraHours = calculator.CalculateUsage(ApplianceList, MonthlyOutput);
 
+
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.OutputList = MonthlyOutput;
                 Model.AnnualOutput = MonthlyOutput.Sum();

@@ -18,10 +18,10 @@ namespace FIT5120___VicEnerG.Models
         public double area { get; set; } = 1.6;
         public double efficiency { get; set; } = 0.156;
         public double performanceRatio { get; set; } = 0.75;
-        
+
         // Some variables of the formula are pre-define with value
         // This method will calculate and return the monthly solar output of a given station
-        public IList<double> CalculateSolarOutput(IList<double> StationData, int NumberPanels)    
+        public IList<double> CalculateSolarOutput(IList<double> StationData, int NumberPanels)
         {
             IList<double> TotalOutput = new List<double>();
             foreach (double Radiation in StationData)
@@ -39,7 +39,7 @@ namespace FIT5120___VicEnerG.Models
         public double CalculateCO2(double AnnualOutput)
         {
             // The formular
-            double CO2 = Math.Round(AnnualOutput * 0.00113,2);
+            double CO2 = Math.Round(AnnualOutput * 0.00113, 2);
             return CO2;
         }
 
@@ -49,7 +49,7 @@ namespace FIT5120___VicEnerG.Models
         {
             // Initial the dictionary 
             IDictionary<String, List<int>> Usage = new Dictionary<String, List<int>>();
-            foreach (Appliance App in ApplianceList) 
+            foreach (Appliance App in ApplianceList)
             {
                 double EachUsage = App.usage;
                 List<int> Extrahours = new List<int>();
@@ -64,6 +64,67 @@ namespace FIT5120___VicEnerG.Models
                 Usage.Add(App.applianceName, Extrahours);
             }
             return Usage;
+        }
+
+        // This method will calculate the hours for trees in Victoria CBD to absorb given CO2
+        // This method will return the hours
+        public int CalculateAbsorptionHours(double CO2)
+        {
+            // Amount of trees in CBD of Victoria
+            int TreesInCity = 150000;
+            // Amount of CO2 in kg
+            double CO2InKG = CO2 * 1000;
+            // The amount of CO2 in kg can be absorbed per hour in CBD of Victoria
+            double AbsorbRate = 0.000239 * TreesInCity;
+            // The absorb hours will be the total amount of CO2 divide by the hourly absorb rate
+            int Hours = (int)Math.Round(CO2InKG / AbsorbRate);
+
+            return Hours;
+        }
+
+        // This method will calculate the equivalent kilometers that a passenger vehicle and light suv of given CO2
+        public int CalcualteKMForLightCar(double CO2)
+        {
+            // Amount of CO2 in kg
+            double CO2InKG = CO2 * 1000;
+            // The Average emissions intensity for passenger cars and light SUVs was 149.5g/km
+            double CarUsage = 0.1495;
+
+            // Calculate the equivalent kilometer for passenger cars
+            int KM = (int)Math.Round(CO2InKG / CarUsage);
+            return KM;
+        }
+
+        // This method will calculate the equivalent kilometers that the heavy suv of given CO2
+        public int CalcualteKMForHeaveyCar(double CO2)
+        {
+            // Amount of CO2 in kg
+            double CO2InKG = CO2 * 1000;
+            // The Average emissions intensity for passenger cars and light SUVs was 149.5g/km
+            double CarUsage = 0.2167;
+
+            // Calculate the equivalent kilometer for passenger cars
+            int KM = (int)Math.Round(CO2InKG / CarUsage);
+            return KM;
+        }
+
+        // This method will calculate the equivalent gallons of gasoline consumed by giving CO2
+        public int CalculateGasoline(double CO2) {
+            // 0.008887 metic tons of CO2 emitted per gallon of gasoline combusted
+            double GasolineRate = 0.008887;
+            // Calculate the equivalent gallons of gasoline consumed
+            int Gallons = (int)Math.Round(CO2 / GasolineRate);
+            return Gallons;
+        }
+
+        // This method will calculate how many times that a phone can be fully charged by given CO2
+        public int CalculatePhoneCharged(double CO2)
+        {
+            // Fully charging a phone will emit 0.00000 metic tons of CO2.
+            double ChargeRate = 0.00000822;
+            // Calculate the equivalent number of times for fully charge a phone by given CO2
+            int Charges = (int)Math.Round(CO2 / ChargeRate);
+            return Charges;
         }
     }
 }

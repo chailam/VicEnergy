@@ -42,13 +42,24 @@ namespace FIT5120___VicEnerG.Controllers
                 IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataList(), Model.NumberPanels);
                 // Calculate the amount of CO2 corresponding to the amount of kwh electricity
                 double CO2 = calculator.CalculateCO2(MonthlyOutput.Sum());
+                // Calculate the hours for trees in Victoria CBD to absorb given CO2
+                int AbsorbHours = calculator.CalculateAbsorptionHours(CO2);
+                // This method will calculate the equivalent kilometers that a passenger vehicle and light suv of given CO2
+                int LightVehicle = calculator.CalcualteKMForLightCar(CO2);
+                // This method will calculate the equivalent kilometers that the heavy suv of given CO2
+                int HeavyVehicle = calculator.CalcualteKMForHeaveyCar(CO2);
+                // This method will calculate how many times that a phone can be fully charged by given CO2
+                int PhoneCharges = calculator.CalculatePhoneCharged(CO2);
+                // This method will calculate the equivalent gallons of gasoline consumed by giving CO2
+                int Gallons = calculator.CalculateGasoline(CO2);
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.CO2 = CO2;
+                Model.AbsorbHours = AbsorbHours;
+                Model.LightVehicle = LightVehicle;
+                Model.HeavyVehicle = HeavyVehicle;
+                Model.PhoneCharges = PhoneCharges;
+                Model.Gallons = Gallons;
             }
-
-
-
-
             return View(Model);
         }
 
