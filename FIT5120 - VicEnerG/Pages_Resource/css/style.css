@@ -1887,7 +1887,7 @@ div#blog {
 /* Show the dropdown menu when the user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
 	display: block;
-	position: relative;
+	position: fixed;
 }
 
 /*-- //End Drop down navigation bar --*/
