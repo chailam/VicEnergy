@@ -245,15 +245,15 @@ ul.top-links.social li {
 }
 /*-- //nav --*/
 .w3l-banner {
-    background: url(../images/banner.jpg) no-repeat 0px 0px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
+	background: url(../../images/banner/banner.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
 }
 .wthree-dot {
-    background: url(../images/dott.png)repeat 0px 0px;
+    background: url(../../images/banner/dott.png)repeat 0px 0px;
     background-size: 2px;
     -webkit-background-size: 2px;
     -moz-background-size: 2px;
@@ -1264,7 +1264,7 @@ div#blog {
 	height: 40px;
 	border: none;
 	text-indent: 100%;
-	background: url(../images/arrow.png) no-repeat 0px 0px;
+	background: url(../../images/layout/arrow.png) no-repeat 0px 0px;
 }
 #toTopHover {
 	width: 40px;

@@ -190,50 +190,32 @@
     <Content Include="App_Data\VicEnerG_Database_log.ldf">
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
-    <Content Include="images\carbon-footprint-home.jpg" />
+    <Content Include="images\home\carbon-footprint-home.jpg" />
     <Content Include="images\logo\logo_icon.jpg" />
-    <Content Include="images\solar-panel-house.jpg" />
-    <Content Include="images\white_teamlogo_dark_background.jpg" />
-    <Content Include="Style\bootstrap-theme.css" />
-    <Content Include="Style\bootstrap-theme.min.css" />
-    <Content Include="Style\bootstrap.css" />
-    <Content Include="Style\bootstrap.min.css" />
-    <Content Include="Style\Chart.css" />
-    <Content Include="Style\Chart.min.css" />
+    <Content Include="images\home\solar-panel-house.jpg" />
+    <Content Include="images\logo\white_teamlogo_dark_background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\fontello.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Style\Site.css" />
-    <Content Include="images\123.jpg" />
-    <Content Include="images\456.jpg" />
-    <Content Include="images\a1.png" />
-    <Content Include="images\a2.png" />
-    <Content Include="images\a3.png" />
-    <Content Include="images\accessgrid.png" />
-    <Content Include="images\C.jpg" />
-    <Content Include="images\g1.jpg" />
-    <Content Include="images\g2.jpg" />
-    <Content Include="images\g3.jpg" />
-    <Content Include="images\g4.jpg" />
-    <Content Include="images\g5.jpg" />
-    <Content Include="images\g6.jpg" />
-    <Content Include="images\g7.jpg" />
-    <Content Include="images\g8.jpg" />
-    <Content Include="images\H.jpg" />
-    <Content Include="images\L.jpg" />
-    <Content Include="images\left-quote.png" />
+    <Content Include="images\profiles\Rongxuan.jpg" />
+    <Content Include="images\profiles\Chai.jpg" />
+    <Content Include="images\SolarImages\g1.jpg" />
+    <Content Include="images\solarInfo\g2.jpg" />
+    <Content Include="images\SolarImages\g3.jpg" />
+    <Content Include="images\SolarImages\g4.jpg" />
+    <Content Include="images\SolarImages\g5.jpg" />
+    <Content Include="images\SolarImages\g6.jpg" />
+    <Content Include="images\SolarImages\g7.jpg" />
+    <Content Include="images\solarInfo\g8.jpg" />
+    <Content Include="images\profiles\Hui.jpg" />
+    <Content Include="images\profiles\Lang.jpg" />
     <Content Include="images\logo\logo.jpg" />
     <Content Include="images\logo\logo_transparent_background.png" />
-    <Content Include="images\menu.png" />
-    <Content Include="images\next.png" />
-    <Content Include="images\prev.png" />
-    <Content Include="images\right-quote.png" />
-    <Content Include="images\solarexplain.png" />
-    <Content Include="images\solar_installation_statistic.png" />
-    <Content Include="images\t1.jpg" />
-    <Content Include="images\Z.jpg.1.jpg" />
+    <Content Include="images\solarInfo\solarexplain.png" />
+    <Content Include="images\solarInfo\solar_installation_statistic.png" />
+    <Content Include="images\profiles\Zhe.jpg" />
     <Content Include="Models\VicEnerG_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VicEnerG_Model.Context.cs</LastGenOutput>
@@ -251,29 +233,29 @@
     <Content Include="Pages_Resource\css\lsb.css" />
     <Content Include="Pages_Resource\css\owl.carousel.css" />
     <Content Include="Pages_Resource\css\style.css" />
-    <Content Include="Pages_Resource\images\1.jpg" />
-    <Content Include="Pages_Resource\images\6.jpg" />
-    <Content Include="Pages_Resource\images\about1.jpg" />
-    <Content Include="Pages_Resource\images\about2.jpg" />
-    <Content Include="Pages_Resource\images\arrow.png" />
-    <Content Include="Pages_Resource\images\b1.jpg" />
-    <Content Include="Pages_Resource\images\banner.jpg" />
-    <Content Include="Pages_Resource\images\dott.png" />
-    <Content Include="Pages_Resource\images\g1.jpg" />
-    <Content Include="Pages_Resource\images\g2.jpg" />
-    <Content Include="Pages_Resource\images\g3.jpg" />
-    <Content Include="Pages_Resource\images\g4.jpg" />
-    <Content Include="Pages_Resource\images\g5.jpg" />
-    <Content Include="Pages_Resource\images\g6.jpg" />
-    <Content Include="Pages_Resource\images\g7.jpg" />
-    <Content Include="Pages_Resource\images\solar-rebate.jpg" />
-    <Content Include="Pages_Resource\images\t1.jpg" />
-    <Content Include="Pages_Resource\images\t2.jpg" />
-    <Content Include="Pages_Resource\images\t3.jpg" />
-    <Content Include="Pages_Resource\images\t4.jpg" />
-    <Content Include="Pages_Resource\images\ts1.jpg" />
-    <Content Include="Pages_Resource\images\ts2.jpg" />
-    <Content Include="Pages_Resource\images\ts3.jpg" />
+    <Content Include="images\SolarImages\1.jpg" />
+    <Content Include="images\SolarImages\6.jpg" />
+    <Content Include="images\SolarImages\about1.jpg" />
+    <Content Include="images\SolarImages\about2.jpg" />
+    <Content Include="images\layout\arrow.png" />
+    <Content Include="images\SolarImages\b1.jpg" />
+    <Content Include="images\banner\banner.jpg" />
+    <Content Include="images\banner\dott.png" />
+    <Content Include="images\SolarImages\g8.jpg" />
+    <Content Include="images\SolarImages\g9.jpg" />
+    <Content Include="images\SolarImages\g10.jpg" />
+    <Content Include="images\SolarImages\g11.jpg" />
+    <Content Include="images\SolarImages\g12.jpg" />
+    <Content Include="images\SolarImages\g13.jpg" />
+    <Content Include="images\SolarImages\g14.jpg" />
+    <Content Include="images\solarInfo\solar-rebate.jpg" />
+    <Content Include="images\Personas\t1.jpg" />
+    <Content Include="images\Personas\t2.jpg" />
+    <Content Include="images\Personas\t3.jpg" />
+    <Content Include="images\Personas\t4.jpg" />
+    <Content Include="images\Personas\ts1.jpg" />
+    <Content Include="images\Personas\ts2.jpg" />
+    <Content Include="images\Personas\ts3.jpg" />
     <Content Include="Pages_Resource\js\bootstrap.min.js" />
     <Content Include="Pages_Resource\js\easing.js" />
     <Content Include="Pages_Resource\js\jquery-2.1.4.min.js" />
@@ -284,8 +266,6 @@
     <Content Include="Pages_Resource\js\owl.carousel.js" />
     <Content Include="Pages_Resource\js\pagejs.js" />
     <Content Include="Pages_Resource\js\SmoothScroll.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\VicEnerG_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VicEnerG_Model.Designer.cs</LastGenOutput>
@@ -314,9 +294,11 @@
     <None Include="Properties\PublishProfiles\FiveS-VicEnerG - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testiebeforerelease - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\vicenergVM.pubxml" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -327,6 +309,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Style\bootstrap-theme.css" />
+    <Content Include="Style\bootstrap-theme.min.css" />
+    <Content Include="Style\bootstrap.css" />
+    <Content Include="Style\bootstrap.min.css" />
+    <Content Include="Style\Chart.css" />
+    <Content Include="Style\Chart.min.css" />
+    <Content Include="Style\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -346,6 +335,12 @@
     <Content Include="Views\Home\SolarRebates.cshtml" />
     <Content Include="Views\Home\CarbonInfo.cshtml" />
     <Content Include="Views\Carbon\CalculateCarbon.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Style\bootstrap-theme.css.map" />
+    <Content Include="Style\bootstrap-theme.min.css.map" />
+    <Content Include="Style\bootstrap.css.map" />
+    <Content Include="Style\bootstrap.min.css.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -355,13 +350,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Style\bootstrap.min.css.map" />
-    <Content Include="Style\bootstrap.css.map" />
-    <Content Include="Style\bootstrap-theme.min.css.map" />
-    <Content Include="Style\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
