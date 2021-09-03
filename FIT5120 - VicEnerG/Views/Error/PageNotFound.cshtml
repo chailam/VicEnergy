@@ -3,12 +3,16 @@
 }
 
 <div class="container">
-    <h1>Page Not found</h1>
+    <h1 style="margin-top:120px;">Page Not found</h1>
     <br>
     <h2>Are you look for following page?</h2><br>
     <ol>
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Calculators", "CalculateOutput", "Calculator")</li>
+        <li>@Html.ActionLink("Solar Calculator", "CalculateOutput", "Calculator")</li>
+        <li>@Html.ActionLink("Carbon Calculator", "CalculateCarbon", "Carbon")</li>
+        <li>@Html.ActionLink("Solar Information", "SolarInfo", "Home")</li>
+        <li>@Html.ActionLink("Solar Rebates", "SolarRebates", "Home")</li>
+        <li>@Html.ActionLink("Carbon Information", "CarbonInfo", "Home")</li>
     </ol>
 </div>
 

@@ -1878,7 +1878,7 @@ div#blog {
 /* Show the dropdown menu when the user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
 	display: block;
-	position: relative;
+	position: fixed;
 }
 
 /*-- //End Drop down navigation bar --*/
@@ -1916,4 +1916,23 @@ div#blog {
 /*-- //End user scrolling --*/
 
 
+/*-- Start home page button customized --*/
+.btn-solar-redirect {
+	background-color: #ff6b61 !important;
+}
 
+.btn-carbon-redirect {
+	background-color: #228B22 !important;
+}
+
+/*-- End home page button customized --*/
+
+/*-- start solar rebates page --*/
+.panel-group {
+	font-size: 16px;
+}
+
+.table-striped {
+	font-size: 16px;
+}
+/*-- End solar rebates page --*/
