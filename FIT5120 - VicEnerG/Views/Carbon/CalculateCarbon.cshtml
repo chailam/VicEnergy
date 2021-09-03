@@ -56,34 +56,171 @@
 
         <div class="Calculator-Content CarbonDailyLives">
             <h3>What does it mean?</h3> <br>
-            <p>blahblahblahblahblah</p>
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-2 col-md-6">
-                    Light @Model.LightVehicle
+            <div class="row">
+                <div class="col-xs-2 Component">
+                    <span class="dot"></span>
+                    <div class="content">
+                        <p>Some random text blah blah...</p>
+                    </div>
+                    <img src="~/images/carbonIcon/Light.png" class="icon" />
+                    <p2>@Model.LightVehicle km</p2>
+                    <p3>of passenger vehicles driven.</p3>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    Heavy @Model.HeavyVehicle
+                <div class="col-xs-2 Component">
+                    <span class="dot"></span>
+                    <div class="content">
+                        <p>Some random text blah blah...</p>
+                    </div>
+                    <img src="~/images/carbonIcon/Heavy.png" class="icon" />
+                    <p2>@Model.HeavyVehicle km</p2>
+                    <p3>of heavy vehicles driven.</p3>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    Gasoline @Model.Gallons
+                <div class="col-xs-2 Component">
+                    <span class="dot"></span>
+                    <div class="content">
+                        <p>Some random text blah blah...</p>
+                    </div>
+                    <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
+                    <p2>@Model.Gasoline gallons</p2>
+                    <p3>of gasoline consumed.</p3>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    Phone @Model.PhoneCharges
+                <div class="col-xs-2 Component">
+                    <span class="dot"></span>
+                    <div class="content">
+                        <p>Some random text blah blah...</p>
+                    </div>
+                    <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
+                    <p2>@Model.PhoneCharges times</p2>
+                    <p3>of fully charged smartphones.</p3>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    Trees @Model.AbsorbHours
+                <div class="col-xs-2 Component">
+                    <span class="dot"></span>
+                    <div class="content">
+                        <p>Some random text blah blah...</p>
+                    </div>
+                    <img src="~/images/carbonIcon/Trees.png" class="icon" />
+                    <p2>@Model.AbsorbHours hours</p2>
+                    <p3>for Trees in Victoria to absorbs.</p3>
                 </div>
             </div>
-            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
-            <p2>1kWh = 1.13kg CO2-e/kWh</p2>
+
         </div>
 
         <div class="Calculator-Content Contribution">
-            <h3>Your Contribution</h3> <br>
-            <p>Melbourne CBD Annual Output: </p> @ViewBag.Message
-            <p>Pie chart show comparsion with suburb</p>
-            <p>Pie chart show comparsion with Victoria</p>
+            <h3>Annual Contribution</h3> <br>
+            <div class="Calculator-Content Charts">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel-body">
+                            <canvas id="Pie_suburb" height="150"></canvas>
+                            @{ if (Model.SuburbTotalCO2 == 0)
+                                { 
+                                <p>Sorry, There is no solar output records in the given postcode</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel-body">
+                            <canvas id="Pie_state" height="150"></canvas>
+                            <p>This is the average monthly solar output of Victoria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>I will add something here</p>
         </div>
     </div>
 </div>
 
+@section scripts{
+    @Scripts.Render("~/bundles/chartjs")
+    <script>
+        $(document).ready(function () {
+
+            function chartinitialize() {
+                // Display the pie chart by the element ID
+                var Pie_suburb_display = $("#Pie_suburb");
+                var Pie_state_display = $("#Pie_state");
+                // Initial pie feature
+                Pie_suburb = new Chart(Pie_suburb_display, {
+                    type: 'pie',
+                    data: {
+                        labels: ["You", "Your Postcode"],
+                        datasets: []
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: "Compare with your Postcode",
+                            fontSize: 18
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        plugins: {
+                            labels: {
+                                render: 'percentage',
+                                fontColor: 'black',
+                                precision: 2
+                            }
+                        }
+                    }
+                });
+                // Initial pie feature
+                Pie_state = new Chart(Pie_state_display, {
+                    type: 'pie',
+                    data: {
+                        labels: ["You", "Victoria"],
+                        datasets: []
+                    },
+                    options: {
+                        responsive:true,
+                        title: {
+                            display: true,
+                            text: "Compare with Victoria",
+                            fontSize: 18
+                        },
+                        tooltips: {
+                            enabled: true
+                        },
+                        plugins: {
+                            labels: {
+                                render: 'percentage',
+                                fontColor: 'black',
+                                precision: 2
+                            }
+                        },
+                    }
+                });
+            };
+
+            function InputData() {
+            var SuburbTotalCO2 = @Html.Raw(Json.Encode(Model.SuburbTotalCO2));
+            var VictoriaTotalCO2 = @Html.Raw(Json.Encode(Model.StateMonthlyCO2));
+            var YourCO2 = @Html.Raw(Json.Encode(Model.CO2));
+            var suburbDataSet = {
+                data: [YourCO2, SuburbTotalCO2],
+                labels: ["You", "Your Suburb"],
+                backgroundColor: ["rgba(127,255,0,.5)", "rgb(255, 99, 132)"],
+                hoverOffset: 4
+            };
+            var stateDataSet = {
+                data: [YourCO2, VictoriaTotalCO2],
+                labels: ["You", "Victoria"],
+                backgroundColor: ["rgba(127,255,0,.5)", "rgb(255, 99, 132)"],
+                hoverOffset: 4
+            };
+            Pie_suburb.data.datasets.push(suburbDataSet);
+            Pie_state.data.datasets.push(stateDataSet);
+            Pie_suburb.update();
+            Pie_state.update();
+            };
+
+
+            chartinitialize();
+            InputData();
+        });
+    </script>
+}

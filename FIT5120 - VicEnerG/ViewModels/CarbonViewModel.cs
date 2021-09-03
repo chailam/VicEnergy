@@ -23,6 +23,8 @@ namespace FIT5120___VicEnerG.ViewModels
         public int LightVehicle { get; set; }
         public int HeavyVehicle { get; set; }
         public int PhoneCharges { get; set; }
-        public int Gallons { get; set; }
+        public int Gasoline { get; set; }
+        public double SuburbTotalCO2 { get; set; }
+        public double StateMonthlyCO2 { get; set; }
     }
 }

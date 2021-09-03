@@ -49,7 +49,8 @@ namespace FIT5120___VicEnerG
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/chartjs").Include(
-              "~/Scripts/Chart.min.js"));
+              "~/Scripts/Chart.min.js",
+              "~/Scripts/chartjs-plugin-labels.js"));
 
             BundleTable.EnableOptimizations = true;
         }

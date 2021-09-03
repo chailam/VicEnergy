@@ -190,6 +190,12 @@
     <Content Include="App_Data\VicEnerG_Database_log.ldf">
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="images\carbonIcon\icon.gif" />
+    <Content Include="images\carbonIcon\Trees.png" />
+    <Content Include="images\carbonIcon\Phone_Charge.png" />
+    <Content Include="images\carbonIcon\Gasoline.png" />
+    <Content Include="images\carbonIcon\Heavy.png" />
+    <Content Include="images\carbonIcon\Light.png" />
     <Content Include="images\home\carbon-footprint-home.jpg" />
     <Content Include="images\logo\logo_icon.jpg" />
     <Content Include="images\home\solar-panel-house.jpg" />
@@ -201,13 +207,13 @@
     <Content Include="Global.asax" />
     <Content Include="images\profiles\Rongxuan.jpg" />
     <Content Include="images\profiles\Chai.jpg" />
-    <Content Include="images\SolarImages\g1.jpg" />
+    <Content Include="images\solarImages\g1.jpg" />
     <Content Include="images\solarInfo\g2.jpg" />
-    <Content Include="images\SolarImages\g3.jpg" />
-    <Content Include="images\SolarImages\g4.jpg" />
-    <Content Include="images\SolarImages\g5.jpg" />
-    <Content Include="images\SolarImages\g6.jpg" />
-    <Content Include="images\SolarImages\g7.jpg" />
+    <Content Include="images\solarImages\g3.jpg" />
+    <Content Include="images\solarImages\g4.jpg" />
+    <Content Include="images\solarImages\g5.jpg" />
+    <Content Include="images\solarImages\g6.jpg" />
+    <Content Include="images\solarImages\g7.jpg" />
     <Content Include="images\solarInfo\g8.jpg" />
     <Content Include="images\profiles\Hui.jpg" />
     <Content Include="images\profiles\Lang.jpg" />
@@ -233,21 +239,21 @@
     <Content Include="Pages_Resource\css\lsb.css" />
     <Content Include="Pages_Resource\css\owl.carousel.css" />
     <Content Include="Pages_Resource\css\style.css" />
-    <Content Include="images\SolarImages\1.jpg" />
-    <Content Include="images\SolarImages\6.jpg" />
-    <Content Include="images\SolarImages\about1.jpg" />
-    <Content Include="images\SolarImages\about2.jpg" />
+    <Content Include="images\solarImages\1.jpg" />
+    <Content Include="images\solarImages\6.jpg" />
+    <Content Include="images\solarImages\about1.jpg" />
+    <Content Include="images\solarImages\about2.jpg" />
     <Content Include="images\layout\arrow.png" />
-    <Content Include="images\SolarImages\b1.jpg" />
+    <Content Include="images\solarImages\b1.jpg" />
     <Content Include="images\banner\banner.jpg" />
     <Content Include="images\banner\dott.png" />
-    <Content Include="images\SolarImages\g8.jpg" />
-    <Content Include="images\SolarImages\g9.jpg" />
-    <Content Include="images\SolarImages\g10.jpg" />
-    <Content Include="images\SolarImages\g11.jpg" />
-    <Content Include="images\SolarImages\g12.jpg" />
-    <Content Include="images\SolarImages\g13.jpg" />
-    <Content Include="images\SolarImages\g14.jpg" />
+    <Content Include="images\solarImages\g8.jpg" />
+    <Content Include="images\solarImages\g9.jpg" />
+    <Content Include="images\solarImages\g10.jpg" />
+    <Content Include="images\solarImages\g11.jpg" />
+    <Content Include="images\solarImages\g12.jpg" />
+    <Content Include="images\solarImages\g13.jpg" />
+    <Content Include="images\solarImages\g14.jpg" />
     <Content Include="images\solarInfo\solar-rebate.jpg" />
     <Content Include="images\Personas\t1.jpg" />
     <Content Include="images\Personas\t2.jpg" />
@@ -299,6 +305,7 @@
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\chartjs-plugin-labels.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -352,7 +359,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\carbonInfo\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
