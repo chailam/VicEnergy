@@ -18,6 +18,9 @@ namespace FIT5120___VicEnerG.Controllers
         public ActionResult CalculateCarbon()
         {
             var Model = new CarbonViewModel();
+            // Annual Solar output of Melbourne CBD (postcode 3000)
+            PostcodeData Melbourne = db.PostcodeDatas.Find(3000);
+            ViewBag.Message = Melbourne.solarOutput;
             return View(Model);
         }
 
@@ -52,6 +55,7 @@ namespace FIT5120___VicEnerG.Controllers
                 int PhoneCharges = calculator.CalculatePhoneCharged(CO2);
                 // This method will calculate the equivalent gallons of gasoline consumed by giving CO2
                 int Gallons = calculator.CalculateGasoline(CO2);
+
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.CO2 = CO2;
                 Model.AbsorbHours = AbsorbHours;
@@ -59,6 +63,7 @@ namespace FIT5120___VicEnerG.Controllers
                 Model.HeavyVehicle = HeavyVehicle;
                 Model.PhoneCharges = PhoneCharges;
                 Model.Gallons = Gallons;
+                
             }
             return View(Model);
         }
