@@ -1,21 +1,21 @@
 ﻿@model FIT5120___VicEnerG.ViewModels.CarbonViewModel
 
 @{
-    ViewBag.Title = "Calculate Carbon";
+    ViewBag.Title = "Carbon Calculator";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container body-content">
-    <div class="Calculator-Content">
-        <h2>Calculate Carbon</h2>
+    <div class="container"  id="carbon_info">
+        <hr>
+        <h3 class="heading">Carbon Footprint Calculator</h3>
     </div>
 
     <!-- Information input form-->
     <div class="row">
-        <div class="Calculator-Content Input">
+        <div class="Calculator-Content Input" id="carbon_info">
             <h3>Information Entry</h3>
             <br>
-            @using (Html.BeginForm())
-            {
+            @using (Html.BeginForm()) {
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
@@ -44,7 +44,7 @@
                 </div>
             }
         </div>
-        <div class="Calculator-Content CarbonDescription">
+        <div class="Calculator-Content CarbonDescription"  id="carbon_info">
             <h3>Carbon Dioxide Emissions</h3>
             <h4>The approxiamted Carbon Dioxide that will be saved in a year are:</h4>
             <div class="result">
@@ -54,7 +54,7 @@
             <p2>1kWh = 1.13kg CO2-e/kWh</p2>
         </div>
 
-        <div class="Calculator-Content CarbonDailyLives">
+        <div class="Calculator-Content CarbonDailyLives" id="carbon_info">
             <h3>What does it mean?</h3> <br>
             <div class="row">
                 <div class="col-xs-2 Component">
@@ -106,16 +106,15 @@
 
         </div>
 
-        <div class="Calculator-Content Contribution">
+        <div class="Calculator-Content Contribution" id="carbon_info">
             <h3>Annual Contribution</h3> <br>
             <div class="Calculator-Content Charts">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel-body">
                             <canvas id="Pie_suburb" height="150"></canvas>
-                            @{ if (Model.SuburbTotalCO2 == 0)
-                                { 
-                                <p>Sorry, There is no solar output records in the given postcode</p>
+                            @{ if (Model.SuburbTotalCO2 == 0) {
+                                    <p>Sorry, There is no solar output records in the given postcode</p>
                                 }
                             }
                         </div>
