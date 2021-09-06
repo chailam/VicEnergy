@@ -2088,6 +2088,14 @@ div#blog {
     color: #ffd800;
 }
 
+.result-carbon {
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #228B22;
+}
+
 .ApplianceUsage button, select {
     width: 100%;
 }

@@ -196,6 +196,8 @@
     <Content Include="images\carbonIcon\Gasoline.png" />
     <Content Include="images\carbonIcon\Heavy.png" />
     <Content Include="images\carbonIcon\Light.png" />
+    <Content Include="images\carbonInfo\carbon-banner.jpg" />
+    <Content Include="images\carbonInfo\carbon-graph.jpg" />
     <Content Include="images\home\carbon-footprint-home.jpg" />
     <Content Include="images\logo\logo_icon.jpg" />
     <Content Include="images\home\solar-panel-house.jpg" />
@@ -359,9 +361,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\carbonInfo\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
