@@ -1,5 +1,6 @@
 ﻿using FIT5120___VicEnerG.Models;
 using FIT5120___VicEnerG.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -22,6 +23,40 @@ namespace FIT5120___VicEnerG.Controllers
             return View(Model);
         }
 
+        public async Task<String> Compare(int Postcode, int NumberPanels)
+        {
+            CalculatorViewModel Model = new CalculatorViewModel();
+            Model.Postcode = Postcode;
+            Model.NumberPanels = NumberPanels;
+            VicEnerGSystem VEG = new VicEnerGSystem();
+            List<double> Coordinates = await VEG.GetGeocode(Model.Postcode);
+            IList<Station> StationList = db.StationSet.ToList();
+            int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
+            Station TargetStation = db.StationSet.Find(NearestStationID);
+            Calculator calculator = new Calculator();
+            IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataList(), Model.NumberPanels);
+            double CO2 = calculator.CalculateCO2(MonthlyOutput.Sum());
+            IList<Appliance> ApplianceList = db.ApplianceSet.ToList();
+            IDictionary<String, List<int>> ApplianceExtraHours = calculator.CalculateUsage(ApplianceList, MonthlyOutput);
+            Model.OutputList = MonthlyOutput;
+            Model.AnnualOutput = MonthlyOutput.Sum();
+            Model.Station = TargetStation;
+            Model.CO2 = CO2;
+            Model.Extrahours = ApplianceExtraHours;
+            var dataList = new
+            {
+                Postcode = Model.Postcode,
+                NumberPanels = Model.NumberPanels,
+                OutputList = MonthlyOutput
+                //AnnualOutput = Model.AnnualOutput,
+                //Station = TargetStation,
+                //CO2 = Model.CO2,
+                //Extrahours = ApplianceExtraHours
+            };
+            ViewBag.stationList = dataList;
+            var jsonData = JsonConvert.SerializeObject(dataList);
+            return jsonData;
+        }
 
         // This is the controller for Calculator page. It collectes data from the website, pass the data through different methods
         // Eventually display the information on the webpage with a Viewmodel.
