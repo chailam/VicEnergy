@@ -33,8 +33,8 @@ namespace FIT5120___VicEnerG.Models
                     String json = response.Content.ReadAsStringAsync().Result;
                     JObject obj = JObject.Parse(json);
                     // Directly cast data from json file
-                    double Latitude = (double)obj["features"][0]["geometry"]["coordinates"][0];
-                    double Longitude = (double)obj["features"][0]["geometry"]["coordinates"][1];
+                    double Latitude = (double)obj["features"][0]["geometry"]["coordinates"][1];
+                    double Longitude = (double)obj["features"][0]["geometry"]["coordinates"][0];
                     List<double> coordinates = new List<double>() { Latitude, Longitude };
                     // The coordinates will be stores as a list
                     return coordinates;

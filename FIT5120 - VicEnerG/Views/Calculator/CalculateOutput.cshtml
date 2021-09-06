@@ -74,63 +74,62 @@
         @{
             if (Model.Station != null)
             {
-            <div class="Calculator-Content OutputDescription abouttopleft" id="OutputResult">
-                <h3>Electricity Output</h3>
-                <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
-                <div class="result">
-                    @Model.AnnualOutput kWh
-                </div>
-
-                <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
-                <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2></p>
-                <ul>
-                    <li><p>E = Energy (kWh)</p></li>
-                    <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
-                    <li><p>r = Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
-                    <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
-                    <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
-                </ul>
-
+                <div class="Calculator-Content OutputDescription abouttopleft" id="OutputResult">
+                    <h3>Electricity Output</h3>
+                    <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
+                    <div class="result">
+                        @Model.AnnualOutput kWh
+                    </div>
+                    <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
+                    <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2></p>
+                    <ul>
+                        <li><p>E = Energy (kWh)</p></li>
+                        <li><p>A = Total solar panel Area (In this calculator is 1.6m2)</p></li>
+                        <li><p>r = Solar panel yield or efficiency(In this calcualtor is 15.6%)</p></li>
+                        <li><p>H = solar radiation data collected from stations (shadings not included)</p></li>
+                        <li><p>PR = Performance ratio, coefficient for losses (In this calcualtor is 75%)</p></li>
+                    </ul>
 
 
-                <table width="100%" style="table-layout: fixed">
-                    <tr>
-                        <th></th>
-                        @foreach (string Output in ViewBag.Month)
+
+                    <table width="100%" style="table-layout: fixed">
+                        <tr>
+                            <th></th>
+                            @foreach (string Output in ViewBag.Month)
                             {
-                        <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
+                            <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                             }
-                    </tr>
-                    <tr>
-                        <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
-                        @foreach (double Output in Model.OutputList)
+                        </tr>
+                        <tr>
+                            <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
+                            @foreach (double Output in Model.OutputList)
                             {
-                        <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
+                            <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                             }
-                    </tr>
-                </table>
+                        </tr>
+                    </table>
+                    <br>
+                    <div>
+                        <form id="myForm" class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    <input type="text" name="Postcode" class="" />
+                                </div>
+                                <input type="hidden" name="NumberPanels" class="btn btn-primary" value=@Model.NumberPanels />
+                                <div class="col-md-offset-1 col-md-2">
+                                    <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
-                <div>
-                    <form id="myForm" class="form-horizontal">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-2">
-                                <input type="text" name="Postcode" class="" value="" />
-                            </div>
-                            <input type="hidden" name="NumberPanels" class="btn btn-primary" value=@Model.NumberPanels />
-                            <div class="col-md-offset-1 col-md-2">
-                                <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" />
-                            </div>
+                    <div class="Calculator-Content OutputChart">
+                        <div class="panel-body">
+                            <canvas id="bar_chart" height="150"></canvas>
                         </div>
-                    </form>
-                </div>
-
-                <div class="Calculator-Content OutputChart">
-                    <div class="panel-body">
-                        <canvas id="bar_chart" height="150"></canvas>
                     </div>
                 </div>
-            </div>
 
  <!-- Carbon Emission Calculate -->
 
@@ -181,8 +180,11 @@
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
     <script>
-    // check if compare Chart exist.
-    var compareBarPop = false;
+        // check if compare Chart exist.
+        var compareBarPop = false;
+        // make it global;
+        var bar_chart;
+
     function SubForm() {
         // post form data to contorller.
         $.ajax({
@@ -198,7 +200,6 @@
         }
 
     function showCompareBarChart(compareOutputList) {
-        var Output = @Html.Raw(Json.Encode(Model.OutputList));
         var barDataSet =
         {
             label: "Compared Output",
@@ -219,8 +220,6 @@
         }
     };
 
-    // make it global;
-    var bar_chart;
     $(document).ready(function () {
         var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
 
@@ -290,14 +289,14 @@
 
             var Output = @Html.Raw(Json.Encode(Model.OutputList));
             var barDataSet = {
-        label: "Electricity Output",
-        data: Output,
-        backgroundColor: "rgba(127,255,0,.5)",
-        borderColor: "rgb(127,255,0)",
-        borderWidth: 1
-                }
-        bar_chart.data.datasets.push(barDataSet);
-        bar_chart.update();
+            label: "Electricity Output",
+            data: Output,
+            backgroundColor: "rgba(127,255,0,.5)",
+            borderColor: "rgb(127,255,0)",
+            borderWidth: 1
+                    }
+            bar_chart.data.datasets.push(barDataSet);
+            bar_chart.update();
         };
 
         function showLineChart() {
