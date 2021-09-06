@@ -22,10 +22,13 @@ namespace FIT5120___VicEnerG.Controllers
             var Model = new CalculatorViewModel();
             return View(Model);
         }
-
+        //This function is for the logic of when user input another postcode in the input box and there will be a
+        // bar chart with two columns generate.
         public async Task<String> Compare(int Postcode, int NumberPanels)
         {
+            //Initialize
             VicEnerGSystem VEG = new VicEnerGSystem();
+            //Use the postcode which from the input box and check the data in staion
             List<double> Coordinates = await VEG.GetGeocode(Postcode);
             IList<Station> StationList = db.StationSet.ToList();
             int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
