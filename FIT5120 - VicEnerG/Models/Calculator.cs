@@ -70,12 +70,12 @@ namespace FIT5120___VicEnerG.Models
         // This method will return the hours
         public int CalculateAbsorptionHours(double CO2)
         {
-            // Amount of trees in CBD of Victoria
-            int TreesInCity = 150000;
+            // Number of trees in City of Melbourne
+            int TreesInCity = 70000;
             // Amount of CO2 in kg
             double CO2InKG = CO2 * 1000;
             // The amount of CO2 in kg can be absorbed per hour in CBD of Victoria
-            double AbsorbRate = 0.000239 * TreesInCity;
+            double AbsorbRate = 0.00249 * TreesInCity;
             // The absorb hours will be the total amount of CO2 divide by the hourly absorb rate
             int Hours = (int)Math.Round(CO2InKG / AbsorbRate);
 

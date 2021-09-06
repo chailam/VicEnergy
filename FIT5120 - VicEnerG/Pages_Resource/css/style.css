@@ -2269,6 +2269,7 @@ div#blog {
     overflow: hidden;
 }
 
+
 .icon {
     width: 85px;
     height: 80px;
@@ -2277,6 +2278,7 @@ div#blog {
     margin-right: auto;
     margin-bottom: 10px;
 }
+
 
 .Component p2 {
     display: block;
@@ -2289,6 +2291,14 @@ div#blog {
     text-align: center;
 }
 
+.general {
+    padding: 10px;
+}
+
+    .general a {
+        text-decoration: underline;
+    }
+
 .content {
     position: absolute;
     top: -10px;
@@ -2299,12 +2309,13 @@ div#blog {
     margin-right: 20px;
     background-color: antiquewhite;
     height: 155px;
-    padding: 10px;
+    padding: 5px;
     border: #1C3242 1px solid;
     border-radius: 10px;
 }
 
     .content p {
+        font-size: 15px;
     }
 
 .dot:hover + .content {
@@ -2320,7 +2331,8 @@ div#blog {
     height: 20px;
     border-radius: 50%;
 }
+
 .panel-body p {
-    text-align:center;
+    text-align: center;
 }
 /*-- //Calculate Carbon footprint page --*/

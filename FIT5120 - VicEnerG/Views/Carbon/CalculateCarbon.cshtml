@@ -12,6 +12,23 @@
 
     <!-- Information input form-->
     <div class="row">
+
+        <div class="Calculator-Content" id="carbon_info">
+            <h3>What does the calculator do?</h3>
+            <br>
+            <div class="general">
+                <p>
+                    By inputting the postcode and the estimated number of solar panels installed in the Information Entry session,
+                    the Carbon footprint calculator will calculate the estimated carbon emission of given kilowatt-hours of elecrticity.
+                    Beside showing you the data, the calculator will show you how this data impacts your daily lives by showing the usage of few related components.
+                    At the end of the page, you will see the CO2 reduction contribution of your estimated solar system to your selected postcode and to Victoria as well
+                </p> <br>
+                <ul>
+                    <li><a href="~/Home/CarbonInfo">Click here for more information</a> about Carbon footprint/emission</li>
+                    <li><a href="~/Calculator/CalculateOutput">Click here for more information</a> about the electricity output of your estimated solar system</li>
+                </ul>
+            </div>
+        </div>
         <div class="Calculator-Content Input" id="carbon_info">
             <h3>Information Entry</h3>
             <br>
@@ -23,22 +40,19 @@
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
+                        <div class="col-md-6 text-center">
+                            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
                             @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
-                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-8">
+                        <div class="col-md-6 text-center">
+                            @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
                             @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
-                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-offset-4 col-md-8">
+                        <div class="col-md-offset-5 col-md-8">
                             <input type="submit" class="btn btn-primary" value="Calculate" />
                         </div>
                     </div>
@@ -61,7 +75,7 @@
                 <div class="col-xs-2 Component">
                     <span class="dot"></span>
                     <div class="content">
-                        <p>Some random text blah blah...</p>
+                        <p>The average carbon emissions intensity for passenger cars and light SUVs was 149.5 g/km.</p>
                     </div>
                     <img src="~/images/carbonIcon/Light.png" class="icon" />
                     <p2>@Model.LightVehicle km</p2>
@@ -70,7 +84,7 @@
                 <div class="col-xs-2 Component">
                     <span class="dot"></span>
                     <div class="content">
-                        <p>Some random text blah blah...</p>
+                        <p>The average carbon emissions intensity of heavy SUVs and light commercial vehicles was 216.7 g/km</p>
                     </div>
                     <img src="~/images/carbonIcon/Heavy.png" class="icon" />
                     <p2>@Model.HeavyVehicle km</p2>
@@ -79,7 +93,7 @@
                 <div class="col-xs-2 Component">
                     <span class="dot"></span>
                     <div class="content">
-                        <p>Some random text blah blah...</p>
+                        <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon</p>
                     </div>
                     <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
                     <p2>@Model.Gasoline gallons</p2>
@@ -88,7 +102,7 @@
                 <div class="col-xs-2 Component">
                     <span class="dot"></span>
                     <div class="content">
-                        <p>Some random text blah blah...</p>
+                        <p>The average carbon emissions of a mobile was 16.7kg/year through usage and charging</p>
                     </div>
                     <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
                     <p2>@Model.PhoneCharges times</p2>
@@ -97,11 +111,11 @@
                 <div class="col-xs-2 Component">
                     <span class="dot"></span>
                     <div class="content">
-                        <p>Some random text blah blah...</p>
+                        <p>There are more than 70,000 trees in the city of Melbourne and each tree can absorb 2.49g/hour of carbon dioxide</p>
                     </div>
                     <img src="~/images/carbonIcon/Trees.png" class="icon" />
                     <p2>@Model.AbsorbHours hours</p2>
-                    <p3>for Trees in Victoria to absorbs.</p3>
+                    <p3>for Trees in the City of Melbourne to absorbs.</p3>
                 </div>
             </div>
 
@@ -129,7 +143,6 @@
                     </div>
                 </div>
             </div>
-            <p>I will add something here</p>
         </div>
     </div>
 </div>
