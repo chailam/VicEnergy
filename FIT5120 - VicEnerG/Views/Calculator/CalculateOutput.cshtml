@@ -192,21 +192,17 @@
 
         function SubForm() {
             var postcode = $('#comparePostcode').val();
-            jQuery.validator.setDefaults({
-                success: "valid"
-            });
+           
             //console.log('a', a);
             $("#myForm").validate({
                 rules: {
                     Postcode: {
-                        required: true,
-                        min: 3000,
-                        number: true,
-                        max: 3999
+                        max: 3999,
+                        min:3000
                     }
                 }
             })
-            @*if (postcode >= 3000 && postcode <= 3999) {
+            if (postcode >= 3000 && postcode <= 3999) {
                 // post form data to contorller.
                 $.ajax({
                     url: '/Calculator/Compare',
@@ -220,7 +216,7 @@
                 });
             } else {
                 
-            }*@
+            }
         }
         function DeleteCompare() {
             bar_chart.data.datasets.pop();
