@@ -199,6 +199,7 @@
     <Content Include="images\carbonInfo\carbon-banner.jpg" />
     <Content Include="images\carbonInfo\carbon-graph.jpg" />
     <Content Include="images\home\carbon-footprint-home.jpg" />
+    <Content Include="images\layout\emoji.png" />
     <Content Include="images\logo\logo_icon.jpg" />
     <Content Include="images\home\solar-panel-house.jpg" />
     <Content Include="images\logo\white_teamlogo_dark_background.jpg" />

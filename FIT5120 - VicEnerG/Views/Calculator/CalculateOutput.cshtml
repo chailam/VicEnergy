@@ -38,42 +38,40 @@
                 <div class="col-md-6">
                     <div class="Calculator-Content Input abouttopleft">
                         <h3>Information Entry</h3><br>
-                        @using (Html.BeginForm())
-                        {
-                        @Html.AntiForgeryToken()
+                        @using (Html.BeginForm()) {
+                            @Html.AntiForgeryToken()
 
-                        <div class="form-horizontal">
+                            <div class="form-horizontal">
 
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
-                                <div class="col-md-8">
-                                    @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
-                                    @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                                        @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                                        @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <input type="submit" class="btn btn-primary" value="Calculate" />
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
-                                <div class="col-md-8">
-                                    @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
-                                    @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-offset-4 col-md-8">
-                                    <input type="submit" class="btn btn-primary" value="Calculate" />
-                                </div>
-                            </div>
-                        </div>
                         }
                     </div>
                 </div>
             </div>
         </div>
         @{
-            if (Model.Station != null)
-            {
+            if (Model.Station != null) {
                 <div class="Calculator-Content OutputDescription abouttopleft" id="OutputResult">
                     <h3>Electricity Output</h3>
                     <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
@@ -95,16 +93,14 @@
                     <table width="100%" style="table-layout: fixed">
                         <tr>
                             <th></th>
-                            @foreach (string Output in ViewBag.Month)
-                            {
-                            <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
+                            @foreach (string Output in ViewBag.Month) {
+                                <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                             }
                         </tr>
                         <tr>
                             <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
-                            @foreach (double Output in Model.OutputList)
-                            {
-                            <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
+                            @foreach (double Output in Model.OutputList) {
+                                <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                             }
                         </tr>
                     </table>
@@ -131,46 +127,44 @@
                     </div>
                 </div>
 
- <!-- Carbon Emission Calculate -->
 
-            <div class="Calculator-Content CarbonDescription abouttopleft" id="CarbonInformation">
-                <h3>Carbon Dioxide Emissions</h3>
-                <h4>The Carbon Dioxide equivalent Emissions</h4>
-                <div class="result">
-                    @Model.CO2 <p>metric tons CO2/kWh</p>
-                </div>
-                <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
-                <p2>1kWh = 1.13kg CO2-e/kWh</p2>
-                <br>
-                <br>
-                <div>
-                    @using (Html.BeginForm("CalculateCarbon", "Carbon"))
-                        {
-                    <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
-                    <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
-                    <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
-                        }
-                </div>
-            </div>
+                <!-- Electric Appliances -->
+                <div class="Calculator-Content ApplianceUsage abouttopleft" id="ApplianceUsage">
+                    <h3>Appliance Extra hours usage</h3>
+                    <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
+                    @Html.DropDownList("ApplianceList",
+                     new SelectList(Model.Extrahours.Keys.ToList()),
+                     "Choose Appliance")
 
-
-
-
-            <div class="Calculator-Content ApplianceUsage abouttopleft" id="ApplianceUsage">
-                <h3>Appliance Extra hours usage</h3>
-                <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
-                @Html.DropDownList("ApplianceList",
-                 new SelectList(Model.Extrahours.Keys.ToList()),
-                 "Choose Appliance")
-
-                <div id="hidden_div">
-                    <div class="Calculator-Content ApplianceChart">
-                        <div class="panel-body">
-                            <canvas id="line_chart" height="150"></canvas>
+                    <div id="hidden_div">
+                        <div class="Calculator-Content ApplianceChart">
+                            <div class="panel-body">
+                                <canvas id="line_chart" height="150"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- Carbon Emission Calculate -->
+
+                <div class="Calculator-Content CarbonDescription abouttopleft" id="CarbonInformation">
+                    <h3>Carbon Dioxide Emissions</h3>
+                    <h4>The Carbon Dioxide equivalent Emissions</h4>
+                    <div class="result">
+                        @Model.CO2 <p>metric tons CO2/kWh</p>
+                    </div>
+                    <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+                    <p2>1kWh = 1.13kg CO2-e/kWh</p2>
+                    <br>
+                    <br>
+                    <div>
+                        @using (Html.BeginForm("CalculateCarbon", "Carbon")) {
+                            <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
+                            <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
+                            <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
+                        }
+                    </div>
+                </div>
             }
         }
 
