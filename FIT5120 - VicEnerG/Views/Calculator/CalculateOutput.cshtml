@@ -32,6 +32,7 @@
                             <li><p>The system only accept postcodes in Victoria (3000-3999).</p></li>
                             <li><p>The estimated output is not consider about shading and angles of the panel.</p></li>
                         </ol>
+                        <a href="~/Carbon/CalculateCarbon">Link to Carbon Calculator</a>
                     </div>
                 </div>
                 <!-- Information input form-->
@@ -110,11 +111,13 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-2">
-                                    <input type="text" name="Postcode" class="" />
+                                    <input id="comparePostcode"  type="number" name="Postcode" class="" />
+                                    <label for="Postcode" class="test"></label>
                                 </div>
                                 <input type="hidden" name="NumberPanels" class="btn btn-primary" value=@Model.NumberPanels />
-                                <div class="col-md-offset-1 col-md-2">
-                                    <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" />
+                                <div class="col-md-offset-1 col-md-3">
+                                    <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" style="width:9rem"/>
+                                    <input type="button" class="btn btn-primary" value="Delete" onclick="DeleteCompare()" style="width:9rem"/>
                                 </div>
                             </div>
                         </form>
@@ -170,6 +173,13 @@
 
     </div>
 </div>
+<style>
+    label.error{
+       color:red;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <!-- Calculator feature page display ends here! -->
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
@@ -180,20 +190,43 @@
         var bar_chart;
 
 
-    function SubForm() {
-        // post form data to contorller.
-        $.ajax({
-            url: '/Calculator/Compare',
-            type: 'post',
-            data: $('#myForm').serialize(),
-            dataType: "JSON",
-            success: function (data) {
-                // set bar chart dataset and show compared chart.
-                showCompareBarChart(data.OutputList)
-            }
-        });
+        function SubForm() {
+            var postcode = $('#comparePostcode').val();
+            jQuery.validator.setDefaults({
+                success: "valid"
+            });
+            //console.log('a', a);
+            $("#myForm").validate({
+                rules: {
+                    Postcode: {
+                        required: true,
+                        min: 3000,
+                        number: true,
+                        max: 3999
+                    }
+                }
+            })
+            @*if (postcode >= 3000 && postcode <= 3999) {
+                // post form data to contorller.
+                $.ajax({
+                    url: '/Calculator/Compare',
+                    type: 'post',
+                    data: $('#myForm').serialize(),
+                    dataType: "JSON",
+                    success: function (data) {
+                        // set bar chart dataset and show compared chart.
+                        showCompareBarChart(data.OutputList)
+                    }
+                });
+            } else {
+                
+            }*@
         }
-
+        function DeleteCompare() {
+            bar_chart.data.datasets.pop();
+            bar_chart.update();
+            compareBarPop = false;
+    }
     function showCompareBarChart(compareOutputList) {
         var barDataSet =
         {
