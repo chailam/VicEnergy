@@ -220,10 +220,13 @@
             }
         }
         function DeleteCompare() {
-            bar_chart.data.datasets.pop();
-            bar_chart.update();
-            compareBarPop = false;
-    }
+            if (bar_chart.data.datasets.length >1 ) {
+                bar_chart.data.datasets.pop();
+                bar_chart.update();
+                compareBarPop = false;}
+                
+            }
+            
     function showCompareBarChart(compareOutputList) {
         var barDataSet =
         {
