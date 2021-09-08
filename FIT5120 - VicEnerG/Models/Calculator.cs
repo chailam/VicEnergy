@@ -113,8 +113,8 @@ namespace FIT5120___VicEnerG.Models
             // 0.008887 metic tons of CO2 emitted per gallon of gasoline combusted
             double GasolineRate = 0.008887;
             // Calculate the equivalent gallons of gasoline consumed
-            int Gallons = (int)Math.Round(CO2 / GasolineRate);
-            return Gallons;
+            int liters = (int)Math.Round(CO2 / GasolineRate * 3.78);
+            return liters;
         }
 
         // This method will calculate how many times that a phone can be fully charged by given CO2
