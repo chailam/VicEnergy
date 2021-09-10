@@ -15,7 +15,7 @@ namespace FIT5120___VicEnerG.ViewModels
         public int Postcode { get; set; }
 
         [Required(ErrorMessage = "Number of panels is required")]
-        [Range(1, 10, ErrorMessage = "The maximums estimation is 10 solar panels")]
+        [Range(1, 10, ErrorMessage = "The range of the estimation for solar panels is 1-10")]
         public int NumberPanels { get; set; }
         public double ElectricityOutput { get; set; }
         public double CO2 { get; set; }

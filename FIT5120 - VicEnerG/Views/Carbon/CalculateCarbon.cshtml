@@ -19,7 +19,7 @@
             <div class="general">
                 <p>
                     By inputting the postcode and the estimated number of solar panels installed in the Information Entry session,
-                    the Carbon footprint calculator will calculate the estimated carbon emission of given kilowatt-hours of elecrticity.
+                    the Carbon footprint calculator will calculate the estimated Carbon Dioxide emission of given kilowatt-hours of elecrticity.
                     Beside showing you the data, the calculator will show you how this data impacts your daily lives by showing the usage of few related components.
                     At the end of the page, you will see the CO2 reduction contribution of your estimated solar system to your selected postcode and to Victoria as well
                 </p> <br>
@@ -42,14 +42,28 @@
                     <div class="form-group">
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
-                            @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
-                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
-                        </div>
+                            @if (Model.Postcode == 0)
+                            {
+                                @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                            }
+                                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
+                            </div>
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
-                            @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
-                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
-                        </div>
+                            @if (Model.NumberPanels == 0)
+                            {
+                                @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                            }
+                                @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
+                            </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-md-8">
@@ -61,11 +75,12 @@
         </div>
         <div class="Calculator-Content CarbonDescription" id="carbon_info">
             <h3>Carbon Dioxide Emissions</h3>
-            <h4>The approximated Carbon Dioxide that will be saved in a year are:</h4>
+            <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
             <div class="result-carbon">
                 @Model.CO2 <p>metric tons CO2/kWh</p>
             </div>
-            <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+            <p>*The number means the amount of Carbon Dioxide you have reduced by using solar panels in one year </p>
+            <p>*According to the department of Environment, Land and water of Australia. The formular to convert electricity to Carbon Dioxide is: </p>
             <p2>1kWh = 1.13kg CO2-e/kWh</p2>
         </div>
 
@@ -122,23 +137,41 @@
         </div>
 
         <div class="Calculator-Content Contribution" id="carbon_info">
-            <h3>Carbon Footprint Annual Contribution</h3> <br>
+            <h3>Carbon Footprint Reduction Contribution</h3> <br>
+            <p>The following pie chart will show how much Carbon Dioxide Emission you have reduced in your suburb and Victoria by using <b>Solar panels</b>.</p>
             <div class="Calculator-Content Charts">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel-body">
                             <canvas id="Pie_suburb" height="150"></canvas>
-                            @{ if (Model.SuburbTotalCO2 == 0)
-                                {
-                                    <p>Sorry, There is no solar output records in the given postcode</p>
+                        </div>
+                        <div id="suburbtips" style="display:none">
+                            <ul>
+                                @{ if (Model.SuburbTotalCO2 == 0)
+                                    {
+                                        <li><p>Sorry, There is no solar panels records in the given postcode</p></li>
+                                        <li><p>We assume you are the only one who install solar panels in your suburb</p></li>
+                                    }
+                                    else
+                                    {
+                                        <li><p>The <b>annual</b> CO2 reduction of your suburb will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
+                                        <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
+                                        <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
+                                    }
                                 }
-                            }
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="panel-body">
                             <canvas id="Pie_state" height="150"></canvas>
-                            <p>This is the average monthly solar output of Victoria</p>
+                        </div>
+                        <div id="statetips" style="display:none">
+                            <ul>
+                                <li><p>The <b>average monthly</b> CO2 reduction of Victoria will be: <b id="statetotal"></b> metric tons CO2/kWh.</p></li>
+                                <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPS"></b>% of the total.</p></li>
+                                <li><p>Victoria have contributed <b>@Model.StateMonthlyCO2</b> metric tons CO2/kWh, which is <b id="SPS"></b>% of the total.</p></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -152,7 +185,9 @@
     @Scripts.Render("~/bundles/chartjsLabel")
     <script>
         $(document).ready(function () {
-
+            var SuburbTotalCO2 = @Html.Raw(Json.Encode(Model.SuburbTotalCO2));
+            var VictoriaTotalCO2 = @Html.Raw(Json.Encode(Model.StateMonthlyCO2));
+            var YourCO2 = @Html.Raw(Json.Encode(Model.CO2));
             function chartinitialize() {
                 // Display the pie chart by the element ID
                 var Pie_suburb_display = $("#Pie_suburb");
@@ -161,14 +196,14 @@
                 Pie_suburb = new Chart(Pie_suburb_display, {
                     type: 'pie',
                     data: {
-                        labels: ["You", "Your Postcode"],
+                        labels: ["You", "Your Suburb"],
                         datasets: []
                     },
                     options: {
                         responsive: true,
                         title: {
                             display: true,
-                            text: "Compare with your Postcode",
+                            text: "In your Subrurb",
                             fontSize: 18
                         },
                         tooltips: {
@@ -194,7 +229,7 @@
                         responsive:true,
                         title: {
                             display: true,
-                            text: "Compare with Victoria",
+                            text: "In Victoria",
                             fontSize: 18
                         },
                         tooltips: {
@@ -212,9 +247,6 @@
             };
 
             function InputData() {
-            var SuburbTotalCO2 = @Html.Raw(Json.Encode(Model.SuburbTotalCO2));
-            var VictoriaTotalCO2 = @Html.Raw(Json.Encode(Model.StateMonthlyCO2));
-            var YourCO2 = @Html.Raw(Json.Encode(Model.CO2));
             var suburbDataSet = {
                 data: [YourCO2, SuburbTotalCO2],
                 labels: ["You", "Your Suburb"],
@@ -226,12 +258,27 @@
                 labels: ["You", "Victoria"],
                 backgroundColor: ["rgba(127,255,0,.5)", "rgb(255, 99, 132)"],
                 hoverOffset: 4
-            };
+                };
+            document.getElementById("suburbtips").style.display = "block";
+            document.getElementById("statetips").style.display = "block";
             Pie_suburb.data.datasets.push(suburbDataSet);
             Pie_state.data.datasets.push(stateDataSet);
             Pie_suburb.update();
             Pie_state.update();
+
             };
+
+            var YouPercentageInSuburb = (YourCO2 / (SuburbTotalCO2 + YourCO2) * 100).toFixed(2);
+            var SuburbPercentageInSuburb = (SuburbTotalCO2 / (SuburbTotalCO2 + YourCO2) * 100).toFixed(2);
+            var YouPercentageInState = (YourCO2 / (VictoriaTotalCO2 + YourCO2) * 100).toFixed(2);
+            var StatePercentageInState = (VictoriaTotalCO2 / (VictoriaTotalCO2 + YourCO2) * 100).toFixed(2);
+
+            document.getElementById("suburbtotal").innerHTML = SuburbTotalCO2 + YourCO2;
+            document.getElementById("statetotal").innerHTML = VictoriaTotalCO2+ YourCO2;
+            document.getElementById("YPIS").innerHTML = YouPercentageInSuburb;
+            document.getElementById("SPIS").innerHTML = SuburbPercentageInSuburb;
+            document.getElementById("YPS").innerHTML = YouPercentageInState;
+            document.getElementById("SPS").innerHTML = StatePercentageInState;
 
 
             chartinitialize();

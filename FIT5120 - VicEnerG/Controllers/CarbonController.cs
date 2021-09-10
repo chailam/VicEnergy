@@ -76,7 +76,7 @@ namespace FIT5120___VicEnerG.Controllers
                 Model.PhoneCharges = PhoneCharges;
                 Model.Gasoline = Gallons;
                 Model.SuburbTotalCO2 = PostcodeCO2;
-                Model.StateMonthlyCO2 = VictoriaCO2 / 12;
+                Model.StateMonthlyCO2 = Math.Round(VictoriaCO2 / 12,2);
             }
             return View(Model);
         }

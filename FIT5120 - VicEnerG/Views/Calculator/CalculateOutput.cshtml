@@ -29,7 +29,7 @@
                         <p>There are few limitation in our calculator:</p>
                         <ol>
                             <li><p>Maximum 10 solar panels can be used in the estimation.</p></li>
-                            <li><p>The system only accept postcodes in Victoria (3000-3999).</p></li>
+                            <li><p>The system only accept residential postcodes in Victoria (3000-3999).</p></li>
                             <li><p>The estimated output is not consider about shading and angles of the panel.</p></li>
                         </ol>
                         <a href="~/Carbon/CalculateCarbon">Link to Carbon Calculator</a>
@@ -39,7 +39,8 @@
                 <div class="col-md-6">
                     <div class="Calculator-Content Input abouttopleft">
                         <h3>Information Entry</h3><br>
-                        @using (Html.BeginForm()) {
+                        @using (Html.BeginForm())
+                        {
                             @Html.AntiForgeryToken()
 
                             <div class="form-horizontal">
@@ -48,16 +49,30 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
-                                        @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-12" })
+                                        @if (Model.Postcode == 0)
+                                        {
+                                            @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                                        }
+                                        @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-10" })
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
-                                        @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-12" })
+                                        @if (Model.NumberPanels == 0)
+                                        {
+                                            @Html.TextBox("NumberPanels", "", new { placeholder = "x",  HtmlAttributes = new { @class = "form-control" } })
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
+                                        }
+                                        @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-10" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -72,12 +87,13 @@
             </div>
         </div>
         @{
-            if (Model.Station != null) {
+            if (Model.Station != null)
+            {
                 <div class="Calculator-Content OutputDescription abouttopleft" id="OutputResult">
                     <h3>Electricity Output</h3>
                     <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
                     <div class="result">
-                        @Model.AnnualOutput kWh
+                        @Model.AnnualOutput kWh/year
                     </div>
                     <p>*The radiation data is collected from the station called @Model.Station.stationName with Station ID @Model.Station.stationNumber</p>
                     <p>*The Solar output is followed by the formular:  <p2>E = A * r * H * PR</p2></p>
@@ -94,31 +110,33 @@
                     <table width="100%" style="table-layout: fixed">
                         <tr>
                             <th></th>
-                            @foreach (string Output in ViewBag.Month) {
+                            @foreach (string Output in ViewBag.Month)
+                            {
                                 <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                             }
                         </tr>
                         <tr>
                             <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
-                            @foreach (double Output in Model.OutputList) {
+                            @foreach (double Output in Model.OutputList)
+                            {
                                 <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                             }
                         </tr>
                     </table>
                     <br>
-                    <h4>Please input the postcode you want to compare the electricity output.</h4>
+                    <h4>Please input the postcode you want to <b style="color:#200E0B ">compare</b> the electricity output.</h4>
                     <div>
                         <form id="myForm" class="form-horizontal">
-                            <div class="form-group">
+                            <div class="form-group" style="margin-left: 220px">
                                 @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-2">
-                                    <input id="comparePostcode"  type="number" name="Postcode" class="" />
-                                    <label for="Postcode" class="test"></label>
+                                <div class="col-md-3">
+                                    <input id="comparePostcode" type="number" name="Postcode" placeholder="xxxx" />
+                                    <p5 id="error" style="color: #FF0000"></p5>
                                 </div>
                                 <input type="hidden" name="NumberPanels" class="btn btn-primary" value=@Model.NumberPanels />
                                 <div class="col-md-offset-1 col-md-3">
-                                    <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" style="width:9rem"/>
-                                    <input type="button" class="btn btn-primary" value="Delete" onclick="DeleteCompare()" style="width:9rem"/>
+                                    <input type="button" class="btn btn-primary" value="Compare" onclick="SubForm()" style="width:9rem" />
+                                    <input id="delete" type="button" class="btn btn-primary" value="Delete" onclick="DeleteCompare()" style="width:9rem;" />
                                 </div>
                             </div>
                         </form>
@@ -134,17 +152,23 @@
 
                 <!-- Electric Appliances -->
                 <div class="Calculator-Content ApplianceUsage abouttopleft" id="ApplianceUsage">
-                    <h3>Appliance Extra hours usage</h3>
-                    <br><p>Please selete one of the appliance from the list to see its extra hours usage</p><br>
+                    <h3>Appliance Usage</h3>
+                    <p>This feature will convert the elecrticity output generated by solar panels of each month to the usage of differert appliances</p>
+                    <br><p>Please selete one of the appliance from the list to see its usage</p><br>
                     @Html.DropDownList("ApplianceList",
                      new SelectList(Model.Extrahours.Keys.ToList()),
                      "Choose Appliance")
 
-                    <div id="hidden_div">
+                    <div>
                         <div class="Calculator-Content ApplianceChart">
                             <div class="panel-body">
                                 <canvas id="line_chart" height="150"></canvas>
                             </div>
+                        </div>
+                        <div id="tips" style="display: none;">
+                            <p>
+                                *E.g The electricity output generated by the solar panel in <b>January</b> will allows you to use <b id="appliance"></b> for <b id="hours"></b> hours
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -153,16 +177,20 @@
 
                 <div class="Calculator-Content CarbonDescription abouttopleft" id="CarbonInformation">
                     <h3>Carbon Dioxide Emissions</h3>
-                    <h4>The Carbon Dioxide equivalent Emissions</h4>
+                    <p>Using solar panels to generate electricity will effectively reduce the amount of Carbon Dioxide emission (CO2).
+                    Because approximately 40% of global CO2 emissions are emitted from electricity generation which is by burning fuels.</p>
+                    <h4>The <b>Annual</b> Carbon Dioxide Emission</h4>
                     <div class="result">
                         @Model.CO2 <p>metric tons CO2/kWh</p>
                     </div>
-                    <p>*According to the department of Environment, Land and water of Australia. The co-efficient between electricity and CO2 is: </p>
+                    <p>*The number means the amount of Carbon Dioxide you have reduced by using solar panels in one year </p>
+                    <p>*According to the department of Environment, Land and water of Australia. The formular to convert electricity to Carbon Dioxide is: </p>
                     <p2>1kWh = 1.13kg CO2-e/kWh</p2>
                     <br>
                     <br>
                     <div>
-                        @using (Html.BeginForm("CalculateCarbon", "Carbon")) {
+                        @using (Html.BeginForm("CalculateCarbon", "Carbon"))
+                        {
                             <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
                             <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
                             <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
@@ -175,8 +203,8 @@
     </div>
 </div>
 <style>
-    label.error{
-       color:red;
+    label.error {
+        color: red;
     }
 </style>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
@@ -192,62 +220,61 @@
 
 
         function SubForm() {
-            var postcode = $('#comparePostcode').val();
-           
-            //console.log('a', a);
-            $("#myForm").validate({
-                rules: {
-                    Postcode: {
-                        min: 3000,
-                        max: 3999
-                        
-                    }
-                }
-            })
-            if (postcode >= 3000 && postcode <= 3999) {
-                // post form data to contorller.
-                $.ajax({
-                    url: '/Calculator/Compare',
-                    type: 'post',
-                    data: $('#myForm').serialize(),
-                    dataType: "JSON",
-                    success: function (data) {
-                        // set bar chart dataset and show compared chart.
-                        showCompareBarChart(data.OutputList)
-                    }
-                });
+            var text = "";
+            var postcode = document.getElementById("comparePostcode").value;
+            var original = @Html.Raw(Json.Encode(Model.Postcode));
+            if (postcode == "" && postcode == 0) {
+                text = "Postcode is required for comparison"
+            } else if (postcode < 3000 || postcode > 3999) {
+                text = "Victoria postcode is in between 3000-3999"
+            } else if (postcode == original) {
+                text = "Cannot compare to the same postcode"
             } else {
-                
+                $.ajax({
+                url: '/Calculator/Compare',
+                type: 'post',
+                data: $('#myForm').serialize(),
+                dataType: "JSON",
+                success: function (data) {
+                    // set bar chart dataset and show compared chart.
+                    document.getElementById("delete").style.display = "";
+                    showCompareBarChart(data)
+                }
+            });
             }
+            document.getElementById("error").innerHTML = text;
         }
+
         function DeleteCompare() {
-            if (bar_chart.data.datasets.length >1 ) {
+            if (bar_chart.data.datasets.length > 1) {
                 bar_chart.data.datasets.pop();
                 bar_chart.update();
-                compareBarPop = false;}
-                
+                compareBarPop = false;
+                document.getElementById("delete").style.display = "none";
+                document.getElementById("comparePostcode").value = "";
             }
-            
-    function showCompareBarChart(compareOutputList) {
-        var barDataSet =
-        {
-            label: "Compared Output",
-            data: compareOutputList,
-            backgroundColor: "rgba(252,186,3,.5)",
-            borderColor: "rgb(127,255,0)",
-            borderWidth: 1
-        };
-        if (compareBarPop) {
-            // delete the last compare dataset.
-            bar_chart.data.datasets.pop();
-            bar_chart.data.datasets.push(barDataSet);
-            bar_chart.update();
-        } else {
-            bar_chart.data.datasets.push(barDataSet);
-            bar_chart.update();
-            compareBarPop = true;
         }
-    };
+
+        function showCompareBarChart(data) {
+            var barDataSet =
+            {
+                label: data.Postcode + " Output",
+                data: data.OutputList,
+                backgroundColor: "rgba(252,186,3,.5)",
+                borderColor: "rgb(127,255,0)",
+                borderWidth: 1
+            };
+            if (compareBarPop) {
+                // delete the last compare dataset.
+                bar_chart.data.datasets.pop();
+                bar_chart.data.datasets.push(barDataSet);
+                bar_chart.update();
+            } else {
+                bar_chart.data.datasets.push(barDataSet);
+                bar_chart.update();
+                compareBarPop = true;
+            }
+        };
 
     $(document).ready(function () {
         var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
@@ -277,7 +304,8 @@
                 options: {
                         title: {
                             display: true,
-                            text: "Electricity Output (kWh)"
+                        text: "Solar Panel Electricity Output",
+                        fontSize: 18
                         },
                     legend:
                             {
@@ -295,8 +323,9 @@
                 options: {
                         responsive: true,
                     title: {
-                            display: true,
+                        display: true,
                         text: "",
+                        fontSize: 18
                     },
                     legend:
                             {
@@ -317,8 +346,9 @@
         function showBarChart() {
 
             var Output = @Html.Raw(Json.Encode(Model.OutputList));
+            var postcode = @Html.Raw(Json.Encode(Model.Postcode));
             var barDataSet = {
-            label: "Electricity Output",
+            label: postcode + " Output",
             data: Output,
             backgroundColor: "rgba(127,255,0,.5)",
             borderColor: "rgb(127,255,0)",
@@ -329,20 +359,19 @@
         };
 
         function showLineChart() {
-                // Obtain the selection from website
-                var ApplianceName = document.getElementById("ApplianceList").value;
-                // Encode the variables from controller
-                var DicKey= @Html.Raw(Json.Encode(Model.Extrahours.Keys.ToList()));
-                var DicValue = @Html.Raw(Json.Encode(Model.Extrahours.Values.ToList()));
-
-                line_chart.options.title.text = "Extra hours for " + ApplianceName;
-                // Find corresponding dataset for if matching appliance is found
-                var ListData = []
+            // Obtain the selection from website
+            var ApplianceName = document.getElementById("ApplianceList").value;
+            // Encode the variables from controller
+            var DicKey= @Html.Raw(Json.Encode(Model.Extrahours.Keys.ToList()));
+            var DicValue = @Html.Raw(Json.Encode(Model.Extrahours.Values.ToList()));
+            line_chart.options.title.text = "Extra hours for " + ApplianceName;
+            // Find corresponding dataset for if matching appliance is found
+            var ListData = []
             for (let i = 0; i < DicKey.length; i++) {
-                    if (DicKey[i] == ApplianceName) {
-                        ListData = DicValue[i];
-                    }
+                if (DicKey[i] == ApplianceName) {
+                    ListData = DicValue[i];
                 }
+            }
                 // Remove the previous appliance data if new appliance is selected
                 line_chart.data.datasets.pop();
                 line_chart.update();
@@ -355,6 +384,14 @@
                     backgroundColor: "rgba(0,0,255,.5)",
                     borderColor: "rgb(0,0,255)"
             }
+            var hours = ListData[0];
+            if (hours > 0) {
+                document.getElementById("tips").style.display = "block";
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("appliance").innerHTML = ApplianceName;
+            } else {
+                document.getElementById("tips").style.display = "none";
+            }
             line_chart.data.datasets.push(dataset);
             // Update the chart
             line_chart.update();
@@ -362,10 +399,11 @@
 
      // Apply the function when the page load up
         pagelayout();
-            if (check != 0) {
-                chartinitialize();
-                showBarChart();
-            }
+        if (check != 0) {
+            chartinitialize();
+            showBarChart();
+            document.getElementById("delete").style.display = "none";
+        }
         $('#ApplianceList').on('change', function () { showLineChart() });
     });
 

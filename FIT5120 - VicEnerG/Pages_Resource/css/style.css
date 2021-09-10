@@ -2085,7 +2085,7 @@ div#blog {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    color: #ffd800;
+    color: #ffbc00;
 }
 
 .result-carbon {
@@ -2100,8 +2100,8 @@ div#blog {
     width: 100%;
 }
 
-/*-- //Calculate Solar Output page --*/
 
+/*-- //Calculate Solar Output page --*/
 #footer {
     position: absolute;
     bottom: 0;

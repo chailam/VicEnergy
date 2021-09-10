@@ -38,9 +38,7 @@ namespace FIT5120___VicEnerG.Controllers
 
             var dataList = new
             {
-                StationName = TargetStation.stationName,
-                StationNumber = TargetStation.stationNumber,
-                Coordinates = Coordinates[0] + " " + Coordinates[1],
+                Postcode = Postcode,
                 OutputList = MonthlyOutput
             };
             ViewBag.stationList = dataList;
