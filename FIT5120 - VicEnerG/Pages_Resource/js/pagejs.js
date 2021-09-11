@@ -79,7 +79,7 @@ $(function () {
 $(document).ready(function ($) {
     var parPosition = [];
     $('.par').each(function () {
-        parPosition.push($(this).offset().top+500);
+        parPosition.push($(this).offset().top+700);
     });
 
     $('a').click(function () {

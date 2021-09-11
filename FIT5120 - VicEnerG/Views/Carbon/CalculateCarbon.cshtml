@@ -13,7 +13,7 @@
     <!-- Information input form-->
     <div class="row">
 
-        <div class="Calculator-Content" id="carbon_info">
+        <div class="Calculator-Content Carbon-Calculator par" id="carbon_info">
             <h3>What Does Carbon Calculator Do?</h3>
             <br>
             <div class="general">
@@ -29,11 +29,10 @@
                 </ul>
             </div>
         </div>
-        <div class="Calculator-Content Input" id="carbon_info">
+        <div class="Calculator-Content Carbon-Calculator Input par" id="carbon_input">
             <h3>Information Entry</h3>
             <br>
-            @using (Html.BeginForm())
-            {
+            @using (Html.BeginForm()) {
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
@@ -42,28 +41,24 @@
                     <div class="form-group">
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
-                            @if (Model.Postcode == 0)
-                            {
+                            @if (Model.Postcode == 0) {
                                 @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else
-                            {
+                            else {
                                 @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
                             }
-                                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
-                            </div>
+                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
+                        </div>
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
-                            @if (Model.NumberPanels == 0)
-                            {
+                            @if (Model.NumberPanels == 0) {
                                 @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else
-                            {
+                            else {
                                 @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
                             }
-                                @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
-                            </div>
+                            @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-md-8">
@@ -73,7 +68,7 @@
                 </div>
             }
         </div>
-        <div class="Calculator-Content CarbonDescription" id="carbon_info">
+        <div class="Calculator-Content Carbon-Calculator CarbonDescription par" id="carbon_emission">
             <h3>Carbon Dioxide Emissions</h3>
             <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
             <div class="result-carbon">
@@ -84,7 +79,7 @@
             <p2>1kWh = 1.13kg CO2-e/kWh</p2>
         </div>
 
-        <div class="Calculator-Content CarbonDailyLives" id="carbon_info">
+        <div class="Calculator-Content Carbon-Calculator CarbonDailyLives" id="carbon_mean">
             <h3>What Does It Mean?</h3> <br>
             <div class="row">
                 <div class="col-xs-2 Component">
@@ -136,9 +131,10 @@
 
         </div>
 
-        <div class="Calculator-Content Contribution" id="carbon_info">
+        <div class="Calculator-Content Carbon-Calculator Contribution par" id="carbon_contribution">
             <h3>Carbon Footprint Reduction Contribution</h3> <br>
             <p>The following pie chart will show how much Carbon Dioxide Emission you have reduced in your suburb and Victoria by using <b>Solar panels</b>.</p>
+            <br>
             <div class="Calculator-Content Charts">
                 <div class="row">
                     <div class="col-md-6">
@@ -146,14 +142,13 @@
                             <canvas id="Pie_suburb" height="150"></canvas>
                         </div>
                         <div id="suburbtips" style="display:none">
+                            <br>
                             <ul>
-                                @{ if (Model.SuburbTotalCO2 == 0)
-                                    {
+                                @{ if (Model.SuburbTotalCO2 == 0) {
                                         <li><p>Sorry, There is no solar panels records in the given postcode</p></li>
                                         <li><p>We assume you are the only one who install solar panels in your suburb</p></li>
                                     }
-                                    else
-                                    {
+                                    else {
                                         <li><p>The <b>annual</b> CO2 reduction of your suburb will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
                                         <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
                                         <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
@@ -167,6 +162,7 @@
                             <canvas id="Pie_state" height="150"></canvas>
                         </div>
                         <div id="statetips" style="display:none">
+                            <br>
                             <ul>
                                 <li><p>The <b>average monthly</b> CO2 reduction of Victoria will be: <b id="statetotal"></b> metric tons CO2/kWh.</p></li>
                                 <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPS"></b>% of the total.</p></li>
@@ -177,8 +173,50 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Carbon Emission Calculate -->
+
+        <div class="Calculator-Content Carbon-Calculator abouttopleft par">
+            <h3>Water xxxxx</h3>
+            <h4>
+                xxxxx
+            </h4>
+            <br>
+            <br>
+            <br>
+            <a class="btn btn-primary btn-lg btn-block btn-water-redirect" href="~/Carbon/CalculateCarbon" role="button" id="water_calculator">Try Our Water Calculator Now (fix redirect)</a>
+            
+        </div>
     </div>
 </div>
+
+<!-- Side Dotted Navigation Bar Start -->
+<div class="vNav carbon-side-nav">
+    <ul class="vNav carbon-side-nav">
+        <li>
+            <a href="#carbon_input">
+                <div class="label">Information Entry</div>
+            </a>
+        </li>
+        <li>
+            <a href="#carbon_mean">
+                <div class="label">What does it mean</div>
+            </a>
+        </li>
+        <li>
+            <a href="#carbon_contribution">
+                <div class="label">Carbon Reduction Contribution</div>
+            </a>
+        </li>
+        <li>
+            <a href="#water_calculator">
+                <div class="label">Water Usage Calculator</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
