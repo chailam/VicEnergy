@@ -2433,3 +2433,65 @@ div#blog {
 }
 
 /*-- End 404 Not Found Page --*/
+
+/*-- Start Solar Output Calculation Dotted Bavigation Bar --*/
+.vNav {
+    position: fixed;
+    top: 40%;
+    left: 80%;
+    width: 130px;
+    z-index: 9999;
+    list-style-type: none;
+}
+
+    .vNav ul {
+        position: relative;
+        padding: 3px;
+        padding-left: 35%;
+    }
+
+        .vNav ul li {
+            position: relative;
+            padding-bottom: 20px;
+            padding-left: 35%;
+            color: rgb(113,135,133);
+        }
+
+    .vNav a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        text-indent: -9999px;
+        border-radius: 50%;
+        border: 2px solid;
+        border-color: #6D8293;
+        text-decoration: none;
+    }
+
+        .vNav a:hover {
+            border-radius: 50%;
+            background-color: #e88b84;
+            text-decoration: none;
+        }
+
+        .vNav a.active {
+            border-radius: 50%;
+            background-color: #ff6b61;
+            text-decoration: none;
+        }
+
+.label {
+    position: relative;
+    top: -60%;
+    left: -200%;
+    width: 100%;
+    text-align: right;
+    font-size: 1em;
+    color: #ff6b61;
+    display: none;
+}
+
+
+
+
+/*-- End Solar Output Calculation Dotted Bavigation Bar --*/

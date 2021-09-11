@@ -6,7 +6,7 @@
 }
 
 <!-- Calculator feature page display starts here! -->
-<div class="container body-content">
+<div class="container body-content" id="information-entry">
     <div class="container">
         <hr>
         <h3 class="heading">Solar Output Calculator</h3>
@@ -36,11 +36,10 @@
                     </div>
                 </div>
                 <!-- Information input form-->
-                <div class="col-md-6">
+                <div class="col-md-6 par" >
                     <div class="Calculator-Content Input abouttopleft">
                         <h3>Information Entry</h3><br>
-                        @using (Html.BeginForm())
-                        {
+                        @using (Html.BeginForm()) {
                             @Html.AntiForgeryToken()
 
                             <div class="form-horizontal">
@@ -49,12 +48,10 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @if (Model.Postcode == 0)
-                                        {
+                                        @if (Model.Postcode == 0) {
                                             @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
                                         }
-                                        else
-                                        {
+                                        else {
                                             @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
                                         }
                                         @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-10" })
@@ -64,12 +61,10 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @if (Model.NumberPanels == 0)
-                                        {
-                                            @Html.TextBox("NumberPanels", "", new { placeholder = "x",  HtmlAttributes = new { @class = "form-control" } })
+                                        @if (Model.NumberPanels == 0) {
+                                            @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
                                         }
-                                        else
-                                        {
+                                        else {
                                             @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
                                         }
                                         @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-10" })
@@ -87,9 +82,8 @@
             </div>
         </div>
         @{
-            if (Model.Station != null)
-            {
-                <div class="Calculator-Content OutputDescription abouttopleft" id="OutputResult">
+            if (Model.Station != null) {
+                <div class="Calculator-Content OutputDescription abouttopleft par" id="OutputResult">
                     <h3>Electricity Output</h3>
                     <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
                     <div class="result">
@@ -110,15 +104,13 @@
                     <table width="100%" style="table-layout: fixed">
                         <tr>
                             <th></th>
-                            @foreach (string Output in ViewBag.Month)
-                            {
+                            @foreach (string Output in ViewBag.Month) {
                                 <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                             }
                         </tr>
                         <tr>
                             <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
-                            @foreach (double Output in Model.OutputList)
-                            {
+                            @foreach (double Output in Model.OutputList) {
                                 <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                             }
                         </tr>
@@ -151,9 +143,9 @@
 
 
                 <!-- Electric Appliances -->
-                <div class="Calculator-Content ApplianceUsage abouttopleft" id="ApplianceUsage">
+                <div class="Calculator-Content ApplianceUsage abouttopleft par" id="ApplianceUsage">
                     <h3>Appliance Usage</h3>
-                    <p>This feature will convert the elecrticity output generated by solar panels of each month to the usage of differert appliances</p>
+                    <p>This feature will convert the elecrticity output generated by solar panels of each month to the usage of different appliances</p>
                     <br><p>Please selete one of the appliance from the list to see its usage</p><br>
                     @Html.DropDownList("ApplianceList",
                      new SelectList(Model.Extrahours.Keys.ToList()),
@@ -175,10 +167,12 @@
 
                 <!-- Carbon Emission Calculate -->
 
-                <div class="Calculator-Content CarbonDescription abouttopleft" id="CarbonInformation">
+                <div class="Calculator-Content CarbonDescription abouttopleft par" id="CarbonInformation">
                     <h3>Carbon Dioxide Emissions</h3>
-                    <p>Using solar panels to generate electricity will effectively reduce the amount of Carbon Dioxide emission (CO2).
-                    Because approximately 40% of global CO2 emissions are emitted from electricity generation which is by burning fuels.</p>
+                    <p>
+                        Using solar panels to generate electricity will effectively reduce the amount of Carbon Dioxide emission (CO2).
+                        Because approximately 40% of global CO2 emissions are emitted from electricity generation which is by burning fuels.
+                    </p>
                     <h4>The <b>Annual</b> Carbon Dioxide Emission</h4>
                     <div class="result">
                         @Model.CO2 <p>metric tons CO2/kWh</p>
@@ -189,8 +183,7 @@
                     <br>
                     <br>
                     <div>
-                        @using (Html.BeginForm("CalculateCarbon", "Carbon"))
-                        {
+                        @using (Html.BeginForm("CalculateCarbon", "Carbon")) {
                             <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
                             <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
                             <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
@@ -202,6 +195,35 @@
 
     </div>
 </div>
+
+<!-- Side Dotted Navigation Bar Start -->
+<div class="vNav">
+    <ul class="vNav">
+        <li>
+            <a href="#information-entry">
+                <div class="label">Information Entry</div>
+            </a>
+        </li>
+        <li>
+            <a href="#OutputResult">
+                <div class="label">Electricity Output</div>
+            </a>
+        </li>
+        <li>
+            <a href="#ApplianceUsage">
+                <div class="label">Appliance Usage</div>
+            </a>
+        </li>
+        <li>
+            <a href="#CarbonInformation">
+                <div class="label">Carbon Dioxide Emission</div>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- Side Dotted Navigation Bar End -->
+
+
 <style>
     label.error {
         color: red;
