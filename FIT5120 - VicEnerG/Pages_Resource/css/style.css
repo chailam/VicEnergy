@@ -1622,6 +1622,10 @@ div#blog {
         margin-left: 1em;
     }
 
+    .vNav {
+        width: 200px !important;
+    }
+
     .w3l-info h2, .w3l-info h3 {
         letter-spacing: .2em;
         font-size: 2.8em;
@@ -1681,6 +1685,10 @@ div#blog {
 @media (max-width: 900px) {
     .navbar-nav {
         margin-left: 1em;
+    }
+
+    .vNav {
+        display: none !important;
     }
 
     ul.top-links.social {
