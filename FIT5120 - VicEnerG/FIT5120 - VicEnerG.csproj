@@ -192,6 +192,7 @@
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
     <Content Include="images\carbonIcon\icon.gif" />
+    <Content Include="images\carbonIcon\ArrowRight.png" />
     <Content Include="images\carbonIcon\Trees.png" />
     <Content Include="images\carbonIcon\Phone_Charge.png" />
     <Content Include="images\carbonIcon\Gasoline.png" />

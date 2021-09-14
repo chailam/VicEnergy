@@ -3,21 +3,104 @@
     ViewBag.Title = "AboutUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .aboutContainer{
+        margin: 0 5%;
+    }
+    .aboutTopContent {
+        border: 1px solid #ddd;
+        padding: 1em 2em 2em 2em;
+        background: url('https://html.sammy-codes.com/images/background.jpg')
+    }
+        .aboutTopContent h3 {
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    .aboutMidContent {
+        margin-top:1rem;
+        @*border: 1px solid #ddd;*@
+        padding: 1em 2em 2em 2em;
+    }
+    .aboutHeader {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 2rem
+    }
+    .aboutHeader2 {
+        font-weight: bold;
+        margin-top: 2rem;
+        margin-bottom:1rem;
+    }
+</style>
 <!-- About Us -->
-<div class="container">
+<div class="aboutContainer">
     <hr>
     <h3 class="heading">About Us</h3>
     <!-- What is Solar -->
-    <div class="abouttop">
-        <div class="col-md-8">
+    <div>
+
+        <div class="aboutTopContent">
+            <h3>
+                Project Description
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec fermentum mauris, nec interdum metus. Duis eget velit diam. Ut ac risus at nisl convallis vehicula finibus at nunc. Nulla dapibus odio id nulla aliquet egestas. Aenean arcu orci, maximus vitae blandit eu, condimentum nec mauris. Phasellus quis vehicula lacus. Nunc pretium mauris at massa viverra, in facilisis mi ullamcorper. Morbi molestie felis non nisi mattis, vitae facilisis nulla blandit. Mauris lacinia vel diam ac bibendum. Aliquam justo metus, elementum ornare ligula quis, malesuada imperdiet dolor. Duis quam leo, cursus a condimentum eget, viverra ac arcu. Phasellus eleifend diam vel massa bibendum, et interdum dui eleifend.</p>
+            <h3>
+                Project Statement
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec fermentum mauris, nec interdum metus. Duis eget velit diam. Ut ac risus at nisl convallis vehicula finibus at nunc. Nulla dapibus odio id nulla aliquet egestas. Aenean arcu orci, maximus vitae blandit eu, condimentum nec mauris. Phasellus quis vehicula lacus. Nunc pretium mauris at massa viverra, in facilisis mi ullamcorper. Morbi molestie felis non nisi mattis, vitae facilisis nulla blandit. Mauris lacinia vel diam ac bibendum. Aliquam justo metus, elementum ornare ligula quis, malesuada imperdiet dolor. Duis quam leo, cursus a condimentum eget, viverra ac arcu. Phasellus eleifend diam vel massa bibendum, et interdum dui eleifend.</p>
+            <h3>
+                Project Solution
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec fermentum mauris, nec interdum metus. Duis eget velit diam. Ut ac risus at nisl convallis vehicula finibus at nunc. Nulla dapibus odio id nulla aliquet egestas. Aenean arcu orci, maximus vitae blandit eu, condimentum nec mauris. Phasellus quis vehicula lacus. Nunc pretium mauris at massa viverra, in facilisis mi ullamcorper. Morbi molestie felis non nisi mattis, vitae facilisis nulla blandit. Mauris lacinia vel diam ac bibendum. Aliquam justo metus, elementum ornare ligula quis, malesuada imperdiet dolor. Duis quam leo, cursus a condimentum eget, viverra ac arcu. Phasellus eleifend diam vel massa bibendum, et interdum dui eleifend.</p>
+        </div>
+        <h3 class="aboutHeader">
+            Lorem ipsum
+        </h3>
+        <div class="aboutMidContent row">
+            <div class="col-md-1">
+                <h3>
+                </h3>
+            </div>
+            <div class="col-md-2">
+                <img src="~/images/SolarImages/1.jpg" />
+                <h3>Solar</h3>
+                <h4>Information Calculator</h4>
+            </div>
+            <div class="col-md-2">
+                <img src="~/images/carbonIcon/ArrowRight.png" width="170" height="150" />
+            </div>
+            <div class="col-md-2">
+                <img src="~/images/SolarImages/1.jpg" />
+                <h3>Solar</h3>
+                <h4>Information Calculator</h4>
+            </div>
+            <div class="col-md-2">
+                <img src="~/images/carbonIcon/ArrowRight.png" width="170" height="150" />
+            </div>
+            <div class="col-md-2">
+                <img src="~/images/SolarImages/1.jpg" />
+                <h3>Solar</h3>
+                <h4>Information Calculator</h4>
+            </div>
+            <div class="col-md-1">
+                <h3>
+                </h3>
+            </div>
+        </div>
+        <h3 class="aboutHeader2">
+            Team Introduction
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec fermentum mauris, nec interdum metus. Duis eget velit diam. Ut ac risus at nisl convallis vehicula finibus at nunc. Nulla dapibus odio id nulla aliquet egestas. Aenean arcu orci, maximus vitae blandit eu, condimentum nec mauris. Phasellus quis vehicula lacus. Nunc pretium mauris at massa viverra, in facilisis mi ullamcorper. Morbi molestie felis non nisi mattis, vitae facilisis nulla blandit. Mauris lacinia vel diam ac bibendum. Aliquam justo metus, elementum ornare ligula quis, malesuada imperdiet dolor. Duis quam leo, cursus a condimentum eget, viverra ac arcu. Phasellus eleifend diam vel massa bibendum, et interdum dui eleifend.</p>
+
+        @*   <div class="col-md-6">
             <div class="abouttopleft">
                 <h3>aaaaa</h3>
                 <h4>
-                    aaaaa                
+                    aaaaa
                 </h4>
             </div>
-        </div>      
+        </div>*@
     </div>
 </div>
 

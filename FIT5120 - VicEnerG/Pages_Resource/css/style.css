@@ -86,7 +86,7 @@ body.page-body .navbar-fixed-top.scrolled {
 
 
 body.page-body .navbar-default #navigation li a {
-    color: white !important;
+    color: white ;
     /*transition: background-color 200ms linear;*/
 }
 
@@ -100,7 +100,7 @@ body.page-body .navbar-default #navigation li a:hover {
 }
 
 body.page-body .navbar-default #navigation li ul button {
-    color: white !important;
+    color: white ;
 }
 
 body.page-body .navbar-fixed-top.scrolled #navigation li ul button {
