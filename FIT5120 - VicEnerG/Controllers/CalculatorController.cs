@@ -76,6 +76,10 @@ namespace FIT5120___VicEnerG.Controllers
                 // Pass the parameter to the calculator to calculate extra hours for each appliances
                 IDictionary<String, List<int>> ApplianceExtraHours = calculator.CalculateUsage(ApplianceList, MonthlyOutput);
 
+                // Calculate the monthly average energy output of Victoria by given solar radiation
+                IList<double> VictoriaRadiation = new List<double>()
+                {187.84, 154.0059259, 120.1309259, 94.06222222, 68.84055556, 45.70203704, 60.65203704, 82.14037037, 110.3937037, 129.3333333, 179.1027778, 191.8737037};
+                IList<double> VictoriaAverage = calculator.CalculateSolarOutput(VictoriaRadiation, Model.NumberPanels);
 
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.OutputList = MonthlyOutput;
@@ -83,6 +87,7 @@ namespace FIT5120___VicEnerG.Controllers
                 Model.Station = TargetStation;
                 Model.CO2 = CO2;
                 Model.Extrahours = ApplianceExtraHours;
+                Model.VictoriaAverage = VictoriaAverage;
                 ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             }
             return View(Model);
