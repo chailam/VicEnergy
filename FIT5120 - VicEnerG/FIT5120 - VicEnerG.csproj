@@ -148,6 +148,7 @@
     <Compile Include="Controllers\CarbonController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WaterController.cs" />
     <Compile Include="Extend\Station.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,6 +352,7 @@
     <Content Include="Style\bootstrap-theme.min.css.map" />
     <Content Include="Style\bootstrap.css.map" />
     <Content Include="Style\bootstrap.min.css.map" />
+    <Content Include="Views\Water\CalcualteWater.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

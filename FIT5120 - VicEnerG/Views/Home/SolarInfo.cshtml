@@ -86,7 +86,9 @@
             <br />
             <div class="abouttopleft">
                 <h3>Solar Installation in Victoria</h3>
-                <center><img src="~/images/solarInfo/solar_installation_statistic.png" style="max-width:600px; width:100%" /></center>
+                <div class="panel-body">
+                    <canvas id="line_chart" height="150"></canvas>
+                </div>
                 <h4>
                     The figure above shows the monthly solar panel installations in Victoria in 2020. From January to June, the number of installations is about 6000. Since July, the number of solar panels installed has suddenly dropped to about 3,000. In October, the number of solar panels installed reached its peak, exceeding 9,000. From November to December, the number of solar panels installed slightly decreased.
                 </h4>
@@ -141,3 +143,57 @@
     </div>
 </div>
 
+@section scripts{
+    @Scripts.Render("~/bundles/chartjs")
+<script>
+        var line_chart_display = $("#line_chart");
+        var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
+        line_chart = new Chart(line_chart_display, {
+            type: 'line',
+            data: {
+                labels: MonthArray,
+                datasets: [{
+                    label: "Number of solar panles",
+                    fill: false,
+                    data: [5254, 6613, 6543, 5188, 5722, 6350, 7849, 3258, 3130, 6014, 9559, 8531],
+                    backgroundColor: "rgba(0,0,255,.5)",
+                    borderColor: "rgb(0,0,255)",
+                    tension: 0  
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: "The Monthly Solar Panel Installation in Viction",
+                    fontSize: 18,
+                    padding: 20
+                },
+                legend:
+                {
+                    display: false,
+                },
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Solar Installation',
+                            fontSize: 16
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month',
+                            fontSize: 16
+                        }
+                    }]
+                }
+            }
+        });
+</script>
+}

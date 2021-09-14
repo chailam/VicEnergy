@@ -21,6 +21,7 @@ namespace FIT5120___VicEnerG.Controllers
 
         public ActionResult SolarInfo()
         {
+            ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             return View();
         }
 
