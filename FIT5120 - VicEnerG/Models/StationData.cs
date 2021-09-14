@@ -17,6 +17,7 @@ namespace FIT5120___VicEnerG.Models
         public int Id { get; set; }
         public double monthRadiation { get; set; }
         public short month { get; set; }
+        public double monthRainfall { get; set; }
     
         public virtual Station Station { get; set; }
     }

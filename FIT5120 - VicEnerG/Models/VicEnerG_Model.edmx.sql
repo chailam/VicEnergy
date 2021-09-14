@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/02/2021 21:18:39
+-- Date Created: 09/14/2021 19:08:56
 -- Generated from EDMX file: C:\Users\mac\source\repos\Hin97\FIT5120-VicEnerG\FIT5120 - VicEnerG\Models\VicEnerG_Model.edmx
 -- --------------------------------------------------
 
@@ -27,6 +27,9 @@ GO
 
 IF OBJECT_ID(N'[dbo].[ApplianceSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ApplianceSet];
+GO
+IF OBJECT_ID(N'[dbo].[PostcodeDatas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PostcodeDatas];
 GO
 IF OBJECT_ID(N'[dbo].[StationDataSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[StationDataSet];
@@ -53,6 +56,7 @@ CREATE TABLE [dbo].[StationDataSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [monthRadiation] float  NOT NULL,
     [month] smallint  NOT NULL,
+    [monthRainfall] float  NOT NULL,
     [Station_stationNumber] int  NOT NULL
 );
 GO
