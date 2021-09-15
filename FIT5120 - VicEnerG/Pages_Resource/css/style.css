@@ -2132,7 +2132,6 @@ div#blog {
 /*-- //Start Drop down navigation bar --*/
 /* Dropdown container - needed to position the dropdown content */
 .dropdown {
-    float: left;
     overflow: hidden;
     position: relative;
     display: inline-block;
@@ -2155,7 +2154,7 @@ div#blog {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #6a7b8c;
+    background-color:  #6a7b8c;
     min-width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
