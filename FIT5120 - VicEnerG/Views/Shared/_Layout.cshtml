@@ -24,6 +24,16 @@
 
 }
     <body class=@ViewBag.BodyClass>
+        <style>
+            .active1 a {
+                color: #4dd677 !important;
+                font-weight: bold;
+            }
+            .active2 button {
+                color: #4dd677 !important;
+                font-weight: bold;
+            }
+        </style>
         <div class="w3l-banner">
             <div class="wthree-dot">
                 <!-- nav -->
@@ -42,26 +52,44 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                                 <nav id="navigation">
-                                    <ul class="nav navbar-nav">
-                                        <li class="active"><a href="~/Home/Index">Home</a></li>
-                                        <li class="dropdown">
-
-                                            <a class="dropbtn" style="margin-top: 1px;">
-                                                CALCULATOR
-                                                <i class="fa fa-caret-down"></i>
-                                            </a>
-                                            <ul>
-                                                <li class="dropdown-content">
-                                                    <a href="~/Calculator/CalculateOutput">SOLAR OUTPUT</a>
-                                                    <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>
-                                                </li>
+                                    <ul class="nav navbar-nav navA">
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active1" : "")">
+                                            @*<a href="~/Home/Index">Home</a>*@
+                                            @Html.ActionLink("Home", "Index", "Home")
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CalculateOutput" || ViewContext.RouteData.Values["Action"].ToString() == "CalculateCarbon"? "active2" : "")">
+                                            <ul class="dropdown">
+                                                <button class="dropbtn" style="margin-top: 1px;">
+                                                    CALCULATOR
+                                                    <i class="fa fa-caret-down"></i>
+                                                </button>
+                                                <div class="dropdown-content">
+                                                    @Html.ActionLink("SOLAR OUTPUT", "CalculateOutput", "Calculator")
+                                                    @Html.ActionLink("CARBON FOOTPRINT", "CalculateCarbon", "Carbon")
+                                                    @*<a href="~/Calculator/CalculateOutput">SOLAR OUTPUT</a>
+                                                    <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
+                                                </div>
                                             </ul>
                                         </li>
-                                        <li><a href="~/Home/SolarInfo">Solar Information</a></li>
-                                        <li><a href="~/Home/SolarRebates">Solar Rebates</a></li>
-                                        <li><a href="~/Home/CarbonInfo">Carbon Information</a></li>
-                                        <li><a href="~/Home/AboutUs">About Us</a></li>
-                                        <li><a href="~/Home/Disclaimer">Disclaimer</a></li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarInfo" ? "active1" : "")">
+                                        @Html.ActionLink("Solar Information", "SolarInfo", "Home")
+                                        @*<a class="navA" href="~/Home/SolarInfo">Solar Information</a>*@</li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarRebates" ? "active1" : "")">
+                                            @Html.ActionLink("Solar Rebates", "SolarRebates", "Home")
+                                            @*<a href="~/Home/SolarRebates">Solar Rebates</a>*@
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CarbonInfo" ? "active1" : "")">
+                                            @Html.ActionLink("Carbon Information", "CarbonInfo", "Home")
+                                            @*<a href="~/Home/CarbonInfo">Carbon Information</a>*@
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AboutUs" ? "active1" : "")">
+                                            @Html.ActionLink("About Us", "AboutUs", "Home")
+                                            @*<a href="~/Home/AboutUs">About Us</a>*@
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Disclaimer" ? "active1" : "")">
+                                            @Html.ActionLink("Disclaimer", "Disclaimer", "Home")
+                                            @*<a href="~/Home/Disclaimer">Disclaimer</a>*@
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

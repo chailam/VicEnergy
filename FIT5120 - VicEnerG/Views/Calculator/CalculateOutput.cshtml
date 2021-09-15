@@ -38,10 +38,11 @@
                     </div>
                 </div>
                 <!-- Information input form-->
-                <div class="col-md-6 par" >
+                <div class="col-md-6 par">
                     <div class="Calculator-Content Input abouttopleft">
                         <h3>Information Entry</h3><br>
-                        @using (Html.BeginForm()) {
+                        @using (Html.BeginForm())
+                        {
                             @Html.AntiForgeryToken()
 
                             <div class="form-horizontal">
@@ -50,10 +51,12 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @if (Model.Postcode == 0) {
+                                        @if (Model.Postcode == 0)
+                                        {
                                             @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
                                         }
-                                        else {
+                                        else
+                                        {
                                             @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
                                         }
                                         @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger col-md-10" })
@@ -63,10 +66,12 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
-                                        @if (Model.NumberPanels == 0) {
+                                        @if (Model.NumberPanels == 0)
+                                        {
                                             @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
                                         }
-                                        else {
+                                        else
+                                        {
                                             @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
                                         }
                                         @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger col-md-10" })
@@ -84,7 +89,8 @@
             </div>
         </div>
         @{
-            if (Model.Station != null) {
+            if (Model.Station != null)
+            {
                 <div class="Calculator-Content OutputDescription abouttopleft par" id="OutputResult">
                     <h3>Electricity Output</h3>
                     <h4>The Estimated annual electricity output for <p2>@Model.Postcode</p2> with <p2>@Model.NumberPanels</p2> solar panel(s)</h4><br>
@@ -106,13 +112,15 @@
                     <table width="100%" style="table-layout: fixed">
                         <tr>
                             <th></th>
-                            @foreach (string Output in ViewBag.Month) {
+                            @foreach (string Output in ViewBag.Month)
+                            {
                                 <th style="max-width: 150px; word-wrap: break-word;">@Output</th>
                             }
                         </tr>
                         <tr>
                             <td style="max-width: 150px; word-wrap: break-word;">kWh</td>
-                            @foreach (double Output in Model.OutputList) {
+                            @foreach (double Output in Model.OutputList)
+                            {
                                 <td style="max-width: 150px; word-wrap: break-word;">@Output</td>
                             }
                         </tr>
@@ -185,7 +193,8 @@
                     <br>
                     <br>
                     <div>
-                        @using (Html.BeginForm("CalculateCarbon", "Carbon")) {
+                        @using (Html.BeginForm("CalculateCarbon", "Carbon"))
+                        {
                             <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
                             <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
                             <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
@@ -236,7 +245,7 @@
 <!-- Calculator feature page display ends here! -->
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
-    <script>
+<script>
         // check if compare Chart exist.
         var compareBarPop = false;
         // make it global;
@@ -270,7 +279,7 @@
         }
 
         function DeleteCompare() {
-            if (bar_chart.data.datasets.length > 1) {
+            if (bar_chart.data.datasets.length > 2) {
                 bar_chart.data.datasets.pop();
                 bar_chart.update();
                 compareBarPop = false;
@@ -286,7 +295,7 @@
                 data: data.OutputList,
                 backgroundColor: "rgba(252,186,3,.5)",
                 borderColor: "rgb(127,255,0)",
-                borderWidth: 1
+                borderWidth: 1,
             };
             if (compareBarPop) {
                 // delete the last compare dataset.
@@ -371,13 +380,26 @@
 
             var Output = @Html.Raw(Json.Encode(Model.OutputList));
             var postcode = @Html.Raw(Json.Encode(Model.Postcode));
+            var VictoriaAverage = @Html.Raw(Json.Encode(Model.VictoriaAverage));
+
             var barDataSet = {
-            label: postcode + " Output",
-            data: Output,
-            backgroundColor: "rgba(127,255,0,.5)",
-            borderColor: "rgb(127,255,0)",
-            borderWidth: 1
-                    }
+                label: postcode + " Output",
+                data: Output,
+                backgroundColor: "rgba(127,255,0,.5)",
+                borderColor: "rgb(127,255,0)",
+                borderWidth: 1,
+            };
+            var averageDataSet = {
+                label: 'Victoria Average Output',
+                data: VictoriaAverage,
+                borderColor: "rgba(219, 15, 15)",
+                backgroundColor: "rgb(219, 15, 15,.5)",
+                stack: 'combined',
+                type: 'line',
+                fill: false,
+                tension: 0
+            };
+            bar_chart.data.datasets.push(averageDataSet);
             bar_chart.data.datasets.push(barDataSet);
             bar_chart.update();
         };
@@ -431,7 +453,7 @@
         $('#ApplianceList').on('change', function () { showLineChart() });
     });
 
-    </script>
+</script>
 }
 
 

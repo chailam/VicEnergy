@@ -19,6 +19,8 @@ namespace FIT5120___VicEnerG.ViewModels
 
         public IList<double> OutputList { get; set; }
 
+        public IList<double> VictoriaAverage { get; set; }
+
         [Range(3000, 3999, ErrorMessage = "Victoria postcode is in between 3000-3999")]
         [Required(ErrorMessage = "Postcode is required")]
         public int Postcode { get; set; }
