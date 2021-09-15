@@ -865,11 +865,12 @@ figure.effect-jazz {
     }
 
     figure.effect-jazz p {
-        padding: 0em 2em;
+        padding: 2em 2em;
         text-transform: none;
-        font-size: 1em;
+        font-size: 20px;
         opacity: 0;
         line-height: 1.8em;
+        color: #ff6b61;
     }
 
     figure.effect-jazz:hover img {
