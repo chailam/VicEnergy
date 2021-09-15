@@ -696,6 +696,10 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
     padding: 5em 0;
 }
 
+.team {
+    background: white;
+}
+
 .ab-text {
     text-align: center;
     margin-top: 2em;
@@ -712,7 +716,6 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
 .ab-left {
     float: left;
     padding-right: 0;
-    padding-left: 0;
 }
 
 .ab-right {
@@ -815,10 +818,12 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
 figure.effect-jazz {
     background: -webkit-linear-gradient(-65deg, #000 0%,#000 100%);
     background: linear-gradient(-65deg, #000 0%,#000 100%);
+    width:100%;
 }
 
     figure.effect-jazz img {
         opacity: 0.8;
+        height:500px;
     }
 
     figure.effect-jazz figcaption::after,
@@ -852,11 +857,11 @@ figure.effect-jazz {
     }
 
     figure.effect-jazz h4 {
-        padding-top: 57%;
+        padding-top: 20%;
         -webkit-transition: -webkit-transform 0.35s;
         transition: transform 0.35s;
         color: #fff;
-        font-size: 1.8em;
+        font-size: 40px;
     }
 
     figure.effect-jazz p {
@@ -913,6 +918,8 @@ h4.tittle {
     text-transform: uppercase;
 }
 /*--//featured-section--*
+
+
 /*-- social-icons --*/
 .team ul.top-links li {
     margin-left: 5px;
