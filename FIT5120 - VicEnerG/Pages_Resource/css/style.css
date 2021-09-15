@@ -450,7 +450,7 @@ h3.heading:after {
 
 /*-- services --*/
 .services {
-    background: #3169ff;
+    background: #4879fa;
 }
 
 .w3l-heading h3, .w3l-heading h2 {
@@ -547,6 +547,18 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
     text-transform: capitalize;
     font-size: 21px;
     margin: 2em 0 0 0;
+}
+
+.services-icon-info a {
+    color: #000000;
+    text-transform: capitalize;
+    font-size: 21px;
+    margin: 2em 0 0 0;
+}
+
+ .services-icon-info a:hover
+{
+    text-decoration: underline;
 }
 
 .services-right-grids:nth-child(2) {
