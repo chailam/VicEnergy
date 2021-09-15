@@ -2132,7 +2132,6 @@ div#blog {
 /*-- //Start Drop down navigation bar --*/
 /* Dropdown container - needed to position the dropdown content */
 .dropdown {
-    float: left;
     overflow: hidden;
     position: relative;
     display: inline-block;
