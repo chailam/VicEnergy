@@ -1524,6 +1524,10 @@ div#blog {
 }
 
 @media (max-width:1280px) {
+    img#project-logo {
+        display: none;
+    }
+
     .navbar-nav {
         margin-left: 5em;
         margin-bottom: 20px;
@@ -1542,9 +1546,13 @@ div#blog {
     }
 }
 
-@media (max-width:1080px) {
+@media (max-width:1100px) {
+    img#project-logo {
+        display: none;
+    }
+
     .navbar-nav {
-        margin-left: 2em;
+        margin-left: 1em;
         margin-bottom: 20px;
     }
 
@@ -1611,9 +1619,12 @@ div#blog {
 }
 
 @media (max-width:1024px) {
+    img#project-logo {
+        display: none;
+    }
 
     .flexslider-info {
-        margin: 10em 0em;
+        margin: 10em 0em !important;
     }
 
     .about, .services, .contact, .gallery, .testimonial, #team, .contactform {
@@ -1630,6 +1641,14 @@ div#blog {
 }
 
 @media (max-width:991px) {
+    img#project-logo {
+        display: none;
+    }
+
+    .flexslider-info {
+        margin-top: 7em !important;
+    }
+
     .navbar-nav {
         margin-left: 1em;
     }
@@ -1752,6 +1771,10 @@ div#blog {
         margin-left: 1em;
     }
 
+    img#project-logo {
+        display: none;
+    }
+
     .second-effect .mask h6 {
         padding: 4em 0 0em;
     }
@@ -1762,10 +1785,6 @@ div#blog {
 
     div.navbar-left {
         display: inline;
-    }
-
-    img#project-logo {
-        display: none;
     }
 }
 
