@@ -88,10 +88,6 @@
                                             @Html.ActionLink("About Us", "AboutUs", "Home")
                                             @*<a href="~/Home/AboutUs">About Us</a>*@
                                         </li>
-                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Disclaimer" ? "active1" : "")">
-                                            @Html.ActionLink("Disclaimer", "Disclaimer", "Home")
-                                            @*<a href="~/Home/Disclaimer">Disclaimer</a>*@
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -111,7 +107,7 @@
                     <footer id="footer">
                         <div class="wthree_copy_right" id="wthree_copy_right">
                             <div class="container">
-                                <p>Copyright &copy; @DateTime.Now.Year. Team VicEnerG Australia</p>
+                                <p>Copyright &copy; @DateTime.Now.Year. Team VicEnerG Australia  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <a href="~/Home/Disclaimer">Disclaimer</a></p>
                             </div>
                         </div>
                     </footer>
