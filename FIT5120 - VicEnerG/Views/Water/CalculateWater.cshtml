@@ -90,7 +90,7 @@
                     <li>Submit your roofsize along with your postcode</li>
                 </ol>
                 <p>*You can have multiple drawings by click the drawing icon again</p>
-                <p>*To delete the drawing: select your drawing and click the trash icon to delete</p>
+                <p>*To delete the drawing: select your drawing and click the trash bin icon to delete</p>
             </div>
             <div id="map"></div>
             <div class="calculation-box">
@@ -100,7 +100,17 @@
         </div>
     </div>
 
-
+    <div class="Calculator-Content Resultshowing abouttopleft par" id="result">
+        <h3>Rain Water Catchment</h3>
+        <h4>The <b>Annual</b> Rainfall For Your Postcode</h4>
+        <div class="result-water">
+            @Model.AnnualRainFall <p>mm/year</p>
+        </div>
+        <h4>The Total Rainwater Collection Potential</h4>
+        <div class="result-water">
+            @Model.RainHarvest <p>liters/year</p>
+        </div>
+    </div>
 </div>
 
 @section scripts{
@@ -127,14 +137,6 @@
             evt.currentTarget.className += " active";
             map.resize();
         }
-
-        // Open the previous selected tab
-        //alert(document.getElementById("tab").value);
-        //var tab = document.getElementById("tab").value;
-        //alert(document.getElementById("tab").value);
-        //if (tab != null) {
-        //    document.getElementById(tab).click();
-        //}
 
         var coordinate;
         var area = 0;
@@ -231,5 +233,12 @@
             }
 
         }
+
+        var ARF = @Html.Raw(Json.Encode(Model.AnnualRainFall));
+        if (ARF != 0) {
+            document.getElementById('result').scrollIntoView()
+        };
+            
+
     </script>
 }

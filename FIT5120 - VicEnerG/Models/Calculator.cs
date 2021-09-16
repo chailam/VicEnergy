@@ -135,5 +135,9 @@ namespace FIT5120___VicEnerG.Models
             }
             return Output;
         }
+
+        public Int64 CalculateRainHarvested(int Rainfall, double RoofSize) {
+            return (Int64)Math.Round(Rainfall * RoofSize);
+        }
     }
 }

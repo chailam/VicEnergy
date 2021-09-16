@@ -16,6 +16,9 @@ namespace FIT5120___VicEnerG.ViewModels
         [Required(ErrorMessage = "Postcode is required")]
         public int Postcode { get; set; }
 
+        public int AnnualRainFall { get; set; }
+
+        public Int64 RainHarvest { get; set; }
 
     }
 }

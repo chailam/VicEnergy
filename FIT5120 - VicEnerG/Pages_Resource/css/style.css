@@ -2143,6 +2143,15 @@ div#blog {
     color: #228B22;
 }
 
+.result-water {
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+
 .ApplianceUsage button, select {
     width: 100%;
 }

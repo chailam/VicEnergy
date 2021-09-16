@@ -9,7 +9,7 @@ namespace FIT5120___VicEnerG.Models
     public partial class Station
     {
         // This method will return the monthly radiation of a given station from Jan to Dec
-        public IList<double> StationDataList()
+        public IList<double> StationDataRadiations()
         {
             IList<double> data = new List<double>();
             // Order the data from Jan to Dec
@@ -19,6 +19,17 @@ namespace FIT5120___VicEnerG.Models
                 data.Add(EachStation.monthRadiation);
             }
             return data;
+        }
+
+        public int StationAnnualRainFall() {
+            double total = 0;
+            // Order the data from Jan to Dec
+            StationData = StationData.OrderBy(r => r.month).ToList();
+            foreach (StationData EachStation in StationData)
+            {
+                total += EachStation.monthRainfall;
+            }
+            return (int)Math.Round(total);
         }
     }
 }
