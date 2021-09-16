@@ -26,11 +26,11 @@
     <body class=@ViewBag.BodyClass>
         <style>
             .active1 a {
-                color: #4dd677 !important;
+                text-decoration: underline;
                 font-weight: bold;
             }
-            .active2 button {
-                color: #4dd677 !important;
+            .active2 a {
+                text-decoration: underline;
                 font-weight: bold;
             }
         </style>
@@ -45,6 +45,7 @@
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
                                 </button>
                                 <img id="project-logo" src="~/images/logo/logo_transparent_background.png" width="100" height="80" />
                             </div>
@@ -57,19 +58,21 @@
                                             @Html.ActionLink("Home", "Index", "Home")
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CalculateOutput" || ViewContext.RouteData.Values["Action"].ToString() == "CalculateCarbon"? "active2" : "")">
-                                            <ul class="dropdown">
-                                                <button class="dropbtn" style="margin-top: 1px;">
+                                            <li class="dropdown">
+                                                <a class="dropbtn" style="margin-top: 1px;">
                                                     CALCULATOR
                                                     <i class="fa fa-caret-down"></i>
-                                                </button>
-                                                <div class="dropdown-content">
+                                                </a>
+                                                <ul>
+                                                <li class="dropdown-content">
                                                     @Html.ActionLink("SOLAR OUTPUT", "CalculateOutput", "Calculator")
                                                     @Html.ActionLink("CARBON FOOTPRINT", "CalculateCarbon", "Carbon")
                                                     @Html.ActionLink("WATER RECYCLING", "CalculateWater", "Water")
                                                     @*<a href="~/Calculator/CalculateOutput">SOLAR OUTPUT</a>
                                                     <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
-                                                </div>
-                                            </ul>
+                                                </li>
+                                                </ul>
+                                            </li>
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarInfo" ? "active1" : "")">
                                         @Html.ActionLink("Solar Information", "SolarInfo", "Home")
@@ -85,10 +88,6 @@
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AboutUs" ? "active1" : "")">
                                             @Html.ActionLink("About Us", "AboutUs", "Home")
                                             @*<a href="~/Home/AboutUs">About Us</a>*@
-                                        </li>
-                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Disclaimer" ? "active1" : "")">
-                                            @Html.ActionLink("Disclaimer", "Disclaimer", "Home")
-                                            @*<a href="~/Home/Disclaimer">Disclaimer</a>*@
                                         </li>
                                     </ul>
                                 </nav>
@@ -109,7 +108,7 @@
                     <footer id="footer">
                         <div class="wthree_copy_right" id="wthree_copy_right">
                             <div class="container">
-                                <p>Copyright &copy; @DateTime.Now.Year. Team VicEnerG Australia</p>
+                                <p>Copyright &copy; @DateTime.Now.Year. Team VicEnerG Australia  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <a href="~/Home/Disclaimer">Disclaimer</a></p>
                             </div>
                         </div>
                     </footer>

@@ -200,6 +200,7 @@
     <Content Include="images\carbonIcon\Heavy.png" />
     <Content Include="images\carbonIcon\Light.png" />
     <Content Include="images\carbonInfo\carbon-banner.jpg" />
+    <Content Include="images\carbonInfo\carbon-emission.jpg" />
     <Content Include="images\carbonInfo\carbon-graph.jpg" />
     <Content Include="images\home\carbon-footprint-home.jpg" />
     <Content Include="images\layout\emoji.png" />
@@ -228,6 +229,7 @@
     <Content Include="images\solarInfo\solarexplain.png" />
     <Content Include="images\solarInfo\solar_installation_statistic.png" />
     <Content Include="images\profiles\Zhe.jpg" />
+    <Content Include="images\water\water-rain.jpg" />
     <Content Include="Models\VicEnerG_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VicEnerG_Model.Context.cs</LastGenOutput>
