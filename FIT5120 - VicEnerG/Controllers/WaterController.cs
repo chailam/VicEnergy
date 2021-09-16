@@ -38,12 +38,15 @@ namespace FIT5120___VicEnerG.Controllers
                 // Initial the calculator
                 Calculator calculator = new Calculator();
                 // Calculate the annual rainfall of the postcode
-                int AnnualRainFall = TargetStation.StationAnnualRainFall();
+                int AnnualRainFall = (int)TargetStation.StationMonthlyRainfalls().Sum();
                 // Calculate the amount of the rainwater harvest by given roofSize
-                Int64 RainHarvest = calculator.CalculateRainHarvested(AnnualRainFall, Model.RoofSize);
+                IList<double> MonthlyHarvest = calculator.CalculateRainHarvested(TargetStation.StationMonthlyRainfalls(), Model.RoofSize);
+                Int64 TotalRainHarvest = (Int64)MonthlyHarvest.Sum();
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.AnnualRainFall = AnnualRainFall;
-                Model.RainHarvest = RainHarvest;
+                Model.MonthlyHarvest = MonthlyHarvest;
+                Model.RainHarvest = TotalRainHarvest;
+                ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             }
             return View(Model);
         }

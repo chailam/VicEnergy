@@ -43,7 +43,7 @@ namespace FIT5120___VicEnerG.Controllers
                 // Initial the calculator
                 Calculator calculator = new Calculator();
                 // Calculate the 12 months solar output of a given station with specific amount of panels installed
-                IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataRadiations(), Model.NumberPanels);
+                IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationMonthlyRadiations(), Model.NumberPanels);
                 // Calculate the amount of CO2 corresponding to the amount of kwh electricity
                 double CO2 = calculator.CalculateCO2(MonthlyOutput.Sum());
                 // Calculate the hours for trees in Victoria CBD to absorb given CO2

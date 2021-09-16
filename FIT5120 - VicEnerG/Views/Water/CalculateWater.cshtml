@@ -110,11 +110,16 @@
         <div class="result-water">
             @Model.RainHarvest <p>liters/year</p>
         </div>
+        <br>
+        <div class="panel-body">
+            <canvas id="line_chart" height="150"></canvas>
+        </div>
     </div>
 </div>
 
 @section scripts{
     @Scripts.Render("~/bundles/mapboxjs")
+    @Scripts.Render("~/bundles/chartjs")
     @Styles.Render("~/bundles/mapboxcss")
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
 
@@ -238,7 +243,70 @@
         if (ARF != 0) {
             document.getElementById('result').scrollIntoView()
         };
-            
 
+
+    </script>
+    <script>
+        var line_chart_display = $("#line_chart");
+        var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
+        var Postcode = @Html.Raw(Json.Encode(Model.Postcode));
+        var MonthlyHarvest = @Html.Raw(Json.Encode(Model.MonthlyHarvest));
+
+        // Initial chart feature
+        line_chart = new Chart(line_chart_display, {
+            type: 'line',
+            data: {
+                labels: MonthArray,
+                datasets: []
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: "Quantity of Rainwater Harvest",
+                    fontSize: 18
+                },
+                legend:
+                {
+                    display: true,
+                },
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Amount of Rainwater Harvested in liters',
+                            fontSize: 16
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month',
+                            fontSize: 16
+                        }
+                    }]
+                }
+            }
+        });
+
+        var postcodeData = {
+            label: Postcode,
+            fill: false,
+            data: MonthlyHarvest,
+            backgroundColor: "rgba(0,0,255,.5)",
+            borderColor: "rgb(0,0,255)"
+        }
+
+        line_chart.data.datasets.push(postcodeData);
+        // Update the chart
+        line_chart.update();
+        //var victoria = {
+
+
+        //}
     </script>
 }

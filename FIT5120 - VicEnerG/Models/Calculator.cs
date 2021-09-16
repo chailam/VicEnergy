@@ -136,8 +136,16 @@ namespace FIT5120___VicEnerG.Models
             return Output;
         }
 
-        public Int64 CalculateRainHarvested(int Rainfall, double RoofSize) {
-            return (Int64)Math.Round(Rainfall * RoofSize);
+        // This method will calculate the amount of rainwater harvest by giving roofsize
+        public IList<double> CalculateRainHarvested(IList<double> Rainfall, double RoofSize) {
+            IList<double> MonthlyHarvest = new List<double>();
+            foreach (double eachmonth in Rainfall)
+            {
+                // Formular: Rain Harvest = rainfall * roofsize
+                double EachOutput = Math.Round(eachmonth * RoofSize);
+                MonthlyHarvest.Add(EachOutput);
+            }
+            return MonthlyHarvest;
         }
     }
 }

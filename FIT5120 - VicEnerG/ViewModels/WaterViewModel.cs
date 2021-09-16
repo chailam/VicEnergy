@@ -8,6 +8,12 @@ namespace FIT5120___VicEnerG.ViewModels
 {
     public class WaterViewModel
     {
+
+        public WaterViewModel()
+        {
+            MonthlyHarvest = new List<double>();
+        }
+
         [Range(1, Int32.MaxValue, ErrorMessage = "The minimum roof size is 1 square meter")]
         [Required(ErrorMessage = "Roofsize is required")]
         public double RoofSize { get; set; }
@@ -19,6 +25,8 @@ namespace FIT5120___VicEnerG.ViewModels
         public int AnnualRainFall { get; set; }
 
         public Int64 RainHarvest { get; set; }
+
+        public IList<double> MonthlyHarvest { get; set; }
 
     }
 }

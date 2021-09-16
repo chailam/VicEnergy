@@ -34,7 +34,7 @@ namespace FIT5120___VicEnerG.Controllers
             int NearestStationID = VEG.FindNearestStation(Coordinates, StationList);
             Station TargetStation = db.StationSet.Find(NearestStationID);
             Calculator calculator = new Calculator();
-            IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataRadiations(), NumberPanels);
+            IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationMonthlyRadiations(), NumberPanels);
 
             var dataList = new
             {
@@ -68,7 +68,7 @@ namespace FIT5120___VicEnerG.Controllers
                 // Initial the calculator
                 Calculator calculator = new Calculator();
                 // Calculate the 12 months solar output of a given station with specific amount of panels installed
-                IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationDataRadiations(), Model.NumberPanels);
+                IList<double> MonthlyOutput = calculator.CalculateSolarOutput(TargetStation.StationMonthlyRadiations(), Model.NumberPanels);
                 // Calculate the amount of CO2 corresponding to the amount of kwh electricity
                 double CO2 = calculator.CalculateCO2(MonthlyOutput.Sum());
                 // Get all information of all appliances from the database
