@@ -23,7 +23,8 @@
                     Beside showing you the data, the calculator will show you how this data impacts your daily lives by showing the usage of few related components.
                     At the end of the page, you will see the CO2 reduction contribution of your estimated solar system to your selected postcode and to Victoria as well
                 </p> <br>
-                <a href="~/Home/CarbonInfo" target="_blank">Know more about Carbon Footprint Information</a>            </div>
+                <a href="~/Home/CarbonInfo" target="_blank">Know more about Carbon Footprint Information</a>
+            </div>
         </div>
         <div class="Calculator-Content Carbon-Calculator Input par" id="carbon_input">
             <h3>Information Entry</h3>
@@ -171,53 +172,52 @@
         </div>
 
 
-        <!-- Carbon Emission Calculate -->
+        <!-- Carbon Emission Calculate
 
-        <div class="Calculator-Content Carbon-Calculator abouttopleft par">
-            <h3>Water xxxxx</h3>
-            <h4>
-                xxxxx
-            </h4>
-            <br>
-            <br>
-            <br>
-            <a class="btn btn-primary btn-lg btn-block btn-water-redirect" href="~/Carbon/CalculateCarbon" role="button" id="water_calculator">Try Our Water Calculator Now (fix redirect)</a>
-            
+            <div class="Calculator-Content Carbon-Calculator abouttopleft par">
+                <h3>Water xxxxx</h3>
+                <h4>
+                    xxxxx
+                </h4>
+                <br>
+                <br>
+                <br>
+                <a class="btn btn-primary btn-lg btn-block btn-water-redirect" href="~/Carbon/CalculateCarbon" role="button" id="water_calculator">Try Our Water Calculator Now (fix redirect)</a>
+
+            </div>
         </div>
-    </div>
-</div>
-
-<!-- Side Dotted Navigation Bar Start -->
-<div class="vNav carbon-side-nav">
-    <ul class="vNav carbon-side-nav">
-        <li>
-            <a href="#carbon_input">
-                <div class="label">Information Entry</div>
-            </a>
-        </li>
-        <li>
-            <a href="#carbon_mean">
-                <div class="label">What does it mean</div>
-            </a>
-        </li>
-        <li>
-            <a href="#carbon_contribution">
-                <div class="label">Carbon Reduction Contribution</div>
-            </a>
-        </li>
-        <li>
-            <a href="#water_calculator">
-                <div class="label">Water Usage Calculator</div>
-            </a>
-        </li>
-    </ul>
-</div>
+    </div>-->
+        <!-- Side Dotted Navigation Bar Start -->
+        <div class="vNav carbon-side-nav">
+            <ul class="vNav carbon-side-nav">
+                <li>
+                    <a href="#carbon_input">
+                        <div class="label">Information Entry</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#carbon_mean">
+                        <div class="label">What does it mean</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#carbon_contribution">
+                        <div class="label">Carbon Reduction Contribution</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#water_calculator">
+                        <div class="label">Water Usage Calculator</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
 
-@section scripts{
-    @Scripts.Render("~/bundles/chartjs")
-    @Scripts.Render("~/bundles/chartjsLabel")
-    <script>
+        @section scripts{
+            @Scripts.Render("~/bundles/chartjs")
+            @Scripts.Render("~/bundles/chartjsLabel")
+            <script>
         $(document).ready(function () {
             var SuburbTotalCO2 = @Html.Raw(Json.Encode(Model.SuburbTotalCO2));
             var VictoriaTotalCO2 = @Html.Raw(Json.Encode(Model.StateMonthlyCO2));
@@ -318,5 +318,5 @@
             chartinitialize();
             InputData();
         });
-    </script>
-}
+            </script>
+        }
