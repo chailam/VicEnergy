@@ -185,6 +185,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CalculatorViewModel.cs" />
     <Compile Include="ViewModels\CarbonViewModel.cs" />
+    <Compile Include="ViewModels\WaterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\VicEnerG_Database.mdf" />
@@ -242,6 +243,9 @@
     <Content Include="Pages_Resource\css\flexslider.css" />
     <Content Include="Pages_Resource\css\font-awesome.min.css" />
     <Content Include="Pages_Resource\css\lsb.css" />
+    <Content Include="Pages_Resource\css\mapbox-gl-draw.css" />
+    <Content Include="Pages_Resource\css\mapbox-gl-geocoder.css" />
+    <Content Include="Pages_Resource\css\mapbox-gl.css" />
     <Content Include="Pages_Resource\css\owl.carousel.css" />
     <Content Include="Pages_Resource\css\style.css" />
     <Content Include="images\solarImages\1.jpg" />
@@ -273,6 +277,9 @@
     <Content Include="Pages_Resource\js\jquery.flexisel.js" />
     <Content Include="Pages_Resource\js\jquery.flexslider.js" />
     <Content Include="Pages_Resource\js\lsb.min.js" />
+    <Content Include="Pages_Resource\js\mapbox-gl-draw.js" />
+    <Content Include="Pages_Resource\js\mapbox-gl-geocoder.min.js" />
+    <Content Include="Pages_Resource\js\mapbox-gl.js" />
     <Content Include="Pages_Resource\js\move-top.js" />
     <Content Include="Pages_Resource\js\owl.carousel.js" />
     <Content Include="Pages_Resource\js\pagejs.js" />
@@ -305,6 +312,7 @@
     <None Include="Properties\PublishProfiles\FiveS-VicEnerG - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testiebeforerelease - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\vicenergVM.pubxml" />
+    <Content Include="Pages_Resource\js\turf.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -355,6 +363,7 @@
     <Content Include="Style\bootstrap.min.css.map" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\Disclaimer.cshtml" />
+    <Content Include="Views\Water\CalculateWater.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

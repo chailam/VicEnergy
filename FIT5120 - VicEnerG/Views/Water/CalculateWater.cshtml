@@ -1,0 +1,235 @@
+﻿@model FIT5120___VicEnerG.ViewModels.WaterViewModel
+@{
+    ViewBag.Title = "CalculateWater";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container body-content" id="information-entry">
+    <div class="container">
+        <hr>
+        <h3 class="heading">Water Recycling Calculator</h3>
+    </div>
+
+    <div class="Calculator-Content General-Information abouttopleft par">
+        <h3>What Does Water Recycling Calculator Do?</h3>
+        <div class="general">
+            <p>
+                This calculator will calculate the amount of rainwater that will be harvest by given size of the roof of the property.
+                However, the calculator will also require the location of the property as the rainfall will be different among locations.
+            </p>
+        </div>
+    </div>
+
+    <div class="Calculator-Content InformationInput abouttopleft par">
+        <h3>Information Input</h3>
+        <div class="general">
+            <p>This section require you to input your approximate roof size and the address/postcode of your property.</p>
+            <p>For the approximate roof size, you can either:</p>
+            <ul>
+                <li>Input the information manualy</li>
+                <li>Obtain the roof size through drawing on the map</li>
+            </ul>
+            <br>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-6 text-center">
+                            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
+                            @if (Model.Postcode == 0)
+                            {
+                                @Html.TextBox("Postcode", "", new { id = "Postcode", placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
+                            }
+                            @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
+                        </div>
+                        <div class="col-md-6 text-center">
+                            @Html.LabelFor(model => model.RoofSize, "Roof Size：", htmlAttributes: new { @class = "control-label" })
+
+                            @if (Model.RoofSize == 0)
+                            {
+                                @Html.TextBox("RoofSize", "", new { id = "RoofSize", HtmlAttributes = new { @class = "form-control" } })
+                                <span style="font-weight:900; font-size:20px;">&#13217;</span>
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(model => model.RoofSize, new { HtmlAttributes = new { @class = "form-control", @Value = Model.RoofSize } })
+                                <span style="font-weight:900; font-size:20px;">&#13217;</span>
+                            }
+                            @Html.ValidationMessageFor(model => model.RoofSize, "", new { @class = "text-danger  col-md-12" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="margin:auto; width:8%;">
+                            <input type="submit" class="btn btn-primary" value="Calculate" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <div class="strike">
+            <span>Or</span>
+        </div>
+
+        <div class="map-contenter">
+            <div class="drawinginformation">
+                <h2>Steps to draw on the map:</h2>
+                <ol>
+                    <li>Search your property from the search bar on the map</li>
+                    <li>Click the map to draw a polygon that covers your roof</li>
+                    <li>Click the last point to complete the drawing</li>
+                    <li>Submit your roofsize along with your postcode</li>
+                </ol>
+                <p>*You can have multiple drawings by click the drawing icon again</p>
+                <p>*To delete the drawing: select your drawing and click the trash icon to delete</p>
+            </div>
+            <div id="map"></div>
+            <div class="calculation-box">
+                <p>Click the map to draw a polygon.</p>
+                <div id="calculated-area"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/mapboxjs")
+    @Styles.Render("~/bundles/mapboxcss")
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+
+    <script>
+
+        // JavaScript for tabs
+        function openTab(evt, tabcontentName, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabcontentName).style.display = "block";
+            document.getElementById("tab").value = tabName;
+            //alert(document.getElementById("tab").value);
+            evt.currentTarget.className += " active";
+            map.resize();
+        }
+
+        // Open the previous selected tab
+        //alert(document.getElementById("tab").value);
+        //var tab = document.getElementById("tab").value;
+        //alert(document.getElementById("tab").value);
+        //if (tab != null) {
+        //    document.getElementById(tab).click();
+        //}
+
+        var coordinate;
+        var area = 0;
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaGluOTciLCJhIjoiY2tzajg0cTBxMGl4ejJ3b3huNW52NTJlMyJ9.wPk2UciErCCZhyKdmfkpLQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // Container ID
+            style: 'mapbox://styles/mapbox/satellite-v9', // Map style to use
+            center: [144.953149, -37.814998], // Starting position [lng, lat]
+            zoom: 12 // Starting zoom level
+        });
+
+
+        const geocoder = new MapboxGeocoder({
+            // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+            language: 'en-EN',
+            marker: false, // Do not use the default marker style
+            placeholder: 'Address or Postcode', // Placeholder text for the search bar
+            bbox: [140.962830, -39.164141, 149.919434, -33.980236], // Boundary for Victoria
+            proximity: {
+                longitude: 144.953149,
+                latitude: -37.814998
+            } // Coordinates of UC Berkeley
+        });
+
+        // Add the geocoder to the map
+        map.addControl(geocoder);
+
+        // After the map style has loaded on the page,
+        // add a source layer and default styling for a single point
+        map.on('load', () => {
+            map.addSource('single-point', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': []
+                }
+            });
+
+            map.addLayer({
+                'id': 'point',
+                'source': 'single-point',
+                'type': 'circle',
+                'paint': {
+                    'circle-radius': 10,
+                    'circle-color': '#448ee4'
+                }
+            });
+
+            // Listen for the `result` event from the Geocoder // `result` event is triggered when a user makes a selection
+            //  Add a marker at the result's coordinates
+            geocoder.on('result', ({ result }) => {
+                map.getSource('single-point').setData(result.geometry);
+                // cord is the coordinate of inputed address
+            });
+        });
+
+
+        const draw = new MapboxDraw({
+            displayControlsDefault: false,
+            // Select which mapbox-gl-draw control buttons to add to the map.
+            controls: {
+                polygon: true,
+                trash: true
+            },
+            // Set mapbox-gl-draw to draw by default.
+            // The user does not have to click the polygon control button first.
+            defaultMode: 'draw_polygon'
+        });
+        map.addControl(draw);
+
+        map.on('draw.create', updateArea);
+        map.on('draw.delete', updateArea);
+        map.on('draw.update', updateArea);
+
+        function updateArea(e) {
+            const data = draw.getAll();
+            const answer = document.getElementById('calculated-area');
+            const RoofSize = document.getElementById("RoofSize");
+
+            if (data.features.length > 0) {
+                const area = turf.area(data);
+                // Restrict the area to 2 decimal points.
+                const rounded_area = Math.round(area * 100) / 100;
+                answer.innerHTML = `<p><strong>${rounded_area}</strong></p><p>square meters</p>`;
+                RoofSize.value = rounded_area;
+            } else {
+                answer.innerHTML = '';
+                RoofSize.value = 0;
+                if (e.type !== 'draw.delete')
+                    alert('Click the map to draw a polygon.');
+            }
+
+        }
+    </script>
+}

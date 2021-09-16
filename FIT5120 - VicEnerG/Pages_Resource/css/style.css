@@ -86,7 +86,7 @@ body.page-body .navbar-fixed-top.scrolled {
 
 
 body.page-body .navbar-default #navigation li a {
-    color: white ;
+    color: white;
     /*transition: background-color 200ms linear;*/
 }
 
@@ -100,7 +100,7 @@ body.page-body .navbar-default #navigation li a:hover {
 }
 
 body.page-body .navbar-default #navigation li ul button {
-    color: white ;
+    color: white;
 }
 
 body.page-body .navbar-fixed-top.scrolled #navigation li ul button {
@@ -2531,3 +2531,90 @@ div#blog {
 }
 
 /*-- End Carbon Output Calculation Dotted Bavigation Bar --*/
+
+
+/*-- Start Mapbox css --*/
+
+#map {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    width: 90%;
+    height: 45%;
+    margin-left: 25px;
+    margin-top: 650px;
+}
+
+.calculation-box {
+    height: 100px;
+    width: 150px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 33px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    text-align: center;
+}
+
+    .calculation-box p {
+        font-family: 'Open Sans';
+        margin: 0;
+        font-size: 13px;
+    }
+
+.map-contenter {
+    padding: 6px 12px;
+    border: none;
+    height: 820px;
+}
+
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+    .strike > span {
+        position: relative;
+        display: inline-block;
+    }
+
+        .strike > span:before,
+        .strike > span:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 9999px;
+            height: 1px;
+            background: red;
+        }
+
+        .strike > span:before {
+            right: 100%;
+            margin-right: 15px;
+        }
+
+        .strike > span:after {
+            left: 100%;
+            margin-left: 15px;
+        }
+
+
+.drawinginformation {
+    padding: 10px;
+}
+
+    .drawinginformation p {
+        font-size:15px;
+    }
+
+    .drawinginformation h2 {
+        color:black;
+        font-size:20px;
+        font-weight:bold;
+        padding:5px;
+    }
+/*-- End Mapbox css --*/

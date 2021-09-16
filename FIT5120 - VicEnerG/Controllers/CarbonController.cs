@@ -25,6 +25,7 @@ namespace FIT5120___VicEnerG.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> CalculateCarbon([Bind(Include = "Postcode, NumberPanels")] CarbonViewModel Model)
         {
             if (ModelState.IsValid)

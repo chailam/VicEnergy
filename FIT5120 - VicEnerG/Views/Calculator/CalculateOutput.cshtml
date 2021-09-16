@@ -245,12 +245,11 @@
 <!-- Calculator feature page display ends here! -->
 @section scripts{
     @Scripts.Render("~/bundles/chartjs")
-<script>
-        // check if compare Chart exist.
-        var compareBarPop = false;
-        // make it global;
-        var bar_chart;
-
+    <script>
+    // check if compare Chart exist.
+    var compareBarPop = false;
+    // make it global;
+    var bar_chart;
 
         function SubForm() {
             var text = "";
@@ -453,7 +452,7 @@
         $('#ApplianceList').on('change', function () { showLineChart() });
     });
 
-</script>
+    </script>
 }
 
 

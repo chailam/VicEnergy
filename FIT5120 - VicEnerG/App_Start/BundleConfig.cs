@@ -54,6 +54,17 @@ namespace FIT5120___VicEnerG
             bundles.Add(new ScriptBundle("~/bundles/chartjsLabel").Include(
               "~/Scripts/chartjs-plugin-labels.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/mapboxjs").Include(
+              "~/Pages_Resource/js/mapbox-gl-draw.js",
+              "~/Pages_Resource/js/turf.min.js",
+              "~/Pages_Resource/js/mapbox-gl-geocoder.min.js"));
+
+
+            bundles.Add(new StyleBundle("~/bundles/mapboxcss").Include(
+              "~/Pages_Resource/css/mapbox-gl-draw.css",
+              "~/Pages_Resource/css/mapbox-gl-geocoder.css",
+              "~/Pages_Resource/css/mapbox-gl.css"));
+
             BundleTable.EnableOptimizations = true;
         }
     }
