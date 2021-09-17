@@ -28,7 +28,7 @@ namespace FIT5120___VicEnerG.Models
             StationData = StationData.OrderBy(r => r.month).ToList();
             foreach (StationData EachStation in StationData)
             {
-                data.Add(EachStation.monthRadiation);
+                data.Add(EachStation.monthRainfall);
             }
             return data;
         }

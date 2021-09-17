@@ -41,11 +41,19 @@ namespace FIT5120___VicEnerG.Controllers
                 int AnnualRainFall = (int)TargetStation.StationMonthlyRainfalls().Sum();
                 // Calculate the amount of the rainwater harvest by given roofSize
                 IList<double> MonthlyHarvest = calculator.CalculateRainHarvested(TargetStation.StationMonthlyRainfalls(), Model.RoofSize);
-                Int64 TotalRainHarvest = (Int64)MonthlyHarvest.Sum();
+                double TotalRainHarvest = MonthlyHarvest.Sum();
+
+                // Calculate the monthly average rainwater harvested of Victoria by given size of Roof
+                IList<double> VictoriaAverageRainFall = new List<double>()
+                {84.984,28.56133333,55.52066667,26.84333333,67.44466667,89.38933333,44.346,78.926,55.524,89.218,39.59466667,45.30933333};
+                IList<double> VictoriaAverageHarvest = calculator.CalculateRainHarvested(VictoriaAverageRainFall, Model.RoofSize);
+
+
                 // Pass all necessary information to the viewModel and Viewbag
                 Model.AnnualRainFall = AnnualRainFall;
                 Model.MonthlyHarvest = MonthlyHarvest;
                 Model.RainHarvest = TotalRainHarvest;
+                Model.VictoriaAverage = VictoriaAverageHarvest;
                 ViewBag.Month = Enum.GetNames(typeof(Months)).ToList();
             }
             return View(Model);

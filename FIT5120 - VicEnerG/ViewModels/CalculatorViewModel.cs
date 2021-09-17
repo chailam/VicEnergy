@@ -14,6 +14,8 @@ namespace FIT5120___VicEnerG.ViewModels
         public CalculatorViewModel()
         {
             OutputList = new List<double>();
+            Extrahours = new Dictionary<String, List<int>>();
+            VictoriaAverage = new List<double>();
         }
 
         public IList<double> OutputList { get; set; }

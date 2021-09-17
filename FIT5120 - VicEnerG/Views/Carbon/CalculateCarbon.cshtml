@@ -29,7 +29,8 @@
         <div class="Calculator-Content Carbon-Calculator Input par" id="carbon_input">
             <h3>Information Entry</h3>
             <br>
-            @using (Html.BeginForm()) {
+            @using (Html.BeginForm())
+            {
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
@@ -38,20 +39,24 @@
                     <div class="form-group">
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
-                            @if (Model.Postcode == 0) {
+                            @if (Model.Postcode == 0)
+                            {
                                 @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else {
+                            else
+                            {
                                 @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
                             }
                             @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
                         </div>
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
-                            @if (Model.NumberPanels == 0) {
+                            @if (Model.NumberPanels == 0)
+                            {
                                 @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else {
+                            else
+                            {
                                 @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
                             }
                             @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
@@ -65,116 +70,123 @@
                 </div>
             }
         </div>
-        <div class="Calculator-Content Carbon-Calculator CarbonDescription par" id="carbon_emission">
-            <h3>Carbon Dioxide Emissions</h3>
-            <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
-            <div class="result-carbon">
-                @Model.CO2 <p>metric tons CO2/kWh</p>
-            </div>
-            <p>*The number means the amount of Carbon Dioxide you have reduced by using solar panels in one year </p>
-            <p>*According to the department of Environment, Land and water of Australia. The formular to convert electricity to Carbon Dioxide is: </p>
-            <p2>1kWh = 1.13kg CO2-e/kWh</p2>
-        </div>
 
-        <div class="Calculator-Content Carbon-Calculator CarbonDailyLives" id="carbon_mean">
-            <h3>What Does It Mean?</h3> <br>
-            <div class="row">
-                <div class="col-xs-2 Component">
-                    <span class="dot"></span>
-                    <div class="content">
-                        <p>The average carbon emissions intensity for passenger cars and light SUVs was 149.5 g/km.</p>
+        @{
+            if (Model.CO2 != 0)
+            {
+                <div class="Calculator-Content Carbon-Calculator CarbonDescription par" id="carbon_emission">
+                    <h3>Carbon Dioxide Emissions</h3>
+                    <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
+                    <div class="result-carbon">
+                        @Model.CO2 <p>metric tons CO2/kWh</p>
                     </div>
-                    <img src="~/images/carbonIcon/Light.png" class="icon" />
-                    <p2>@Model.LightVehicle km</p2>
-                    <p3>of passenger vehicles driven.</p3>
+                    <p>*The number means the amount of Carbon Dioxide you have reduced by using solar panels in one year </p>
+                    <p>*According to the department of Environment, Land and water of Australia. The formular to convert electricity to Carbon Dioxide is: </p>
+                    <p2>1kWh = 1.13kg CO2-e/kWh</p2>
                 </div>
-                <div class="col-xs-2 Component">
-                    <span class="dot"></span>
-                    <div class="content">
-                        <p>The average carbon emissions intensity of heavy SUVs and light commercial vehicles was 216.7 g/km</p>
-                    </div>
-                    <img src="~/images/carbonIcon/Heavy.png" class="icon" />
-                    <p2>@Model.HeavyVehicle km</p2>
-                    <p3>of heavy vehicles driven.</p3>
-                </div>
-                <div class="col-xs-2 Component">
-                    <span class="dot"></span>
-                    <div class="content">
-                        <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equvilent to 3.78 liters</p>
-                    </div>
-                    <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
-                    <p2>@Model.Gasoline liters</p2>
-                    <p3>of gasoline consumed.</p3>
-                </div>
-                <div class="col-xs-2 Component">
-                    <span class="dot"></span>
-                    <div class="content">
-                        <p>The average carbon emissions of a mobile was 16.7kg/year through usage and charging</p>
-                    </div>
-                    <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
-                    <p2>@Model.PhoneCharges times</p2>
-                    <p3>of fully charged smartphones.</p3>
-                </div>
-                <div class="col-xs-2 Component">
-                    <span class="dot"></span>
-                    <div class="content">
-                        <p>There are more than 70,000 trees in the city of Melbourne and each tree can absorb 2.49g/hour of carbon dioxide</p>
-                    </div>
-                    <img src="~/images/carbonIcon/Trees.png" class="icon" />
-                    <p2>@Model.AbsorbHours hours</p2>
-                    <p3>for Trees in the City of Melbourne to absorbs.</p3>
-                </div>
-            </div>
 
-        </div>
-
-        <div class="Calculator-Content Carbon-Calculator Contribution par" id="carbon_contribution">
-            <h3>Carbon Footprint Reduction Contribution</h3> <br>
-            <p>The following pie chart will show how much Carbon Dioxide Emission you have reduced in your suburb and Victoria by using <b>Solar panels</b>.</p>
-            <br>
-            <div class="Calculator-Content Charts">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel-body">
-                            <canvas id="Pie_suburb" height="150"></canvas>
+                <div class="Calculator-Content Carbon-Calculator CarbonDailyLives" id="carbon_mean">
+                    <h3>What Does It Mean?</h3> <br>
+                    <div class="row">
+                        <div class="col-xs-2 Component">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <p>The average carbon emissions intensity for passenger cars and light SUVs was 149.5 g/km.</p>
+                            </div>
+                            <img src="~/images/carbonIcon/Light.png" class="icon" />
+                            <p2>@Model.LightVehicle km</p2>
+                            <p3>of passenger vehicles driven.</p3>
                         </div>
-                        <div id="suburbtips" style="display:none">
-                            <br>
-                            <ul>
-                                @{ if (Model.SuburbTotalCO2 == 0) {
-                                        <li><p>Sorry, There is no solar panels records in the given postcode</p></li>
-                                        <li><p>We assume you are the only one who install solar panels in your suburb</p></li>
-                                    }
-                                    else {
-                                        <li><p>The <b>annual</b> CO2 reduction of your suburb will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
-                                        <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
-                                        <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
-                                    }
-                                }
-                            </ul>
+                        <div class="col-xs-2 Component">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <p>The average carbon emissions intensity of heavy SUVs and light commercial vehicles was 216.7 g/km</p>
+                            </div>
+                            <img src="~/images/carbonIcon/Heavy.png" class="icon" />
+                            <p2>@Model.HeavyVehicle km</p2>
+                            <p3>of heavy vehicles driven.</p3>
+                        </div>
+                        <div class="col-xs-2 Component">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equvilent to 3.78 liters</p>
+                            </div>
+                            <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
+                            <p2>@Model.Gasoline liters</p2>
+                            <p3>of gasoline consumed.</p3>
+                        </div>
+                        <div class="col-xs-2 Component">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <p>The average carbon emissions of a mobile was 16.7kg/year through usage and charging</p>
+                            </div>
+                            <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
+                            <p2>@Model.PhoneCharges times</p2>
+                            <p3>of fully charged smartphones.</p3>
+                        </div>
+                        <div class="col-xs-2 Component">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <p>There are more than 70,000 trees in the city of Melbourne and each tree can absorb 2.49g/hour of carbon dioxide</p>
+                            </div>
+                            <img src="~/images/carbonIcon/Trees.png" class="icon" />
+                            <p2>@Model.AbsorbHours hours</p2>
+                            <p3>for Trees in the City of Melbourne to absorbs.</p3>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel-body">
-                            <canvas id="Pie_state" height="150"></canvas>
-                        </div>
-                        <div id="statetips" style="display:none">
-                            <br>
-                            <ul>
-                                <li><p>The <b>average monthly</b> CO2 reduction of Victoria will be: <b id="statetotal"></b> metric tons CO2/kWh.</p></li>
-                                <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPS"></b>% of the total.</p></li>
-                                <li><p>Victoria have contributed <b>@Model.StateMonthlyCO2</b> metric tons CO2/kWh, which is <b id="SPS"></b>% of the total.</p></li>
-                            </ul>
+
+                </div>
+
+                <div class="Calculator-Content Carbon-Calculator Contribution par" id="carbon_contribution">
+                    <h3>Carbon Footprint Reduction Contribution</h3> <br>
+                    <p>The following pie chart will show how much Carbon Dioxide Emission you have reduced in your suburb and Victoria by using <b>Solar panels</b>.</p>
+                    <br>
+                    <div class="Calculator-Content Charts">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel-body">
+                                    <canvas id="Pie_suburb" height="150"></canvas>
+                                </div>
+                                <div id="suburbtips" style="display:none">
+                                    <br>
+                                    <ul>
+                                        @{ if (Model.SuburbTotalCO2 == 0)
+                                            {
+                                                <li><p>Sorry, There is no solar panels records in the given postcode</p></li>
+                                                <li><p>We assume you are the only one who install solar panels in your suburb</p></li>
+                                            }
+                                            else
+                                            {
+                                                <li><p>The <b>annual</b> CO2 reduction of your suburb will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
+                                                <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
+                                                <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel-body">
+                                    <canvas id="Pie_state" height="150"></canvas>
+                                </div>
+                                <div id="statetips" style="display:none">
+                                    <br>
+                                    <ul>
+                                        <li><p>The <b>average monthly</b> CO2 reduction of Victoria will be: <b id="statetotal"></b> metric tons CO2/kWh.</p></li>
+                                        <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPS"></b>% of the total.</p></li>
+                                        <li><p>Victoria have contributed <b>@Model.StateMonthlyCO2</b> metric tons CO2/kWh, which is <b id="SPS"></b>% of the total.</p></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
+            }
+        }
 
         <!-- Carbon Emission Calculate
 
-    <div class="Calculator-Content Carbon-Calculator abouttopleft par">
+        <div class="Calculator-Content Carbon-Calculator abouttopleft par">
         <h3>Water xxxxx</h3>
         <h4>
             xxxxx
@@ -184,40 +196,41 @@
         <br>
         <a class="btn btn-primary btn-lg btn-block btn-water-redirect" href="~/Carbon/CalculateCarbon" role="button" id="water_calculator">Try Our Water Calculator Now (fix redirect)</a>
 
-    </div>-->
+        </div>-->
+
     </div>
-    </div>
-        <!-- Side Dotted Navigation Bar Start -->
-        <div class="vNav carbon-side-nav">
-            <ul class="vNav carbon-side-nav">
-                <li>
-                    <a href="#carbon_input">
-                        <div class="label">Information Entry</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#carbon_mean">
-                        <div class="label">What does it mean</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#carbon_contribution">
-                        <div class="label">Carbon Reduction Contribution</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#water_calculator">
-                        <div class="label">Water Usage Calculator</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+</div>
+<!-- Side Dotted Navigation Bar Start -->
+<div class="vNav carbon-side-nav">
+    <ul class="vNav carbon-side-nav">
+        <li>
+            <a href="#carbon_input">
+                <div class="label">Information Entry</div>
+            </a>
+        </li>
+        <li>
+            <a href="#carbon_mean">
+                <div class="label">What does it mean</div>
+            </a>
+        </li>
+        <li>
+            <a href="#carbon_contribution">
+                <div class="label">Carbon Reduction Contribution</div>
+            </a>
+        </li>
+        <li>
+            <a href="#water_calculator">
+                <div class="label">Water Usage Calculator</div>
+            </a>
+        </li>
+    </ul>
+</div>
 
 
-        @section scripts{
-            @Scripts.Render("~/bundles/chartjs")
-            @Scripts.Render("~/bundles/chartjsLabel")
-            <script>
+@section scripts{
+    @Scripts.Render("~/bundles/chartjs")
+    @Scripts.Render("~/bundles/chartjsLabel")
+    <script>
         $(document).ready(function () {
             var SuburbTotalCO2 = @Html.Raw(Json.Encode(Model.SuburbTotalCO2));
             var VictoriaTotalCO2 = @Html.Raw(Json.Encode(Model.StateMonthlyCO2));
@@ -318,5 +331,5 @@
             chartinitialize();
             InputData();
         });
-            </script>
-        }
+    </script>
+}

@@ -17,7 +17,6 @@ namespace FIT5120___VicEnerG.ViewModels
         [Required(ErrorMessage = "Number of panels is required")]
         [Range(1, 10, ErrorMessage = "The range of the estimation for solar panels is 1-10")]
         public int NumberPanels { get; set; }
-        public double ElectricityOutput { get; set; }
         public double CO2 { get; set; }
         public int AbsorbHours { get; set; }
         public int LightVehicle { get; set; }

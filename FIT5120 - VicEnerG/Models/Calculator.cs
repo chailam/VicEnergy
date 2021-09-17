@@ -142,7 +142,7 @@ namespace FIT5120___VicEnerG.Models
             foreach (double eachmonth in Rainfall)
             {
                 // Formular: Rain Harvest = rainfall * roofsize
-                double EachOutput = Math.Round(eachmonth * RoofSize);
+                double EachOutput = Math.Round(eachmonth * RoofSize / 1018, 2);
                 MonthlyHarvest.Add(EachOutput);
             }
             return MonthlyHarvest;

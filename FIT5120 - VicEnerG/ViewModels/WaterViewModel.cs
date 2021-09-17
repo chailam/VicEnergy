@@ -12,6 +12,7 @@ namespace FIT5120___VicEnerG.ViewModels
         public WaterViewModel()
         {
             MonthlyHarvest = new List<double>();
+            VictoriaAverage = new List<double>();
         }
 
         [Range(1, Int32.MaxValue, ErrorMessage = "The minimum roof size is 1 square meter")]
@@ -24,9 +25,11 @@ namespace FIT5120___VicEnerG.ViewModels
 
         public int AnnualRainFall { get; set; }
 
-        public Int64 RainHarvest { get; set; }
+        public double RainHarvest { get; set; }
 
         public IList<double> MonthlyHarvest { get; set; }
+
+        public IList<double> VictoriaAverage { get; set; }
 
     }
 }

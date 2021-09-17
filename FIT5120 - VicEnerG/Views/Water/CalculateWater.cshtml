@@ -100,21 +100,127 @@
         </div>
     </div>
 
-    <div class="Calculator-Content Resultshowing abouttopleft par" id="result">
-        <h3>Rain Water Catchment</h3>
-        <h4>The <b>Annual</b> Rainfall For Your Postcode</h4>
-        <div class="result-water">
-            @Model.AnnualRainFall <p>mm/year</p>
-        </div>
-        <h4>The Total Rainwater Collection Potential</h4>
-        <div class="result-water">
-            @Model.RainHarvest <p>liters/year</p>
-        </div>
-        <br>
-        <div class="panel-body">
-            <canvas id="line_chart" height="150"></canvas>
-        </div>
-    </div>
+    @{
+        if (Model.RainHarvest != 0)
+        {
+            <div class="Calculator-Content Resultshowing abouttopleft par" id="result">
+                <h3>Rain Water Catchment</h3>
+                <h4>The <b>Annual</b> Rainfall For Your Postcode</h4>
+                <div class="result-water">
+                    @Model.AnnualRainFall <p>mm/year</p>
+                </div>
+                <h4>The <b>Total</b> Rainwater Collection Potential</h4>
+                <div class="result-water">
+                    @Model.RainHarvest <p>tons/year</p>
+                </div>
+                <hr>
+                <div class="panel-body">
+                    <canvas id="bar_chart" height="150"></canvas>
+                </div>
+            </div>
+            <div class="Calculator-Content Resultshowing abouttopleft par">
+                <h3>Where can i use?</h3>
+                <h2>Indoor</h2>
+                <div class="row">
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions intensity for passenger cars and light SUVs was 149.5 g/km.</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Light.png" class="icon" />
+                        <p2>123 km</p2>
+                        <p3>of passenger vehicles driven.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions intensity of heavy SUVs and light commercial vehicles was 216.7 g/km</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Heavy.png" class="icon" />
+                        <p2>123 km</p2>
+                        <p3>of heavy vehicles driven.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equvilent to 3.78 liters</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
+                        <p2>123 liters</p2>
+                        <p3>of gasoline consumed.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions of a mobile was 16.7kg/year through usage and charging</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
+                        <p2>123 times</p2>
+                        <p3>of fully charged smartphones.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>There are more than 70,000 trees in the city of Melbourne and each tree can absorb 2.49g/hour of carbon dioxide</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Trees.png" class="icon" />
+                        <p2>123 hours</p2>
+                        <p3>for Trees in the City of Melbourne to absorbs.</p3>
+                    </div>
+                </div>
+                <hr>
+                <h2>Outdoor</h2>
+                <div class="row">
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions intensity for passenger cars and light SUVs was 149.5 g/km.</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Light.png" class="icon" />
+                        <p2>456 km</p2>
+                        <p3>of passenger vehicles driven.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions intensity of heavy SUVs and light commercial vehicles was 216.7 g/km</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Heavy.png" class="icon" />
+                        <p2>456 km</p2>
+                        <p3>of heavy vehicles driven.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equvilent to 3.78 liters</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
+                        <p2>456 liters</p2>
+                        <p3>of gasoline consumed.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>The average carbon emissions of a mobile was 16.7kg/year through usage and charging</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Phone_Charge.png" class="icon">
+                        <p2>456 times</p2>
+                        <p3>of fully charged smartphones.</p3>
+                    </div>
+                    <div class="col-xs-2 Component">
+                        <span class="dot"></span>
+                        <div class="content">
+                            <p>There are more than 70,000 trees in the city of Melbourne and each tree can absorb 2.49g/hour of carbon dioxide</p>
+                        </div>
+                        <img src="~/images/carbonIcon/Trees.png" class="icon" />
+                        <p2>456 hours</p2>
+                        <p3>for Trees in the City of Melbourne to absorbs.</p3>
+                    </div>
+                </div>
+            </div>
+        } 
+     }
+
 </div>
 
 @section scripts{
@@ -247,14 +353,15 @@
 
     </script>
     <script>
-        var line_chart_display = $("#line_chart");
+        var bar_chart_display = $("#bar_chart");
         var MonthArray = @Html.Raw(Json.Encode(ViewBag.Month));
         var Postcode = @Html.Raw(Json.Encode(Model.Postcode));
         var MonthlyHarvest = @Html.Raw(Json.Encode(Model.MonthlyHarvest));
+        var VictoriaAverage = @Html.Raw(Json.Encode(Model.VictoriaAverage));
 
         // Initial chart feature
-        line_chart = new Chart(line_chart_display, {
-            type: 'line',
+        bar_chart = new Chart(bar_chart_display, {
+            type: 'bar',
             data: {
                 labels: MonthArray,
                 datasets: []
@@ -278,7 +385,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Amount of Rainwater Harvested in liters',
+                            labelString: 'Amount of Rainwater Harvested in tons',
                             fontSize: 16
                         }
                     }],
@@ -294,16 +401,27 @@
         });
 
         var postcodeData = {
-            label: Postcode,
+            label: "Postcode " + Postcode,
             fill: false,
             data: MonthlyHarvest,
-            backgroundColor: "rgba(0,0,255,.5)",
-            borderColor: "rgb(0,0,255)"
+            backgroundColor: "rgba(23,62,255,.5)",
+            borderColor: "rgb(23,62,255)"
         }
 
-        line_chart.data.datasets.push(postcodeData);
+        var victoriaData = {
+            label: "Victoria Average (With the same roof size)",
+            data: VictoriaAverage,
+            borderColor: "rgba(219, 15, 15)",
+            backgroundColor: "rgb(219, 15, 15,.5)",
+            stack: 'combined',
+            type: 'line',
+            fill: false,
+            tension: 0
+        }
+        bar_chart.data.datasets.push(victoriaData);
+        bar_chart.data.datasets.push(postcodeData);
         // Update the chart
-        line_chart.update();
+        bar_chart.update();
         //var victoria = {
 
 

@@ -2664,4 +2664,22 @@ div#blog {
         font-weight:bold;
         padding:5px;
     }
+.Resultshowing h2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.Resultshowing .Component {
+    position: relative;
+    height: 200px;
+    width: 214px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #D1D1D1;
+    border-radius: 20px;
+    overflow: hidden;
+}
 /*-- End Mapbox css --*/
