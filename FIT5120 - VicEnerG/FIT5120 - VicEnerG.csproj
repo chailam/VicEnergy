@@ -229,6 +229,16 @@
     <Content Include="images\solarInfo\solarexplain.png" />
     <Content Include="images\solarInfo\solar_installation_statistic.png" />
     <Content Include="images\profiles\Zhe.jpg" />
+    <Content Include="images\waterUsage\Indoor\Bath.jpg" />
+    <Content Include="images\waterUsage\Indoor\Drinking.png" />
+    <Content Include="images\waterUsage\Indoor\flush toilet.jpg" />
+    <Content Include="images\waterUsage\Indoor\shower.jpg" />
+    <Content Include="images\waterUsage\Indoor\washing machine.jpg" />
+    <Content Include="images\waterUsage\Outdoor\car wash.png" />
+    <Content Include="images\waterUsage\Outdoor\Drip System.png" />
+    <Content Include="images\waterUsage\Outdoor\Garden Sprinkler.png" />
+    <Content Include="images\waterUsage\Outdoor\Hosing Hard Surfaces.jpg" />
+    <Content Include="images\waterUsage\Outdoor\pool.png" />
     <Content Include="images\water\water-rain.jpg" />
     <Content Include="Models\VicEnerG_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -266,13 +276,13 @@
     <Content Include="images\solarImages\g13.jpg" />
     <Content Include="images\solarImages\g14.jpg" />
     <Content Include="images\solarInfo\solar-rebate.jpg" />
-    <Content Include="images\Personas\t1.jpg" />
-    <Content Include="images\Personas\t2.jpg" />
-    <Content Include="images\Personas\t3.jpg" />
-    <Content Include="images\Personas\t4.jpg" />
-    <Content Include="images\Personas\ts1.jpg" />
-    <Content Include="images\Personas\ts2.jpg" />
-    <Content Include="images\Personas\ts3.jpg" />
+    <Content Include="images\personas\t1.jpg" />
+    <Content Include="images\personas\t2.jpg" />
+    <Content Include="images\personas\t3.jpg" />
+    <Content Include="images\personas\t4.jpg" />
+    <Content Include="images\personas\ts1.jpg" />
+    <Content Include="images\personas\ts2.jpg" />
+    <Content Include="images\personas\ts3.jpg" />
     <Content Include="Pages_Resource\js\bootstrap.min.js" />
     <Content Include="Pages_Resource\js\easing.js" />
     <Content Include="Pages_Resource\js\jquery-2.1.4.min.js" />
