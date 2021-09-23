@@ -204,7 +204,8 @@
     <Content Include="images\carbonInfo\carbon-graph.jpg" />
     <Content Include="images\home\carbon-footprint-home.jpg" />
     <Content Include="images\layout\emoji.png" />
-    <Content Include="images\logo\logo_icon.jpg" />
+    <Content Include="images\logo\Icon.png" />
+    <Content Include="images\logo\Logo.png" />
     <Content Include="images\home\solar-panel-house.jpg" />
     <Content Include="images\logo\white_teamlogo_dark_background.jpg" />
     <Content Include="favicon.ico" />
@@ -224,8 +225,6 @@
     <Content Include="images\solarInfo\g8.jpg" />
     <Content Include="images\profiles\Hui.jpg" />
     <Content Include="images\profiles\Lang.jpg" />
-    <Content Include="images\logo\logo.jpg" />
-    <Content Include="images\logo\logo_transparent_background.png" />
     <Content Include="images\solarInfo\solarexplain.png" />
     <Content Include="images\solarInfo\solar_installation_statistic.png" />
     <Content Include="images\profiles\Zhe.jpg" />

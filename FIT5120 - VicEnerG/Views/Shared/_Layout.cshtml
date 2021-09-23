@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - VicEnerG</title>
-    <link rel="shortcut icon" type="image/ico" href="~/images/logo/logo_icon.jpg">
+    <link rel="shortcut icon" type="image/ico" href="~/images/logo/Icon.png">
     @Scripts.Render("~/Pages_Resource/js/pagejs")
     @Scripts.Render("~/bundles/chartjs")
     @Styles.Render("~/Pages_Resource/css/pagecss")
@@ -47,12 +47,12 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <img id="project-logo" src="~/images/logo/logo_transparent_background.png" width="100" height="80" />
+                                <img id="project-logo" src="~/images/logo/Logo.png" width="100" height="80" />
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                                 <nav id="navigation">
-                                    <ul class="nav navbar-nav navA">
+                                    <ul class="nav navbar-nav">
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active1" : "")">
                                             @*<a href="~/Home/Index">Home</a>*@
                                             @Html.ActionLink("Home", "Index", "Home")
