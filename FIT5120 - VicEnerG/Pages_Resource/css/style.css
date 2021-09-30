@@ -2324,6 +2324,21 @@ div#blog {
 }
 /*-- End carbon info  page --*/
 
+/*-- start water calculator page --*/
+.Water-Calculator h3 {
+    color: #32a1d1 !important;
+}
+
+    .Water-Calculator h3.heading {
+        color: black !important;
+    }
+
+
+.Water-Calculator h4 {
+    color: inherit !important;
+}
+/*-- End carbon info  page --*/
+
 /*-- Calculate Carbon footprint page --*/
 .Component {
     position: relative;
