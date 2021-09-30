@@ -58,32 +58,33 @@
                                             @Html.ActionLink("Home", "Index", "Home")
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CalculateOutput" || ViewContext.RouteData.Values["Action"].ToString() == "CalculateCarbon"? "active2" : "")">
-                                            <li class="dropdown">
-                                                <a class="dropbtn" style="margin-top: 1px;">
-                                                    CALCULATOR
-                                                    <i class="fa fa-caret-down"></i>
-                                                </a>
-                                                <ul>
+                                        <li class="dropdown">
+                                            <a class="dropbtn" style="margin-top: 1px;">
+                                                CALCULATOR
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                            <ul>
                                                 <li class="dropdown-content">
                                                     @Html.ActionLink("SOLAR OUTPUT", "CalculateOutput", "Calculator")
                                                     @Html.ActionLink("CARBON FOOTPRINT", "CalculateCarbon", "Carbon")
                                                     @Html.ActionLink("WATER RECYCLING", "CalculateWater", "Water")
                                                     @*<a href="~/Calculator/CalculateOutput">SOLAR OUTPUT</a>
-                                                    <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
+                    <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
                                                 </li>
-                                                </ul>
-                                            </li>
+                                            </ul>
                                         </li>
-                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarInfo" ? "active1" : "")">
-                                        @Html.ActionLink("Solar Information", "SolarInfo", "Home")
-                                        @*<a class="navA" href="~/Home/SolarInfo">Solar Information</a>*@</li>
-                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarRebates" ? "active1" : "")">
-                                            @Html.ActionLink("Solar Rebates", "SolarRebates", "Home")
-                                            @*<a href="~/Home/SolarRebates">Solar Rebates</a>*@
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CarbonInfo" ? "active1" : "")">
                                             @Html.ActionLink("Carbon Information", "CarbonInfo", "Home")
                                             @*<a href="~/Home/CarbonInfo">Carbon Information</a>*@
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarInfo" ? "active1" : "")">
+                                            @Html.ActionLink("Solar Information", "SolarInfo", "Home")
+                                            @*<a class="navA" href="~/Home/SolarInfo">Solar Information</a>*@
+                                        </li>
+                                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "SolarRebates" ? "active1" : "")">
+                                            @Html.ActionLink("Solar Rebates", "SolarRebates", "Home")
+                                            @*<a href="~/Home/SolarRebates">Solar Rebates</a>*@
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AboutUs" ? "active1" : "")">
                                             @Html.ActionLink("About Us", "AboutUs", "Home")
