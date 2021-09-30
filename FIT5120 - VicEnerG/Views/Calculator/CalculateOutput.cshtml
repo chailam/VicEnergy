@@ -195,6 +195,7 @@
                     <div>
                         @using (Html.BeginForm("CalculateCarbon", "Carbon"))
                         {
+                            @Html.AntiForgeryToken()
                             <input type="hidden" id="Postcode" name="Postcode" value=@Model.Postcode />
                             <input type="hidden" id="NumberPanels" name="NumberPanels" value=@Model.NumberPanels />
                             <input type="submit" class="btn btn-primary btn-lg btn-block btn-carbon-redirect" value="Find out more at Carbon Calculator" />
