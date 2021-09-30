@@ -51,7 +51,7 @@
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                                <nav id="navigation">
+                                <nav id="navigation"> 
                                     <ul class="nav navbar-nav">
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active1" : "")">
                                             @*<a href="~/Home/Index">Home</a>*@
@@ -69,10 +69,9 @@
                                                     @Html.ActionLink("CARBON FOOTPRINT", "CalculateCarbon", "Carbon")
                                                     @Html.ActionLink("WATER RECYCLING", "CalculateWater", "Water")
                                                     @*<a href="~/Calculator/CalculateOutput">SOLAR OUTPUT</a>
-                    <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
+               <a href="~/Carbon/CalculateCarbon">CARBON FOOTPRINT</a>*@
                                                 </li>
                                             </ul>
-                                        </li>
                                         </li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "CarbonInfo" ? "active1" : "")">
                                             @Html.ActionLink("Carbon Information", "CarbonInfo", "Home")
