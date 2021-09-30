@@ -714,7 +714,6 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
     }
 
 .ab-left {
-    float: left;
     padding-right: 0;
 }
 
@@ -723,7 +722,7 @@ i.fa.fa-bolt, i.fa.fa-comment, i.fa.fa-globe, i.fa.fa-lightbulb-o, i.fa.fa-thumb
 }
 
 .h-f {
-    width: 49%;
+    width: 32.3%;
     float: left;
     margin-right: 1%;
 }
