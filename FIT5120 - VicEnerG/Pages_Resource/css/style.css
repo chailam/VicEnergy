@@ -360,6 +360,11 @@ ul.top-links.social {
 .agileinfo-news-button {
     margin-top: 35px;
 }
+
+.flexslider-info {
+    margin: 12em !important;
+}
+
 /* //banner */
 /* banner-bottom */
 .bottomleft {
@@ -1523,11 +1528,15 @@ div#blog {
 
 @media (max-width:1366px) {
     .flexslider-info {
-        margin: 13em 0em;
+        margin: 15em 0em;
     }
 
     .second-effect .mask h6 {
         padding: 2.5em 0 0em;
+    }
+
+    img#project-logo {
+        display: none;
     }
 }
 
@@ -1546,7 +1555,7 @@ div#blog {
     }
 
     .flexslider-info {
-        margin: 12em 0em;
+        margin: 15em 0em;
     }
 
     .second-effect .mask h6 {
