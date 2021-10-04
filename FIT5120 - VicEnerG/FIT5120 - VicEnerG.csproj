@@ -192,6 +192,9 @@
     <Content Include="App_Data\VicEnerG_Database_log.ldf">
       <DependentUpon>VicEnerG_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="images\aboutuspage\carbon.png" />
+    <Content Include="images\aboutuspage\solar-power.png" />
+    <Content Include="images\aboutuspage\water.png" />
     <Content Include="images\carbonIcon\icon.gif" />
     <Content Include="images\carbonIcon\ArrowRight.png" />
     <Content Include="images\carbonIcon\Trees.png" />
