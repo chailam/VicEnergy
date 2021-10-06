@@ -11,9 +11,12 @@
     </div>
 
     <div class="Calculator-Content General-Information abouttopleft par">
-        <h3>What Does Water Recycling Calculator Do?</h3>
+        <h3>The Background of water recycling</h3>
         <div class="general">
             <p>
+                Due to the impacts of global warming and the increase of population in Victoria. The usage of freshwater by Victorian families has increased significantly,
+                leading to a potential water crisis in the future. Collecting rainwater is one of the effective water recycling methodology, which will help you to save water for your property.</p>
+            <br/><p>
                 This calculator will calculate the amount of rainwater that will be harvest by given size of the roof of the property.
                 However, the calculator will also require the location of the property as the rainfall will be different among locations.
             </p>
@@ -120,7 +123,7 @@
                 </div>
             </div>
             <div class="Calculator-Content Resultshowing abouttopleft par">
-                <h3>Where can i use?</h3>
+                <h3>Where can i use the collected rainwater?</h3>
                 <h2>Indoor</h2>
                 <div class="row">
                     <div class="col-xs-2 Component">
@@ -128,45 +131,45 @@
                         <div class="content">
                             <p>The average usage of shower is 15 liters per minute.</p>
                         </div>
+                        <h7>Shower</h7>
                         <img src="~/images/waterUsage/Indoor/shower.jpg" class="icon" />
                         <p2 id="shower"></p2>
-                        <p3>of showering</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>Each person will drink, clean or cook with use of average 10 liters of water.</p>
                         </div>
+                        <h7>Cook & Drink</h7>
                         <img src="~/images/waterUsage/Indoor/Drinking.png" class="icon" />
                         <p2 id="drink"></p2>
-                        <p3>can use the rainwater to cook, clean or even drink</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water to flush the toilet is 6 liters per flush.</p>
                         </div>
+                        <h7>Toilet flush</h7>
                         <img src="~/images/waterUsage/Indoor/flush toilet.jpg" class="icon" />
                         <p2 id="toilet"></p2>
-                        <p3>of toilet flushed.</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for bathing is 150 liters per time.</p>
                         </div>
+                        <h7>Bath</h7>
                         <img src="~/images/waterUsage/Indoor/Bath.jpg" class="icon" />
                         <p2 id="bath"></p2>
-                        <p3>of bathing</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for washing machine is 90 liter per load.</p>
                         </div>
+                        <h7>Laundering</h7>
                         <img src="~/images/waterUsage/Indoor/washing machine.jpg" class="icon" />
                         <p2 id="machine"></p2>
-                        <p3>of running wash machine.</p3>
                     </div>
                 </div>
                 <hr>
@@ -177,45 +180,45 @@
                         <div class="content">
                             <p>The average usage of water for car wash is 200 liters per wash.</p>
                         </div>
-                        <img src="~/images/waterUsage/Outdoor/car wash.png"  class="icon" />
+                        <h7>Car wash</h7>
+                        <img src="~/images/waterUsage/Outdoor/car wash.png" class="icon" />
                         <p2 id="car"></p2>
-                        <p3>of car washes.</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for a drip system is 6 liters per hour.</p>
                         </div>
-                        <img src="~/images/waterUsage/Outdoor/Drip System.png"  class="icon" />
+                        <h7>Drip system</h7>
+                        <img src="~/images/waterUsage/Outdoor/Drip System.png" class="icon" />
                         <p2 id="drip"></p2>
-                        <p3>of the drip system used.</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for a garden sprinkler is 15 liters per minute.</p>
                         </div>
+                        <h7>Garden sprinkler</h7>
                         <img src="~/images/waterUsage/Outdoor/Garden Sprinkler.png" class="icon" />
                         <p2 id="garden"></p2>
-                        <p3>of using a garden sprinkler.</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for hosing hard surfaces is 15 liters per minute.</p>
                         </div>
+                        <h7>Surface hosing</h7>
                         <img src="~/images/waterUsage/Outdoor/Hosing Hard Surfaces.jpg" class="icon" />
                         <p2 id="hosing"></p2>
-                        <p3>of hard surface hosing.</p3>
                     </div>
                     <div class="col-xs-2 Component">
                         <span class="dot"></span>
                         <div class="content">
                             <p>The average usage of water for filling a standard swiming pool is 72 tones of water per fill.</p>
                         </div>
-                        <img src="~/images/waterUsage/Outdoor/pool.png" class="icon"/>
+                        <h7>Filling pool</h7>
+                        <img src="~/images/waterUsage/Outdoor/pool.png" class="icon" />
                         <p2 id="pool"></p2>
-                        <p3>of filling a standard swiming pool.</p3>
                     </div>
                 </div>
             </div>
@@ -436,7 +439,7 @@
         document.getElementById("drink").innerHTML = Math.round(RaininLiter / 10) + " people";
         document.getElementById("toilet").innerHTML = Math.round(RaininLiter / 6) + " times";
         document.getElementById("bath").innerHTML = Math.round(RaininLiter / 150) + " times";
-        document.getElementById("machine").innerHTML = Math.round(RaininLiter / 90) + " loads";
+        document.getElementById("machine").innerHTML = Math.round(RaininLiter / 90) + " times";
         document.getElementById("car").innerHTML = Math.round(RaininLiter / 200) + " times";
         document.getElementById("drip").innerHTML = Math.round(RaininLiter / 6) + " hours";
         document.getElementById("garden").innerHTML = Math.round(RaininLiter / 15) + " minutes";
