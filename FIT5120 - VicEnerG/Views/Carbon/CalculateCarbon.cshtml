@@ -29,8 +29,7 @@
         <div class="Calculator-Content Carbon-Calculator Input par" id="carbon_input">
             <h3>Information Entry</h3>
             <br>
-            @using (Html.BeginForm())
-            {
+            @using (Html.BeginForm()) {
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
@@ -39,24 +38,20 @@
                     <div class="form-group">
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
-                            @if (Model.Postcode == 0)
-                            {
+                            @if (Model.Postcode == 0) {
                                 @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else
-                            {
+                            else {
                                 @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
                             }
                             @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger  col-md-12" })
                         </div>
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
-                            @if (Model.NumberPanels == 0)
-                            {
+                            @if (Model.NumberPanels == 0) {
                                 @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
                             }
-                            else
-                            {
+                            else {
                                 @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
                             }
                             @Html.ValidationMessageFor(model => model.NumberPanels, "", new { @class = "text-danger  col-md-12" })
@@ -72,8 +67,34 @@
         </div>
 
         @{
-            if (Model.CO2 != 0)
-            {
+            if (Model.CO2 != 0) {
+                <!-- Side Dotted Navigation Bar Start -->
+                <div class="vNav carbon-side-nav">
+                    <ul class="vNav carbon-side-nav">
+                        <li>
+                            <a href="#carbon_input">
+                                <div class="label">Information Entry</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#carbon_mean">
+                                <div class="label">What does it mean</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#carbon_contribution">
+                                <div class="label">Carbon Reduction Contribution</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#water_calculator">
+                                <div class="label">Water Usage Calculator</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Side Dotted Navigation Bar End -->
+
                 <div class="Calculator-Content Carbon-Calculator CarbonDescription par" id="carbon_emission">
                     <h3>Carbon Dioxide Emissions</h3>
                     <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
@@ -153,13 +174,11 @@
                                 <div id="suburbtips" style="display:none">
                                     <br>
                                     <ul>
-                                        @{ if (Model.SuburbTotalCO2 == 0)
-                                            {
+                                        @{ if (Model.SuburbTotalCO2 == 0) {
                                                 <li><p>Sorry, There is no solar panels records in the given postcode</p></li>
                                                 <li><p>We assume you are the only one who install solar panels in your suburb</p></li>
                                             }
-                                            else
-                                            {
+                                            else {
                                                 <li><p>The <b>annual</b> CO2 reduction of your suburb by using solar panels will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
                                                 <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
                                                 <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
@@ -202,31 +221,7 @@
 
     </div>
 </div>
-<!-- Side Dotted Navigation Bar Start -->
-<div class="vNav carbon-side-nav">
-    <ul class="vNav carbon-side-nav">
-        <li>
-            <a href="#carbon_input">
-                <div class="label">Information Entry</div>
-            </a>
-        </li>
-        <li>
-            <a href="#carbon_mean">
-                <div class="label">What does it mean</div>
-            </a>
-        </li>
-        <li>
-            <a href="#carbon_contribution">
-                <div class="label">Carbon Reduction Contribution</div>
-            </a>
-        </li>
-        <li>
-            <a href="#water_calculator">
-                <div class="label">Water Usage Calculator</div>
-            </a>
-        </li>
-    </ul>
-</div>
+
 
 
 @section scripts{

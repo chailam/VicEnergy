@@ -102,6 +102,33 @@
 
     @{
         if (Model.RainHarvest != 0) {
+            <!-- Side Dotted Navigation Bar Start -->
+            <div class="vNav water-side-nav">
+                <ul class="vNav water-side-nav">
+                    <li>
+                        <a href="#water_background">
+                            <div class="label">Background</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#water_input">
+                            <div class="label">Information Input</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#result">
+                            <div class="label">Rain Water Catchment</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#water_usage">
+                            <div class="label">Usage</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Side Dotted Navigation Bar End -->
+
             <div class="Calculator-Content Resultshowing abouttopleft par" id="result">
                 <h3>Rain Water Catchment</h3>
                 <h4>The <b>Annual</b> Rainfall For Your Postcode</h4>
@@ -222,31 +249,7 @@
 
 </div>
 
-<!-- Side Dotted Navigation Bar Start -->
-<div class="vNav water-side-nav">
-    <ul class="vNav water-side-nav">
-        <li>
-            <a href="#water_background">
-                <div class="label">Background</div>
-            </a>
-        </li>
-        <li>
-            <a href="#water_input">
-                <div class="label">Information Input</div>
-            </a>
-        </li>
-        <li>
-            <a href="#result">
-                <div class="label">Rain Water Catchment</div>
-            </a>
-        </li>
-        <li>
-            <a href="#water_usage">
-                <div class="label">Usage</div>
-            </a>
-        </li>
-    </ul>
-</div>
+
 
 @section scripts{
     @Scripts.Render("~/bundles/mapboxjs")
