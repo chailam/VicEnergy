@@ -39,7 +39,7 @@
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
                             @if (Model.Postcode == 0) {
-                                @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                                @Html.TextBox("Postcode", "", new { placeholder = "Your postcode", HtmlAttributes = new { @class = "form-control" } })
                             }
                             else {
                                 @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
@@ -49,7 +49,7 @@
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label" })
                             @if (Model.NumberPanels == 0) {
-                                @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
+                                @Html.TextBox("NumberPanels", "", new { placeholder = "Potential numbers", HtmlAttributes = new { @class = "form-control" } })
                             }
                             else {
                                 @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })

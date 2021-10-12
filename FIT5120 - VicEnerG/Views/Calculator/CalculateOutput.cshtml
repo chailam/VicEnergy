@@ -22,8 +22,7 @@
                     <div class="Calculator-Content Annotation abouttopleft">
                         <p>
                             By putting the postcode and estimated number of solar panels,
-                            our system can calculate the estimated solar output for 12 months of
-                            given postcode and number of panels.
+                            our system can calculate the estimated solar output for 12 months.
                         </p>
                         <br>
                         <p>There are few limitation in our calculator:</p>
@@ -51,7 +50,7 @@
                                     @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
                                         @if (Model.Postcode == 0) {
-                                            @Html.TextBox("Postcode", "", new { placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextBox("Postcode", "", new { placeholder = "Your postcode", HtmlAttributes = new { @class = "form-control" } })
                                         }
                                         else {
                                             @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
@@ -64,7 +63,7 @@
                                     @Html.LabelFor(model => model.NumberPanels, "Number of Panels", htmlAttributes: new { @class = "control-label col-md-4" })
                                     <div class="col-md-8">
                                         @if (Model.NumberPanels == 0) {
-                                            @Html.TextBox("NumberPanels", "", new { placeholder = "x", HtmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextBox("NumberPanels", "", new { placeholder = "Potential numbers", HtmlAttributes = new { @class = "form-control" } })
                                         }
                                         else {
                                             @Html.TextBoxFor(model => model.NumberPanels, new { HtmlAttributes = new { @class = "form-control", @Value = Model.NumberPanels } })
