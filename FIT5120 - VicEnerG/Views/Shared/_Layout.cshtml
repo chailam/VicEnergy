@@ -29,6 +29,10 @@
                 text-decoration: underline;
                 font-weight: bold;
             }
+            .active3 .dropbtn {
+                text-decoration: underline;
+                font-weight: bold;
+            }
             .active2 a {
                 text-decoration: underline;
                 font-weight: bold;
@@ -70,13 +74,13 @@
                                             @Html.ActionLink("WATER CALCULATOR", "CalculateWater", "Water")
                                             @*<a href="~/Water/CalculateWater">WATER CALCULATOR</a>*@
                                         </li>
-                                        <li class="dropdown">
+                                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString() == "SolarInfo"||ViewContext.RouteData.Values["Action"].ToString()=="SolarRebates"||ViewContext.RouteData.Values["Action"].ToString()=="CarbonInfo" ? "active3" : "")">
                                             <a class="dropbtn" style="margin-top: 1px;">
                                                 INFORMATION
                                                 <i class="fa fa-caret-down"></i>
                                             </a>
                                             <ul>
-                                                <li class="dropdown-content">
+                                                <li class="dropdown-content ">
                                                     @Html.ActionLink("SOLAR PANELS", "SolarInfo", "Home")
                                                     @Html.ActionLink("SOLAR REBATES", "SolarRebates", "Home")
                                                     @Html.ActionLink("CARBON FOOTPRINT", "CarbonInfo", "Home")
