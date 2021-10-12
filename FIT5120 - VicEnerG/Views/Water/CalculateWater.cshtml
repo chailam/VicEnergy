@@ -31,7 +31,7 @@
             <p>For the approximate roof size, you can either:</p>
             <ul>
                 <li>Input the information manualy</li>
-                <li>Obtain the roof size through drawing on the map</li>
+                <li>Obtain the roof size through <a href="#drawinginformation">drawing</a> on the map</li>
             </ul>
             <br>
             @using (Html.BeginForm()) {
@@ -44,7 +44,7 @@
                         <div class="col-md-6 text-center">
                             @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label" })
                             @if (Model.Postcode == 0) {
-                                @Html.TextBox("Postcode", "", new { id = "Postcode", placeholder = "xxxx", HtmlAttributes = new { @class = "form-control" } })
+                                @Html.TextBox("Postcode", "", new { id = "Postcode", placeholder = "Your postcode", HtmlAttributes = new { @class = "form-control" } })
                             }
                             else {
                                 @Html.TextBoxFor(model => model.Postcode, new { HtmlAttributes = new { @class = "form-control", @Value = Model.Postcode } })
@@ -55,7 +55,7 @@
                             @Html.LabelFor(model => model.RoofSize, "Roof Size：", htmlAttributes: new { @class = "control-label" })
 
                             @if (Model.RoofSize == 0) {
-                                @Html.TextBox("RoofSize", "", new { id = "RoofSize", HtmlAttributes = new { @class = "form-control" } })
+                                @Html.TextBox("RoofSize", "", new { id = "RoofSize", placeholder = "Get it from the map", HtmlAttributes = new { @class = "form-control" } })
                                 <span style="font-weight:900; font-size:20px;">&#13217;</span>
                             }
                             else {
@@ -80,7 +80,7 @@
         </div>
 
         <div class="map-contenter">
-            <div class="drawinginformation">
+            <div class="drawinginformation" id="drawinginformation">
                 <h2>Steps to draw on the map:</h2>
                 <ol>
                     <li>Search your property from the search bar on the map</li>
