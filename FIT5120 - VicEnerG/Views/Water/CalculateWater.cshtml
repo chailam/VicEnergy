@@ -14,24 +14,24 @@
         <h3>The Background of water recycling</h3>
         <div class="general">
             <p>
-                Due to the impacts of global warming and the increase of population in Victoria. The usage of freshwater by Victorian families has increased significantly,
-                leading to a potential water crisis in the future. Collecting rainwater is one of the effective water recycling methodology, which will help you to save water for your property.
+                Due to the impacts of global warming and the increase in population in Victoria. The usage of freshwater by Victorian families has increased significantly,
+                leading to a potential water crisis in the future. Collecting rainwater is one of the effective water recycling methodologies, which will help you to save water for your property.
             </p>
             <br /><p>
-                This calculator will calculate the amount of rainwater that will be harvest by given size of the roof of the property.
-                However, the calculator will also require the location of the property as the rainfall will be different among locations.
-            </p>
+    This calculator will calculate the amount of rainwater that will be harvest by the given size of the roof of the property.
+    However, the calculator will also require the location of the property as the rainfall will be different among locations.
+</p>
         </div>
     </div>
 
     <div class="Calculator-Content InformationInput abouttopleft par" id="water_input">
         <h3>Information Input</h3>
         <div class="general">
-            <p>This section require you to input your approximate roof size and the address/postcode of your property.</p>
+            <p>This section requires you to input your approximate roof size and the address/postcode of your property.</p>
             <p>For the approximate roof size, you can either:</p>
             <ul>
-                <li>Input the information manualy</li>
-                <li>Obtain the roof size through <a href="#drawinginformation">drawing</a> on the map</li>
+                <li>Input the information manually</li>
+                <li>Obtain the roof size through <b><a href="#drawinginformation">drawing</a></b> on the map</li>
             </ul>
             <br>
             @using (Html.BeginForm()) {
@@ -86,10 +86,10 @@
                     <li>Search your property from the search bar on the map</li>
                     <li>Click the map to draw a polygon that covers your roof</li>
                     <li>Click the last point to complete the drawing</li>
-                    <li>The potential roof size will be automatically inputed into the textbox above</li>
+                    <li>The potential roof size will be automatically input into the textbox above</li>
                     <li>Enter your postcode in the textbox above and click calculate to get your result!</li>
                 </ol>
-                <p>*You can have multiple drawings by click the drawing icon again</p>
+                <p>*You can have multiple drawings by clicking the drawing icon again</p>
                 <p>*To delete the drawing: select your drawing and click the trash bin icon to delete</p>
             </div>
             <div id="map"></div>
@@ -130,7 +130,7 @@
             <!-- Side Dotted Navigation Bar End -->
 
             <div class="Calculator-Content Resultshowing abouttopleft par" id="result">
-                <h3>Rain Water Catchment</h3>
+                <h3>Rainwater Catchment</h3>
                 <h4>The <b>Annual</b> Rainfall For Your Postcode</h4>
                 <div class="result-water">
                     @Model.AnnualRainFall <p>mm/year</p>
@@ -145,7 +145,7 @@
                 </div>
             </div>
             <div class="Calculator-Content Resultshowing abouttopleft par" id="water_usage">
-                <h3>Where can i use the collected rainwater?</h3>
+                <h3>Where can you use the collected rainwater?</h3>
                 <h2>Indoor</h2>
                 <div class="row">
                     <div class="col-xs-2 Component">

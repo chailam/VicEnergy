@@ -19,9 +19,9 @@
             <div class="general">
                 <p>
                     By inputting the postcode and the estimated number of solar panels installed in the Information Entry session,
-                    the Carbon footprint calculator will calculate the estimated Carbon Dioxide emission of given kilowatt-hours of elecrticity.
-                    Beside showing you the data, the calculator will show you how this data impacts your daily lives by showing the usage of few related components.
-                    At the end of the page, you will see the CO2 reduction contribution of your estimated solar system to your selected postcode and to Victoria as well
+                    the Carbon footprint calculator will calculate the estimated Carbon Dioxide emission of given kilowatt-hours of electricity.
+                    Besides showing you the data, the calculator will show you how this data impacts your daily lives by showing the usage of few related components.
+                    At the end of the page, you will see the CO2 reduction contribution of your estimated solar system to your selected postcode and Victoria as well
                 </p> <br>
                 <a href="~/Home/CarbonInfo" target="_blank">Know more about Carbon Footprint Information</a>
             </div>
@@ -97,12 +97,12 @@
 
                 <div class="Calculator-Content Carbon-Calculator CarbonDescription par" id="carbon_emission">
                     <h3>Carbon Dioxide Emissions</h3>
-                    <h4>The <b>Annual</b> Carbon Dioxide Emission reduction will be:</h4>
+                    <h4>The <b>Annual</b> Carbon Dioxide Emission Reduction will be:</h4>
                     <div class="result-carbon">
                         @Model.CO2 <p>metric tons CO2/kWh</p>
                     </div>
                     <p>*The number means the amount of Carbon Dioxide you have reduced by using solar panels in one year </p>
-                    <p>*According to the department of Environment, Land and water of Australia. The formular to convert electricity to Carbon Dioxide is: </p>
+                    <p>*According to the Department of Environment, Land and water of Australia. The formula to convert electricity to Carbon Dioxide is: </p>
                     <p2>1kWh = 1.13kg CO2-e/kWh</p2>
                 </div>
 
@@ -130,7 +130,7 @@
                         <div class="col-xs-2 Component">
                             <span class="dot"></span>
                             <div class="content">
-                                <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equvilent to 3.78 liters</p>
+                                <p>The average carbon emissions of gasoline consumed was 8,887 g/gallon. Each gallon is equivalent to 3.78 liters</p>
                             </div>
                             <img src="~/images/carbonIcon/Gasoline.png" class="icon" />
                             <p2>@Model.Gasoline liters</p2>
@@ -162,7 +162,7 @@
                     <h3>Carbon Footprint Reduction Contribution</h3> <br>
                     <p>The following pie chart will show how much Carbon Dioxide Emission you have reduced in your suburb and Victoria by using <b>Solar panels</b>. </p>
                     <p>
-                        If there is no solar panel installation records in your suburb, then you are contributing 100% of carbon dioxide reduction by using <b>Solar panels</b>.
+                        If there are no solar panel installation records in your suburb, then you are contributing 100% of carbon dioxide reduction by using <b>Solar panels</b>.
                     </p>
                     <br>
                     <div class="Calculator-Content Charts">
@@ -181,7 +181,7 @@
                                             else {
                                                 <li><p>The <b>annual</b> CO2 reduction of your suburb by using solar panels will be: <b id="suburbtotal"></b> metric tons CO2/kWh.</p></li>
                                                 <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPIS"></b>% of the total.</p></li>
-                                                <li><p>Your suburb have contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
+                                                <li><p>Your suburb has contributed <b>@Model.SuburbTotalCO2</b> metric tons CO2/kWh, which is <b id="SPIS"></b>% of the total.</p></li>
                                             }
                                         }
                                     </ul>
@@ -196,7 +196,7 @@
                                     <ul>
                                         <li><p>The <b>average monthly</b> CO2 reduction of Victoria by using solar panels will be: <b id="statetotal"></b> metric tons CO2/kWh.</p></li>
                                         <li><p>You have contributed <b>@Model.CO2</b> metric tons CO2/kWh, which is <b id="YPS"></b>% of the total.</p></li>
-                                        <li><p>Victoria have contributed <b>@Model.StateMonthlyCO2</b> metric tons CO2/kWh, which is <b id="SPS"></b>% of the total.</p></li>
+                                        <li><p>Victoria has contributed <b>@Model.StateMonthlyCO2</b> metric tons CO2/kWh, which is <b id="SPS"></b>% of the total.</p></li>
                                     </ul>
                                 </div>
                             </div>
@@ -207,8 +207,8 @@
                 <div class="Calculator-Content Water abouttopleft Carbon-Calculator par" id="CarbonInformation">
                     <h3>Water Recycling System</h3>
                     <p>
-                        Water is one of the key energy comsumption for Victorian families. Installing a water recycling system in your property can effectively reduce
-                        the energy comsumption of your family. The system will collect the rainwater that fells on your roof and convert them to the water supply for your daily activities.
+                        Water is one of the key energy consumption for Victorian families. Installing a water recycling system in your property can effectively reduce
+                        the energy consumption of your family. The system will collect the rainwater that falls on your roof and convert them to the water supply for your daily activities.
                     </p>
                     <br />
                     <div>
