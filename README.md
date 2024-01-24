@@ -33,9 +33,7 @@ Enables users to estimate their CO2 emissions reduction by inputting their postc
 
 
 ## Product Video     
-<video width="320" height="240" controls>
-  <source src="./doc/Product Video.mp4" type="video/mp4">
-</video>
+Inside doc folder, Product Video.mp4
 
 
 
