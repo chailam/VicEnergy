@@ -27,7 +27,7 @@ Focusing on rainwater harvesting as an effective water recycling method, this ca
 ![Water Calculator GIF](./doc/watercalculator.gif)
 
 ### **Carbon Calculator:**    
-Enables users to estimate their CO2 emissions reduction by inputting their postcode and the number of solar panels. Beyond displaying the reduction data, the calculator correlates it with real-world equivalents like vehicle miles, gasoline consumption, smartphone usage, and tree absorption. The feature emphasizes individual contributions to suburb and statewide carbon reduction, providing valuable insights into the environmental impact of solar panel installations
+Enables users to estimate their CO2 emissions reduction by inputting their postcode and the number of solar panels. Beyond displaying the reduction data, the calculator correlates it with real-world equivalents like vehicle miles, gasoline consumption, smartphone usage, and tree absorption. The feature emphasizes individual contributions to suburb and statewide carbon reduction, providing valuable insights into the environmental impact of solar panel installations        
 ![Carbon Calculator GIF](./doc/carboncalculator.gif)
 
 
