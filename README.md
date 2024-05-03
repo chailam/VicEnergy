@@ -5,7 +5,11 @@
 ### Purpose
 According to news, due to the lockdown during the Covid-19, residential energy consumption has risen between 15 and 29 percent, and it leads Australians to pay more than $17 million worth of electricity bills. Victorians may not be able to afford the payment without an efficient way if the lockdown continues. Thus, we developed the VicEnerG for residents to solve this problem.
 
-VicEnerG aimed at providing detailed information about green energy technologies to Victorian families. It focuses on the construction of a website containing essential information of energy saving,calculations related to solar power and water recycling.
+VicEnerG aimed to provide detailed information about green energy technologies to Victorian families. It focuses on the construction of a website containing essential information on energy saving, calculations related to solar power, water recycling and carbon emission to provide a broader knowledge to consumer to better understanding how they can save energy and environment.
+
+All the data was retrieved from the Open Data Provider:
+1. [Request point climate data from 1889 to yesterday](https://www.longpaddock.qld.gov.au/silo/point-data/#responseTab2)
+2. [Postcode data for small-scale installations-SGU-Solar](http://www.cleanenergyregulator.gov.au/DocumentAssets/Pages/Postcode-data-for-small-scale-installations---SGU-Solar.aspx)
 
 
 
